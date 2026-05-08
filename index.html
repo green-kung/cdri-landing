@@ -581,6 +581,10 @@
     gap: 5px;
     cursor: pointer;
     padding: 4px;
+    background: none;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
   }
   .nav-hamburger span {
     display: block;
@@ -931,9 +935,7 @@
 <script>
 function toggleMenu() {
   const links = document.getElementById('navLinks');
-  const btn = document.getElementById('hamburger');
   links.classList.toggle('open');
-  // close when clicking a link
   links.querySelectorAll('a').forEach(a => {
     a.onclick = () => links.classList.remove('open');
   });
