@@ -502,12 +502,11 @@
     flex-shrink: 0;
     width: 96px; height: 96px;
     border-radius: 50%;
-    background: rgba(13,59,94,.08);
+    background: var(--blue-pale);
     display: flex; align-items: center; justify-content: center;
   }
   .guidance-icon {
     width: 48px; height: 48px;
-    filter: invert(14%) sepia(44%) saturate(900%) hue-rotate(185deg) brightness(80%);
   }
   .guidance-body h3 {
     font-family: 'Noto Sans TC', sans-serif;
