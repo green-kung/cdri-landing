@@ -462,6 +462,59 @@
     gap: .8rem;
   }
 
+  /* ── SECTION GUIDANCE ── */
+  .section-guidance {
+    background: var(--white);
+    padding: 7rem 3rem;
+  }
+  .section-guidance .s-header {
+    margin-bottom: 3.5rem;
+  }
+  .section-guidance h2 {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 700;
+    color: var(--blue-deep);
+    margin-top: .4rem;
+  }
+  .guidance-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 960px;
+  }
+  .guidance-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: var(--blue-pale);
+    border-radius: 4px;
+    padding: 2.4rem 2rem;
+  }
+  .guidance-icon-wrap {
+    flex-shrink: 0;
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    background: rgba(0,168,214,.12);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .guidance-icon {
+    width: 48px; height: 48px;
+    filter: invert(42%) sepia(60%) saturate(600%) hue-rotate(163deg) brightness(95%);
+  }
+  .guidance-body h3 {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--cyan);
+    margin-bottom: .8rem;
+  }
+  .guidance-body p {
+    font-size: .9rem;
+    line-height: 1.75;
+    color: var(--text-mid);
+  }
+
   /* ── FOOTER ── */
   footer {
     background: var(--blue-pale);
@@ -579,6 +632,8 @@
 
     .tools-grid { grid-template-columns: 1fr; gap: 1.4rem; }
     .resources-grid { grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+    .guidance-grid { grid-template-columns: 1fr; }
+    .section-guidance { padding: 4rem 2.5rem; }
 
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
   }
@@ -608,6 +663,12 @@
 
     /* RESOURCES GRID → single column */
     .resources-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+
+    /* GUIDANCE */
+    .section-guidance { padding: 3rem 1.4rem; }
+    .guidance-card { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+    .guidance-icon-wrap { width: 72px; height: 72px; }
+    .guidance-icon { width: 36px; height: 36px; }
 
     /* FOOTER */
     footer { padding: 3rem 1.4rem 2rem; }
