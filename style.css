@@ -1,13 +1,13 @@
   :root {
-    --blue-deep:   #0D3B5E;
-    --blue-mid:    #1565A8;
-    --blue-light:  #B8D8F0;
-    --blue-pale:   #EAF4FB;
-    --cyan:        #00A8D6;
+    --blue-deep:   #1B4332;
+    --blue-mid:    #2D6A4F;
+    --blue-light:  #95D5B2;
+    --blue-pale:   #E8F5E3;
+    --cyan:        #D4A017;
     --cream:       #F7F4EE;
-    --text-dark:   #0D2235;
-    --text-mid:    #3A5068;
-    --text-light:  #7A9AB8;
+    --text-dark:   #081C15;
+    --text-mid:    #52796F;
+    --text-light:  #84A98C;
     --white:       #FFFFFF;
   }
 
@@ -136,7 +136,7 @@
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: linear-gradient(160deg, #1A4A7A 0%, #0D3B5E 60%, #091F33 100%);
+    background: linear-gradient(160deg, #2D6A4F 0%, #1B4332 60%, #081C15 100%);
     border-radius: 16px;
     display: flex; align-items: center; justify-content: center;
     box-shadow: 0 28px 64px rgba(9,31,51,.35);
@@ -385,7 +385,7 @@
     position: relative;
     width: 100%;
     height: 1.5px;
-    background: #B0C4D4;
+    background: #A8C5B0;
   }
   .flow-arrow::after {
     content: '';
@@ -394,8 +394,8 @@
     top: 50%;
     width: 8px;
     height: 8px;
-    border-right: 2px solid #B0C4D4;
-    border-bottom: 2px solid #B0C4D4;
+    border-right: 2px solid #A8C5B0;
+    border-bottom: 2px solid #A8C5B0;
     transform: translateY(-50%) rotate(-45deg);
   }
 
@@ -441,7 +441,7 @@
   .resource-img {
     width: 100%;
     aspect-ratio: 16/9;
-    background: #D8E8F4;
+    background: #D4EDDA;
     position: relative;
     overflow: hidden;
     display: flex; align-items: center; justify-content: center;
@@ -753,7 +753,7 @@
     .flow-arrow {
       width: 1.5px;
       height: 32px;
-      background: #B0C4D4;
+      background: #A8C5B0;
     }
     .flow-arrow::after {
       right: auto;
@@ -762,8 +762,8 @@
       left: 50%;
       width: 8px;
       height: 8px;
-      border-right: 2px solid #B0C4D4;
-      border-bottom: 2px solid #B0C4D4;
+      border-right: 2px solid #A8C5B0;
+      border-bottom: 2px solid #A8C5B0;
       border-left: none;
       transform: translateX(-50%) rotate(45deg);
     }
