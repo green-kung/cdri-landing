@@ -464,7 +464,7 @@
 
   /* ── SECTION GUIDANCE ── */
   .section-guidance {
-    background: var(--white);
+    background: var(--blue-pale);
     padding: 7rem 3rem;
   }
   .section-guidance .s-header {
