@@ -4,6 +4,7 @@
     --blue-light:  #95D5B2;
     --blue-pale:   #F2FAF4;
     --cyan:        #D4A017;
+    --orange:      #E07B2A;
     --cream:       #F7F4EE;
     --text-dark:   #081C15;
     --text-mid:    #52796F;
@@ -139,7 +140,7 @@
     background: linear-gradient(160deg, #2D6A4F 0%, #1B4332 60%, #081C15 100%);
     border-radius: 16px;
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 28px 64px rgba(9,31,51,.35);
+    box-shadow: none;
     overflow: hidden;
     z-index: 2;
   }
@@ -291,7 +292,7 @@
 
   .btn-primary {
     display: inline-flex; align-items: center; gap: .6rem;
-    background: var(--blue-deep);
+    background: var(--orange);
     color: var(--white);
     border: none;
     border-radius: 20px;
@@ -304,7 +305,7 @@
     text-decoration: none;
   }
   .btn-primary:hover {
-    background: var(--blue-mid);
+    background: var(--blue-deep);
     gap: 1rem;
   }
   .btn-primary svg { flex-shrink: 0; }
@@ -356,7 +357,7 @@
     white-space: nowrap;
   }
   .flow-node--white .flow-box { background: var(--white); }
-  .flow-node--dark .flow-box  { background: var(--blue-deep); color: var(--white); }
+  .flow-node--dark .flow-box  { background: var(--orange); color: var(--white); }
   .flow-node--wrap .flow-box  { white-space: normal; text-align: center; }
 
   .flow-connector {
