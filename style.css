@@ -335,7 +335,7 @@
 
   /* ── SECTION 01 FLOW ── */
   .section-flow {
-    background: var(--white);
+    background: var(--blue-pale);
     padding: 7rem 3rem;
   }
   .section-flow .s-header { margin-bottom: 3.5rem; }
@@ -711,7 +711,6 @@
     .resources-grid { grid-template-columns: 1fr 1fr; gap: 1.4rem; }
     .guidance-grid { grid-template-columns: 1fr 1fr; gap: 1.4rem; }
     .section-guidance { padding: 4rem 2.5rem; }
-    .section-flow { padding: 4rem 2.5rem; }
 
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
   }
@@ -743,7 +742,7 @@
     .resources-grid { grid-template-columns: 1fr; gap: 1.2rem; }
 
     /* FLOW → vertical on mobile */
-    .section-flow { padding: 3rem 1.4rem; }
+    .section-flow { padding: 4rem 1.4rem; }
     .flow-track { flex-direction: column; align-items: stretch; overflow-x: visible; padding-bottom: 0; }
     .flow-node { width: 100%; }
     .flow-box { text-align: left; width: 100%; }
@@ -797,7 +796,7 @@
 
     /* SECTION HEADER */
     .section-num { font-size: 1.8rem; }
-    .section-tools h2, .section-resources h2 {
+    .section-tools h2, .section-resources h2, .section-flow h2 {
       font-size: clamp(1.3rem, 5vw, 1.7rem);
     }
   }
@@ -807,6 +806,7 @@
     .hero { padding: 5rem 1.1rem 2.5rem; }
     .section-tools { padding: 3rem 1.1rem; }
     .section-resources { padding: 3rem 1.1rem; }
+    .section-flow { padding: 3rem 1.1rem; }
     footer { padding: 2.5rem 1.1rem 1.5rem; }
     .hero-title { font-size: clamp(1.35rem, 7vw, 1.8rem); }
   }
