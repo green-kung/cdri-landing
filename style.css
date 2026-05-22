@@ -352,6 +352,7 @@
     align-items: center;
     overflow-x: auto;
     padding-bottom: .5rem;
+    gap: 8px;
   }
 
   .flow-node { flex-shrink: 0; }
@@ -382,18 +383,19 @@
   .flow-arrow {
     position: relative;
     width: 100%;
-    height: 2px;
+    height: 1.5px;
     background: #B0C4D4;
   }
   .flow-arrow::after {
     content: '';
     position: absolute;
-    right: -1px;
+    right: 1px;
     top: 50%;
-    transform: translateY(-50%);
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 8px solid #B0C4D4;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #B0C4D4;
+    border-bottom: 2px solid #B0C4D4;
+    transform: translateY(-50%) rotate(-45deg);
   }
 
   /* ── SECTION 02 ── */
@@ -735,7 +737,7 @@
 
     /* FLOW → vertical on mobile */
     .section-flow { padding: 4rem 1.4rem; }
-    .flow-track { flex-direction: column; align-items: stretch; overflow-x: visible; padding-bottom: 0; }
+    .flow-track { flex-direction: column; align-items: stretch; overflow-x: visible; padding-bottom: 0; gap: 0; }
     .flow-node { width: 100%; }
     .flow-box { text-align: center; width: 100%; white-space: normal; }
     .flow-connector {
@@ -743,24 +745,25 @@
       flex-direction: row;
       width: auto;
       align-self: center;
-      padding: .2rem 0;
+      padding: 10px 0;
       align-items: center;
     }
     .flow-arrow {
-      width: 2px;
-      height: 36px;
+      width: 1.5px;
+      height: 32px;
       background: #B0C4D4;
     }
     .flow-arrow::after {
       right: auto;
       top: auto;
-      bottom: -1px;
+      bottom: 1px;
       left: 50%;
-      transform: translateX(-50%);
-      border-top: 8px solid #B0C4D4;
-      border-bottom: none;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid #B0C4D4;
+      border-bottom: 2px solid #B0C4D4;
+      border-left: none;
+      transform: translateX(-50%) rotate(45deg);
     }
 
     /* GUIDANCE */
