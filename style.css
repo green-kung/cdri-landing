@@ -369,6 +369,7 @@
   }
   .flow-node--white .flow-box { background: var(--white); }
   .flow-node--dark .flow-box  { background: var(--blue-deep); color: var(--white); }
+  .flow-node--wrap .flow-box  { white-space: normal; text-align: center; }
 
   .flow-connector {
     flex: 1;
