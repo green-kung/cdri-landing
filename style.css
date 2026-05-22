@@ -672,6 +672,7 @@
 
     /* GUIDANCE */
     .section-guidance { padding: 3rem 1.4rem; }
+    .guidance-grid { grid-template-columns: 1fr; gap: 1.2rem; }
     .guidance-card { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
     .guidance-icon-wrap { width: 72px; height: 72px; }
     .guidance-icon { width: 36px; height: 36px; }
