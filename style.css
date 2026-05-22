@@ -480,33 +480,39 @@
   .guidance-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    max-width: 960px;
+    gap: 1.6rem;
   }
   .guidance-card {
     display: flex;
     align-items: center;
     gap: 2rem;
-    background: var(--blue-pale);
-    border-radius: 4px;
+    background: var(--white);
+    border: 1px solid rgba(0,168,214,.12);
+    overflow: hidden;
+    transition: transform .3s;
     padding: 2.4rem 2rem;
+  }
+  .guidance-card:hover {
+    transform: translateY(-5px);
+    outline: 2px solid var(--cyan);
+    outline-offset: 0;
   }
   .guidance-icon-wrap {
     flex-shrink: 0;
     width: 96px; height: 96px;
     border-radius: 50%;
-    background: rgba(0,168,214,.12);
+    background: rgba(13,59,94,.08);
     display: flex; align-items: center; justify-content: center;
   }
   .guidance-icon {
     width: 48px; height: 48px;
-    filter: invert(42%) sepia(60%) saturate(600%) hue-rotate(163deg) brightness(95%);
+    filter: invert(14%) sepia(44%) saturate(900%) hue-rotate(185deg) brightness(80%);
   }
   .guidance-body h3 {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1.15rem;
+    font-size: 1rem;
     font-weight: 700;
-    color: var(--cyan);
+    color: var(--blue-deep);
     margin-bottom: .8rem;
   }
   .guidance-body p {
