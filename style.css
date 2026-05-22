@@ -2,7 +2,7 @@
     --blue-deep:   #1B4332;
     --blue-mid:    #2D6A4F;
     --blue-light:  #95D5B2;
-    --blue-pale:   #E8F5E3;
+    --blue-pale:   #F2FAF4;
     --cyan:        #D4A017;
     --cream:       #F7F4EE;
     --text-dark:   #081C15;
@@ -89,7 +89,7 @@
   }
   .hero-title em {
     font-style: normal;
-    color: var(--cyan);
+    color: var(--blue-deep);
     position: relative;
   }
   .hero-title em::after {
@@ -97,7 +97,7 @@
     position: absolute;
     bottom: 2px; left: 0; right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--cyan), transparent);
+    background: linear-gradient(90deg, var(--blue-deep), transparent);
     opacity: .5;
   }
 
@@ -164,19 +164,12 @@
   .play-btn svg { margin-left: 3px; }
 
   /* decorative elements around video */
-  .vd-square {
-    position: absolute;
-    width: 80px; height: 80px;
-    border: 1.5px solid rgba(0,168,214,.4);
-    top: -28px; left: -28px;
-    z-index: 3;
-    animation: float 7s ease-in-out infinite;
-  }
+  .vd-square { display: none; }
   .vd-circle-lg {
     position: absolute;
     width: 100px; height: 100px;
     border-radius: 50%;
-    background: rgba(184,216,240,.45);
+    background: rgba(149,213,178,.4);
     top: -36px; right: -24px;
     z-index: 1;
     animation: float 9s ease-in-out infinite reverse;
@@ -185,19 +178,12 @@
     position: absolute;
     width: 64px; height: 64px;
     border-radius: 50%;
-    background: rgba(184,216,240,.35);
+    background: rgba(149,213,178,.3);
     bottom: -24px; left: -20px;
     z-index: 1;
     animation: float 6s ease-in-out infinite;
   }
-  .vd-line {
-    position: absolute;
-    width: 90px; height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(0,168,214,.4), transparent);
-    bottom: -16px; right: 10px;
-    transform: rotate(-25deg);
-    z-index: 3;
-  }
+  .vd-line { display: none; }
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50%       { transform: translateY(-10px); }
@@ -254,7 +240,7 @@
   .tool-card:hover {
     transform: translateY(-4px);
     box-shadow: none;
-    outline: 2px solid var(--cyan);
+    outline: 2px solid var(--blue-mid);
     outline-offset: 0;
   }
   .tool-card::before {
@@ -434,7 +420,7 @@
   .resource-card:hover {
     transform: translateY(-5px);
     box-shadow: none;
-    outline: 2px solid var(--cyan);
+    outline: 2px solid var(--blue-mid);
     outline-offset: 0;
   }
 
@@ -563,7 +549,7 @@
   .guidance-card:hover {
     transform: translateY(-5px);
     box-shadow: none;
-    outline: 2px solid var(--cyan);
+    outline: 2px solid var(--blue-mid);
     outline-offset: 0;
   }
   .guidance-icon-wrap {
