@@ -4,7 +4,7 @@
     --blue-light:  #95D5B2;
     --blue-pale:   #F2FAF4;
     --cyan:        #D4A017;
-    --orange:      #E07B2A;
+    --orange:      #F9C140;
     --cream:       #F7F4EE;
     --text-dark:   #081C15;
     --text-mid:    #52796F;
@@ -194,6 +194,7 @@
   .section-num {
     font-family: 'Noto Sans TC', sans-serif;
     font-size: .875rem;
+    font-weight: 700;
     letter-spacing: .2em;
     color: var(--cyan);
     margin-bottom: .5rem;
@@ -293,7 +294,7 @@
   .btn-primary {
     display: inline-flex; align-items: center; gap: .6rem;
     background: var(--orange);
-    color: var(--white);
+    color: #111111;
     border: none;
     border-radius: 20px;
     padding: .8rem 1.6rem;
@@ -305,7 +306,7 @@
     text-decoration: none;
   }
   .btn-primary:hover {
-    background: var(--blue-deep);
+    background: #f0b420;
     gap: 1rem;
   }
   .btn-primary svg { flex-shrink: 0; }
@@ -357,7 +358,7 @@
     white-space: nowrap;
   }
   .flow-node--white .flow-box { background: var(--white); }
-  .flow-node--dark .flow-box  { background: var(--orange); color: var(--white); }
+  .flow-node--dark .flow-box  { background: var(--white); color: var(--blue-deep); }
   .flow-node--wrap .flow-box  { white-space: normal; text-align: center; }
 
   .flow-connector {
@@ -514,6 +515,7 @@
     color: var(--cyan);
     border-color: var(--cyan);
     gap: .8rem;
+    font-weight: 700;
   }
 
   /* ── SECTION GUIDANCE ── */
