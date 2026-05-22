@@ -489,11 +489,12 @@
     background: var(--white);
     border: 1px solid rgba(0,168,214,.12);
     overflow: hidden;
-    transition: transform .3s;
+    transition: transform .3s, box-shadow .3s;
     padding: 2.4rem 2rem;
   }
   .guidance-card:hover {
     transform: translateY(-5px);
+    box-shadow: none;
     outline: 2px solid var(--cyan);
     outline-offset: 0;
   }
@@ -517,8 +518,8 @@
   }
   .guidance-body p {
     font-size: .9rem;
-    line-height: 1.75;
-    color: var(--text-mid);
+    line-height: 1.8;
+    color: #111111;
   }
 
   /* ── FOOTER ── */
@@ -638,7 +639,7 @@
 
     .tools-grid { grid-template-columns: 1fr; gap: 1.4rem; }
     .resources-grid { grid-template-columns: 1fr 1fr; gap: 1.4rem; }
-    .guidance-grid { grid-template-columns: 1fr; }
+    .guidance-grid { grid-template-columns: 1fr 1fr; gap: 1.4rem; }
     .section-guidance { padding: 4rem 2.5rem; }
 
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
