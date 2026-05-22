@@ -737,13 +737,13 @@
     .section-flow { padding: 4rem 1.4rem; }
     .flow-track { flex-direction: column; align-items: stretch; overflow-x: visible; padding-bottom: 0; }
     .flow-node { width: 100%; }
-    .flow-box { text-align: left; width: 100%; white-space: normal; }
+    .flow-box { text-align: center; width: 100%; white-space: normal; }
     .flow-connector {
       flex: none;
       flex-direction: row;
       width: auto;
-      align-self: flex-start;
-      padding: .2rem 0 .2rem 1.4rem;
+      align-self: center;
+      padding: .2rem 0;
       align-items: center;
     }
     .flow-arrow {
