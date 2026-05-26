@@ -736,9 +736,9 @@
     .flow-box { text-align: center; width: 100%; white-space: normal; }
     .flow-connector {
       flex: none;
-      flex-direction: row;
-      width: auto;
-      align-self: center;
+      flex-direction: column;
+      width: 100%;
+      align-self: stretch;
       padding: 10px 0;
       align-items: center;
     }
