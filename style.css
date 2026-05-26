@@ -14,7 +14,7 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
 
   body {
     font-family: 'Noto Sans TC', sans-serif;
@@ -32,6 +32,7 @@
     grid-template-columns: 1fr 1fr;
     align-items: start;
     padding: 4rem 3rem;
+    overflow: hidden;
   }
   .hero-logo {
     height: 72px;
@@ -131,6 +132,7 @@
     position: relative;
     width: 100%;
     max-width: 720px;
+    overflow: hidden;
   }
   /* 16:9 video box */
   .video-box {
