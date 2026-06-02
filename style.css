@@ -686,7 +686,7 @@
   /* ── STATS BANNER ── */
   .section-stats {
     position: relative;
-    background-color: #5a4200;
+    background-color: #055f44;
     background-image: url('./images/stats-bg.jpg');
     background-size: cover;
     background-position: center;
@@ -696,7 +696,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(80, 55, 0, 0.62);
+    background: rgba(5, 95, 68, 0.50);
     z-index: 0;
   }
   .stats-wrap {
@@ -710,47 +710,49 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 0;
   }
-  .stats-col:first-child { padding-right: clamp(3rem, 5vw, 6rem); }
-  .stats-col:last-child  { padding-left:  clamp(3rem, 5vw, 6rem); }
+  .stats-col:first-child { padding-right: clamp(2.5rem, 4vw, 5rem); }
+  .stats-col:last-child  { padding-left:  clamp(2.5rem, 4vw, 5rem); }
   .stats-border-top,
   .stats-border-bottom {
     height: 1.5px;
-    background: rgba(255,255,255,.4);
+    background: rgba(255, 255, 255, 0.45);
     flex-shrink: 0;
   }
   .stats-content {
-    padding: 3.5rem 0;
+    padding: 3rem 0;
     flex: 1;
   }
   .stats-divider {
     width: 1.5px;
-    background: rgba(255,255,255,.4);
+    background: rgba(255, 255, 255, 0.45);
     align-self: stretch;
     flex-shrink: 0;
   }
   .stats-label {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: rgba(255,255,255,.85);
-    letter-spacing: .08em;
-    margin-bottom: 1.4rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.88);
+    letter-spacing: .06em;
+    margin-bottom: 1.2rem;
   }
   .stats-num {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: clamp(4rem, 9vw, 7rem);
+    font-size: clamp(4.5rem, 10vw, 8rem);
     font-weight: 900;
     color: #ffffff;
     line-height: 1;
     letter-spacing: -.02em;
+    display: flex;
+    align-items: flex-end;
+    gap: .15em;
   }
   .stats-unit {
-    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
     font-weight: 700;
+    line-height: 1.2;
     letter-spacing: 0;
-    vertical-align: baseline;
   }
 
   /* ── TABLET (≤ 1024px) ── */
