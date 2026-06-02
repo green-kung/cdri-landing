@@ -94,14 +94,7 @@
     color: var(--blue-deep);
     position: relative;
   }
-  .hero-title em::after {
-    content: '';
-    position: absolute;
-    bottom: 2px; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--blue-deep), transparent);
-    opacity: .5;
-  }
+  .hero-title em::after { display: none; }
 
   .hero-desc {
     font-size: 1rem;
@@ -168,15 +161,7 @@
 
   /* decorative elements around video */
   .vd-square { display: none; }
-  .vd-circle-lg {
-    position: absolute;
-    width: 100px; height: 100px;
-    border-radius: 50%;
-    background: rgba(149,213,178,.4);
-    top: -36px; right: -24px;
-    z-index: 1;
-    animation: float 9s ease-in-out infinite reverse;
-  }
+  .vd-circle-lg { display: none; }
   .vd-circle-sm {
     position: absolute;
     width: 64px; height: 64px;
