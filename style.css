@@ -589,13 +589,16 @@
   }
   .guidance-icon-wrap {
     flex-shrink: 0;
-    width: 96px; height: 96px;
+    width: clamp(100px, 72%, 160px);
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     background: var(--blue-pale);
     display: flex; align-items: center; justify-content: center;
   }
   .guidance-icon {
-    width: 48px; height: 48px;
+    width: 72%;
+    height: 72%;
+    object-fit: contain;
   }
   .guidance-body h3 {
     font-family: 'Noto Sans TC', sans-serif;
@@ -866,8 +869,8 @@
     .section-guidance { padding: 3rem 1.4rem; }
     .guidance-grid { grid-template-columns: 1fr; gap: 1.2rem; }
     .guidance-card { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
-    .guidance-icon-wrap { width: 72px; height: 72px; }
-    .guidance-icon { width: 36px; height: 36px; }
+    .guidance-icon-wrap { width: 80px; }
+    .guidance-icon { width: 72%; height: 72%; }
 
     /* FOOTER */
     footer { padding: 3rem 1.4rem 2rem; }
