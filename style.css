@@ -683,6 +683,61 @@
     transition: all .3s;
   }
 
+  /* ── STATS BANNER ── */
+  .section-stats {
+    position: relative;
+    background-image: url('./images/stats-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+  }
+  .section-stats::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(160, 110, 0, 0.38);
+  }
+  .stats-wrap {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 clamp(3rem, 8vw, 12rem);
+  }
+  .stats-item {
+    padding: 5rem 0;
+    border-top: 1.5px solid rgba(255,255,255,.35);
+    border-bottom: 1.5px solid rgba(255,255,255,.35);
+  }
+  .stats-item:first-child {
+    padding-right: clamp(2rem, 4vw, 5rem);
+    border-right: 1.5px solid rgba(255,255,255,.35);
+  }
+  .stats-item:last-child {
+    padding-left: clamp(2rem, 4vw, 5rem);
+  }
+  .stats-label {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255,255,255,.9);
+    letter-spacing: .06em;
+    margin-bottom: 1.2rem;
+  }
+  .stats-num {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1;
+    letter-spacing: -.02em;
+  }
+  .stats-unit {
+    font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
   /* ── TABLET (≤ 1024px) ── */
   @media (max-width: 1024px) {
     .hero {
@@ -701,6 +756,9 @@
     .section-guidance { padding: 4rem 2.5rem; }
 
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+    .stats-wrap { padding: 0 2.5rem; }
+    .stats-item { padding: 4rem 0; }
   }
 
   /* ── MOBILE (≤ 768px) ── */
@@ -760,6 +818,19 @@
       transform: translateX(-50%) rotate(45deg);
     }
 
+    /* STATS */
+    .stats-wrap {
+      grid-template-columns: 1fr;
+      padding: 0 1.4rem;
+    }
+    .stats-item { padding: 2.5rem 0; }
+    .stats-item:first-child {
+      padding-right: 0;
+      border-right: none;
+      border-bottom: none;
+    }
+    .stats-item:last-child { padding-left: 0; }
+
     /* GUIDANCE */
     .section-guidance { padding: 3rem 1.4rem; }
     .guidance-grid { grid-template-columns: 1fr; gap: 1.2rem; }
@@ -794,6 +865,7 @@
     .section-tools { padding: 3rem 1.1rem; }
     .section-resources { padding: 3rem 1.1rem; }
     .section-flow { padding: 3rem 1.1rem; }
+    .stats-wrap { padding: 0 1.1rem; }
     footer { padding: 2.5rem 1.1rem 1.5rem; }
     .hero-title { font-size: clamp(1.35rem, 7vw, 1.8rem); }
   }
