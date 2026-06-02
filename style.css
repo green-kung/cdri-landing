@@ -713,29 +713,37 @@
   }
   .stats-col:first-child { padding-right: clamp(2.5rem, 4vw, 5rem); }
   .stats-col:last-child  { padding-left:  clamp(2.5rem, 4vw, 5rem); }
-  .stats-border-top,
-  .stats-border-bottom {
-    height: 1.5px;
-    background: rgba(255, 255, 255, 0.45);
+  .stats-line {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
     flex-shrink: 0;
   }
   .stats-content {
-    padding: 3rem 0;
+    padding: 2.8rem 0 2.4rem;
     flex: 1;
   }
   .stats-divider {
-    width: 1.5px;
-    background: rgba(255, 255, 255, 0.45);
+    width: 1px;
+    background: rgba(255, 255, 255, 0.5);
     align-self: stretch;
     flex-shrink: 0;
+    margin: 0;
   }
-  .stats-label {
+  .stats-title {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.88);
-    letter-spacing: .06em;
-    margin-bottom: 1.2rem;
+    font-size: .95rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: .05em;
+    margin-bottom: .5rem;
+  }
+  .stats-subtitle {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: .05em;
+    margin-bottom: 1rem;
   }
   .stats-num {
     font-family: 'Noto Sans TC', sans-serif;
@@ -746,12 +754,12 @@
     letter-spacing: -.02em;
     display: flex;
     align-items: flex-end;
-    gap: .15em;
+    gap: .1em;
   }
   .stats-unit {
-    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-size: clamp(1.8rem, 4vw, 3rem);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.25;
     letter-spacing: 0;
   }
 
@@ -842,10 +850,10 @@
     }
     .stats-col:first-child { padding-right: 0; }
     .stats-col:last-child  { padding-left: 0; }
-    .stats-content { padding: 2.2rem 0; }
+    .stats-content { padding: 2rem 0 1.8rem; }
     .stats-divider {
       width: 100%;
-      height: 1.5px;
+      height: 1px;
       align-self: auto;
     }
 
