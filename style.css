@@ -340,14 +340,17 @@
     color: var(--blue-deep);
     margin-top: .4rem;
   }
-  /* 5 cards in a row on wide screens */
   .flow-cards {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     gap: 1.4rem;
     list-style: none;
   }
+  /* 5 per row on desktop */
   .flow-card {
+    flex: 0 0 calc((100% - 4 * 1.4rem) / 5);
+    min-width: 0;
     background: var(--white);
     border-radius: 16px;
     padding: 2.4rem 2rem;
@@ -355,6 +358,7 @@
     flex-direction: column;
     gap: 1.2rem;
     border-bottom: 3px solid var(--blue-light);
+    cursor: default;
   }
   .flow-card--final {
     border-bottom-color: var(--cyan);
@@ -789,12 +793,8 @@
 
     /* FLOW → 3+2 */
     .section-flow { padding: 5rem 2.5rem; }
-    .flow-cards { grid-template-columns: repeat(6, 1fr); }
-    .flow-card:nth-child(1),
-    .flow-card:nth-child(2),
-    .flow-card:nth-child(3) { grid-column: span 2; }
-    .flow-card:nth-child(4),
-    .flow-card:nth-child(5) { grid-column: span 3; }
+    .flow-cards { justify-content: center; }
+    .flow-card { flex: 0 0 calc((100% - 2 * 1.4rem) / 3); }
   }
 
   /* ── MOBILE (≤ 768px) ── */
@@ -825,17 +825,8 @@
 
     /* FLOW → 2+2+1 */
     .section-flow { padding: 4rem 1.4rem; }
-    .flow-cards { grid-template-columns: repeat(2, 1fr); }
-    .flow-card:nth-child(1),
-    .flow-card:nth-child(2),
-    .flow-card:nth-child(3),
-    .flow-card:nth-child(4) { grid-column: span 1; }
-    .flow-card:nth-child(5) {
-      grid-column: 1 / -1;
-      max-width: calc(50% - 0.7rem);
-      justify-self: center;
-      width: 100%;
-    }
+    .flow-cards { justify-content: center; }
+    .flow-card { flex: 0 0 calc((100% - 1.4rem) / 2); }
 
     /* STATS */
     .stats-wrap {
@@ -884,10 +875,9 @@
     .hero { padding: 5rem 1.1rem 2.5rem; }
     .section-tools { padding: 3rem 1.1rem; }
     .section-resources { padding: 3rem 1.1rem; }
+    /* FLOW → single column */
     .section-flow { padding: 3rem 1.1rem; }
-    .flow-cards { grid-template-columns: 1fr; }
-    .flow-card:nth-child(n) { grid-column: span 1; }
-    .flow-card:nth-child(5) { max-width: 100%; }
+    .flow-card { flex: 0 0 100%; }
     .stats-wrap { padding: 0 1.1rem; }
     .stats-content { padding: 1.8rem 0; }
     footer { padding: 2.5rem 1.1rem 1.5rem; }
