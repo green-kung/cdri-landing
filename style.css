@@ -325,6 +325,10 @@
     gap: .8rem;
     font-weight: 700;
   }
+  .resource-body .btn-primary {
+    align-self: flex-start;
+    margin-top: auto;
+  }
 
   /* ── SECTION 01 FLOW ── */
   .section-flow {
