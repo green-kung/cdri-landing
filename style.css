@@ -353,50 +353,32 @@
     min-width: 0;
     background: var(--white);
     border-radius: 16px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-    border-bottom: 3px solid var(--blue-light);
     cursor: default;
   }
-  .flow-card--final { border-bottom-color: var(--cyan); }
 
-  /* image area */
-  .flow-card-img {
+  /* upper area: holds step badge + circle icon */
+  .flow-card-top {
     position: relative;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    background: var(--blue-pale);
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-  .flow-card-img img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .flow-card-img-placeholder {
-    position: absolute;
-    inset: 0;
+    padding: 2.4rem 1.2rem 1.6rem;
     display: flex;
-    align-items: center;
     justify-content: center;
   }
 
   /* number + STEP — small, top-left */
   .flow-card-head {
     position: absolute;
-    top: .6rem;
-    left: .7rem;
+    top: .7rem;
+    left: .8rem;
     display: flex;
     align-items: baseline;
     gap: .25rem;
-    z-index: 1;
     line-height: 1;
   }
   .flow-card-num {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 900;
     color: var(--blue-deep);
     line-height: 1;
@@ -409,14 +391,27 @@
     text-transform: uppercase;
   }
 
-  /* title below image */
+  /* circle icon — same style as guidance cards */
+  .flow-card-icon-wrap {
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    background: var(--blue-pale);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .flow-card-icon {
+    width: 48px; height: 48px;
+  }
+
+  /* title below circle */
   .flow-card-title {
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 1rem;
     font-weight: 700;
     color: var(--blue-deep);
     line-height: 1.5;
-    padding: 1rem 1.1rem 1.2rem;
+    text-align: center;
+    padding: 0 1.1rem 1.6rem;
   }
 
   /* ── SECTION 02 ── */
