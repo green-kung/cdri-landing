@@ -396,14 +396,16 @@
 
   /* circle icon */
   .flow-card-icon-wrap {
-    width: 160px; height: 160px;
+    width: clamp(100px, 72%, 160px);
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     background: var(--blue-pale);
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
   }
   .flow-card-icon {
-    width: 120px; height: 120px;
+    width: 72%;
+    height: 72%;
     object-fit: contain;
   }
 
