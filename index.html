@@ -6,6 +6,8 @@
 <title>掌握企業碳資產，從財務碳健檢開始</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" defer></script>
 </head>
 <body>
 
@@ -58,49 +60,66 @@
 </section>
 
 <!-- SECTION 01 申請流程 -->
-<section class="section-flow">
-  <div class="s-header reveal">
-    <div class="section-num">01 <sub>/03</sub></div>
-    <h2>申請流程</h2>
+<section class="section-flow js-flow-scroll">
+  <div class="flow-scroll-header">
+    <div class="s-header reveal">
+      <div class="section-num">01 <sub>/03</sub></div>
+      <h2>申請流程</h2>
+    </div>
   </div>
-  <div class="flow-track reveal">
-
-    <div class="flow-node flow-node--white">
-      <div class="flow-box">企業填寫<br>申請表單</div>
-    </div>
-
-    <div class="flow-connector">
-      <div class="flow-arrow"></div>
-    </div>
-
-    <div class="flow-node flow-node--white">
-      <div class="flow-box">商研院<br>資格審格</div>
-    </div>
-
-    <div class="flow-connector">
-      <div class="flow-arrow"></div>
-    </div>
-
-    <div class="flow-node flow-node--white">
-      <div class="flow-box">媒合<br>財會人員</div>
-    </div>
-
-    <div class="flow-connector">
-      <div class="flow-arrow"></div>
-    </div>
-
-    <div class="flow-node flow-node--white flow-node--wrap">
-      <div class="flow-box">財會人員協助企業進行碳健檢<br>（向企業端取得相關單據）</div>
-    </div>
-
-    <div class="flow-connector">
-      <div class="flow-arrow"></div>
-    </div>
-
-    <div class="flow-node flow-node--dark">
-      <div class="flow-box">完成碳健檢</div>
-    </div>
-
+  <div class="flow-scroll-outer">
+    <ol class="js-flow-list flow-cards">
+      <li class="flow-card">
+        <p class="flow-card-head">
+          <span class="flow-card-num">01</span>
+          <span class="flow-card-step">STEP</span>
+        </p>
+        <div class="flow-card-body">
+          <h3>企業填寫申請表單</h3>
+          <p>企業透過線上表單提出申請，填寫基本資料與碳管理需求。</p>
+        </div>
+      </li>
+      <li class="flow-card">
+        <p class="flow-card-head">
+          <span class="flow-card-num">02</span>
+          <span class="flow-card-step">STEP</span>
+        </p>
+        <div class="flow-card-body">
+          <h3>商研院資格審核</h3>
+          <p>由商研院審查企業資格，確認符合補助條件後進行後續媒合。</p>
+        </div>
+      </li>
+      <li class="flow-card">
+        <p class="flow-card-head">
+          <span class="flow-card-num">03</span>
+          <span class="flow-card-step">STEP</span>
+        </p>
+        <div class="flow-card-body">
+          <h3>媒合財會人員</h3>
+          <p>依企業需求，為其媒合具備碳健檢能力的專業財會服務人才。</p>
+        </div>
+      </li>
+      <li class="flow-card">
+        <p class="flow-card-head">
+          <span class="flow-card-num">04</span>
+          <span class="flow-card-step">STEP</span>
+        </p>
+        <div class="flow-card-body">
+          <h3>財會人員協助進行碳健檢</h3>
+          <p>財會人員與企業端協作，取得相關單據並完成財務碳健檢評估。</p>
+        </div>
+      </li>
+      <li class="flow-card flow-card--final">
+        <p class="flow-card-head">
+          <span class="flow-card-num">05</span>
+          <span class="flow-card-step">STEP</span>
+        </p>
+        <div class="flow-card-body">
+          <h3>完成碳健檢</h3>
+          <p>企業取得完整碳健檢報告，掌握自身碳資產現況，開啟碳管理之路。</p>
+        </div>
+      </li>
+    </ol>
   </div>
 </section>
 
