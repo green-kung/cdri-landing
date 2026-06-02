@@ -358,23 +358,22 @@
     cursor: default;
   }
 
-  /* upper area: holds step badge + circle icon */
+  /* card inner layout: step badge top-left, circle icon centered, title centered */
   .flow-card-top {
-    position: relative;
-    padding: 2.4rem 1.2rem 1.6rem;
+    padding: .9rem 1rem 1.4rem;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 
-  /* number + STEP — small, top-left */
+  /* number + STEP — small, aligned to card left */
   .flow-card-head {
-    position: absolute;
-    top: .7rem;
-    left: .8rem;
     display: flex;
     align-items: baseline;
     gap: .25rem;
     line-height: 1;
+    align-self: flex-start;
+    margin-bottom: 1.2rem;
   }
   .flow-card-num {
     font-family: 'Noto Sans TC', sans-serif;
@@ -411,7 +410,7 @@
     color: var(--blue-deep);
     line-height: 1.5;
     text-align: center;
-    padding: 0 1.1rem 1.6rem;
+    padding: .9rem 1rem 1.4rem;
   }
 
   /* ── SECTION 02 ── */
