@@ -686,6 +686,7 @@
   /* ── STATS BANNER ── */
   .section-stats {
     position: relative;
+    background-color: #5a4200;
     background-image: url('./images/stats-bg.jpg');
     background-size: cover;
     background-position: center;
@@ -695,47 +696,61 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(160, 110, 0, 0.38);
+    background: rgba(80, 55, 0, 0.62);
+    z-index: 0;
   }
   .stats-wrap {
     position: relative;
     z-index: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    align-items: stretch;
     padding: 0 clamp(3rem, 8vw, 12rem);
   }
-  .stats-item {
-    padding: 5rem 0;
-    border-top: 1.5px solid rgba(255,255,255,.35);
-    border-bottom: 1.5px solid rgba(255,255,255,.35);
+  .stats-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
   }
-  .stats-item:first-child {
-    padding-right: clamp(2rem, 4vw, 5rem);
-    border-right: 1.5px solid rgba(255,255,255,.35);
+  .stats-col:first-child { padding-right: clamp(3rem, 5vw, 6rem); }
+  .stats-col:last-child  { padding-left:  clamp(3rem, 5vw, 6rem); }
+  .stats-border-top,
+  .stats-border-bottom {
+    height: 1.5px;
+    background: rgba(255,255,255,.4);
+    flex-shrink: 0;
   }
-  .stats-item:last-child {
-    padding-left: clamp(2rem, 4vw, 5rem);
+  .stats-content {
+    padding: 3.5rem 0;
+    flex: 1;
+  }
+  .stats-divider {
+    width: 1.5px;
+    background: rgba(255,255,255,.4);
+    align-self: stretch;
+    flex-shrink: 0;
   }
   .stats-label {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 500;
-    color: rgba(255,255,255,.9);
-    letter-spacing: .06em;
-    margin-bottom: 1.2rem;
+    color: rgba(255,255,255,.85);
+    letter-spacing: .08em;
+    margin-bottom: 1.4rem;
   }
   .stats-num {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-size: clamp(4rem, 9vw, 7rem);
     font-weight: 900;
     color: #ffffff;
     line-height: 1;
     letter-spacing: -.02em;
   }
   .stats-unit {
-    font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+    font-size: clamp(1.8rem, 4vw, 3rem);
     font-weight: 700;
     letter-spacing: 0;
+    vertical-align: baseline;
   }
 
   /* ── TABLET (≤ 1024px) ── */
@@ -758,7 +773,7 @@
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
 
     .stats-wrap { padding: 0 2.5rem; }
-    .stats-item { padding: 4rem 0; }
+    .stats-content { padding: 3rem 0; }
   }
 
   /* ── MOBILE (≤ 768px) ── */
@@ -820,16 +835,17 @@
 
     /* STATS */
     .stats-wrap {
-      grid-template-columns: 1fr;
+      flex-direction: column;
       padding: 0 1.4rem;
     }
-    .stats-item { padding: 2.5rem 0; }
-    .stats-item:first-child {
-      padding-right: 0;
-      border-right: none;
-      border-bottom: none;
+    .stats-col:first-child { padding-right: 0; }
+    .stats-col:last-child  { padding-left: 0; }
+    .stats-content { padding: 2.2rem 0; }
+    .stats-divider {
+      width: 100%;
+      height: 1.5px;
+      align-self: auto;
     }
-    .stats-item:last-child { padding-left: 0; }
 
     /* GUIDANCE */
     .section-guidance { padding: 3rem 1.4rem; }
@@ -866,6 +882,7 @@
     .section-resources { padding: 3rem 1.1rem; }
     .section-flow { padding: 3rem 1.1rem; }
     .stats-wrap { padding: 0 1.1rem; }
+    .stats-content { padding: 1.8rem 0; }
     footer { padding: 2.5rem 1.1rem 1.5rem; }
     .hero-title { font-size: clamp(1.35rem, 7vw, 1.8rem); }
   }
