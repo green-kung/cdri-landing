@@ -705,6 +705,8 @@
     display: flex;
     align-items: stretch;
     padding: 0 clamp(3rem, 8vw, 12rem);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   }
   .stats-col {
     flex: 1;
@@ -713,13 +715,8 @@
   }
   .stats-col:first-child { padding-right: clamp(2.5rem, 4vw, 5rem); }
   .stats-col:last-child  { padding-left:  clamp(2.5rem, 4vw, 5rem); }
-  .stats-line {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.5);
-    flex-shrink: 0;
-  }
   .stats-content {
-    padding: 2.8rem 0 2.4rem;
+    padding: 4rem 0 3.5rem;
     flex: 1;
   }
   .stats-divider {
