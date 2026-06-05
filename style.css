@@ -162,15 +162,7 @@
   /* decorative elements around video */
   .vd-square { display: none; }
   .vd-circle-lg { display: none; }
-  .vd-circle-sm {
-    position: absolute;
-    width: 64px; height: 64px;
-    border-radius: 50%;
-    background: rgba(149,213,178,.3);
-    bottom: -24px; left: -20px;
-    z-index: 1;
-    animation: float 6s ease-in-out infinite;
-  }
+  .vd-circle-sm { display: none; }
   .vd-line { display: none; }
   @keyframes float {
     0%, 100% { transform: translateY(0); }
