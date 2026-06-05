@@ -305,6 +305,10 @@
     background: var(--cyan);
     gap: 1rem;
   }
+  .resource-card:hover .btn-primary {
+    background: #f0b420;
+    gap: 1rem;
+  }
   .resource-card:hover .btn-ghost {
     color: var(--cyan);
     border-color: var(--cyan);
