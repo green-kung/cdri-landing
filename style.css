@@ -727,17 +727,15 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   }
   .stats-col {
-    flex: 1;
+    flex: 0 0 calc(50% - 0.5px);
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
-  .stats-col:first-child { padding: 0 clamp(2rem, 4vw, 5rem); }
-  .stats-col:last-child  { padding: 0 clamp(2rem, 4vw, 5rem); }
+  .stats-col:first-child { padding-right: clamp(2rem, 4vw, 5rem); }
+  .stats-col:last-child  { padding-left:  clamp(2rem, 4vw, 5rem); }
   .stats-content {
     padding: 4rem 0 3.5rem;
     flex: 1;
-    text-align: center;
     white-space: nowrap;
   }
   .stats-divider {
