@@ -336,7 +336,7 @@
   }
   /* 5 per row on desktop */
   .flow-card {
-    flex: 0 0 calc((100% - 4 * 1.4rem) / 5);
+    flex: 0 0 calc((100% - 3 * 1.4rem) / 4);
     min-width: 0;
     background-color: var(--white);
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%232D6A4F' stroke-width='4' stroke-dasharray='8%2C 10' stroke-linecap='square' stroke-opacity='0.55'/%3e%3c/svg%3e");
@@ -396,7 +396,7 @@
   /* title below circle */
   .flow-card-title {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: var(--blue-deep);
     line-height: 1.5;
@@ -803,7 +803,7 @@
     /* FLOW → 3+2 */
     .section-flow { padding: 5rem 2.5rem; }
     .flow-cards { justify-content: center; }
-    .flow-card { flex: 0 0 calc((100% - 2 * 1.4rem) / 3); }
+    .flow-card { flex: 0 0 calc((100% - 1.4rem) / 2); }
   }
 
   /* ── MOBILE (≤ 768px) ── */
