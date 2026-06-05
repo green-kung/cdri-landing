@@ -125,6 +125,7 @@
     position: relative;
     width: 100%;
     max-width: 720px;
+    border-radius: 16px;
     overflow: hidden;
   }
   /* 16:9 video box */
