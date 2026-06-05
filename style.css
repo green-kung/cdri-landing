@@ -762,7 +762,7 @@
   }
   .stats-num {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: clamp(4.5rem, 10vw, 8rem);
+    font-size: clamp(1.8rem, 8vw, 8rem);
     font-weight: 900;
     color: #ffffff;
     line-height: 1;
@@ -770,9 +770,10 @@
     display: flex;
     align-items: flex-end;
     gap: .1em;
+    white-space: nowrap;
   }
   .stats-unit {
-    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-size: clamp(0.85rem, 3.5vw, 3rem);
     font-weight: 700;
     line-height: 1.25;
     letter-spacing: 0;
