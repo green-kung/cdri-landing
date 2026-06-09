@@ -784,7 +784,7 @@
   @media (max-width: 1024px) {
     .hero {
       grid-template-columns: 1fr;
-      padding: 5rem 2.5rem;
+      padding: 4rem 2.5rem;
       min-height: auto;
     }
     .hero-left { padding-right: 0; margin-bottom: 3rem; }
@@ -795,8 +795,8 @@
     .tools-grid { grid-template-columns: 1fr; gap: 1.4rem; }
     .resources-grid { grid-template-columns: 1fr 1fr; gap: 1.4rem; }
     .guidance-grid { grid-template-columns: 1fr 1fr; gap: 1.4rem; }
-    .section-guidance { padding: 5rem 2.5rem; }
-    .section-resources { padding: 5rem 2.5rem; }
+    .section-guidance { padding: 4rem 2.5rem; }
+    .section-resources { padding: 4rem 2.5rem; }
 
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
 
@@ -819,7 +819,7 @@
     .section-guidance .s-header { margin-bottom: 2.5rem; }
 
     /* FLOW → 3+2 */
-    .section-flow { padding: 5rem 2.5rem; }
+    .section-flow { padding: 4rem 2.5rem; }
     .flow-cards { justify-content: center; }
     .flow-card { flex: 0 0 calc((100% - 1.4rem) / 2); }
   }
