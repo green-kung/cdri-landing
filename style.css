@@ -884,7 +884,7 @@
 
   /* ── SMALL MOBILE (≤ 480px) ── */
   @media (max-width: 480px) {
-    .hero { padding: 5rem 1.1rem 2.5rem; }
+    .hero { padding: 3rem 1.1rem; }
     .section-tools { padding: 3rem 1.1rem; }
     .section-resources { padding: 3rem 1.1rem; }
     /* FLOW → single column */
