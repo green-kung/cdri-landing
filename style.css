@@ -824,7 +824,7 @@
     /* HERO */
     .hero {
       grid-template-columns: 1fr;
-      padding: 3rem 1.4rem;
+      padding: 4rem 1.4rem;
       gap: 2rem;
     }
     .hero-left { padding-right: 0; }
