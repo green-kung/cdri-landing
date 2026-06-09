@@ -795,7 +795,8 @@
     .tools-grid { grid-template-columns: 1fr; gap: 1.4rem; }
     .resources-grid { grid-template-columns: 1fr 1fr; gap: 1.4rem; }
     .guidance-grid { grid-template-columns: 1fr 1fr; gap: 1.4rem; }
-    .section-guidance { padding: 4rem 2.5rem; }
+    .section-guidance { padding: 5rem 2.5rem; }
+    .section-resources { padding: 5rem 2.5rem; }
 
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
 
@@ -805,7 +806,7 @@
     }
     .stats-col:first-child { padding: 0; }
     .stats-col:last-child  { padding: 0; }
-    .stats-content { padding: 2.5rem 0; }
+    .stats-content { padding: 5rem 0; }
     .stats-divider {
       width: 100%;
       height: 1px;
