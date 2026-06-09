@@ -852,7 +852,7 @@
 
     /* STATS */
     .stats-wrap { padding: 0 1.4rem; }
-    .stats-content { padding: 2rem 0 1.8rem; }
+    .stats-content { padding: 4rem 0; }
 
     /* GUIDANCE */
     .section-guidance { padding: 3rem 1.4rem; }
