@@ -894,15 +894,15 @@
 
   /* ── SMALL MOBILE (≤ 480px) ── */
   @media (max-width: 480px) {
-    .hero { padding: 3rem 1.1rem; }
-    .section-tools { padding: 3rem 1.1rem; }
-    .section-resources { padding: 3rem 1.1rem; }
+    .hero { padding: 2rem 1.1rem; }
+    .section-tools { padding: 2rem 1.1rem; }
+    .section-resources { padding: 2rem 1.1rem; }
     /* FLOW → single column */
-    .section-flow { padding: 3rem 1.1rem; }
+    .section-flow { padding: 2rem 1.1rem; }
     .flow-card { flex: 0 0 100%; }
     .stats-wrap { padding: 0 1.1rem; }
     .stats-content { padding: 3rem 0; }
-    .section-guidance { padding: 3rem 1.1rem; }
+    .section-guidance { padding: 2rem 1.1rem; }
     .flow-scroll-header { margin-bottom: 1.5rem; }
     .section-resources .s-header { margin-bottom: 1.5rem; }
     .section-guidance .s-header { margin-bottom: 1.5rem; }
