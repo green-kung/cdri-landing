@@ -734,7 +734,7 @@
   .stats-col:first-child { padding-right: clamp(2rem, 4vw, 5rem); }
   .stats-col:last-child  { padding-left:  clamp(2rem, 4vw, 5rem); }
   .stats-content {
-    padding: 4rem 0 3.5rem;
+    padding: 7rem 0;
     flex: 1;
     white-space: nowrap;
   }
