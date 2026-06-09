@@ -784,7 +784,7 @@
   @media (max-width: 1024px) {
     .hero {
       grid-template-columns: 1fr;
-      padding: 3rem 2.5rem;
+      padding: 5rem 2.5rem;
       min-height: auto;
     }
     .hero-left { padding-right: 0; margin-bottom: 3rem; }
@@ -811,12 +811,6 @@
       width: 100%;
       height: 1px;
       align-self: auto;
-    }
-
-    .hero {
-      grid-template-columns: 1fr;
-      padding: 5rem 2.5rem;
-      min-height: auto;
     }
 
     /* FLOW → 3+2 */
