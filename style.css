@@ -829,7 +829,7 @@
     /* HERO */
     .hero {
       grid-template-columns: 1fr;
-      padding: 4rem 1.4rem;
+      padding: 3rem 1.4rem;
       gap: 2rem;
     }
     .hero-left { padding-right: 0; }
@@ -841,8 +841,8 @@
     .vd-square, .vd-circle, .vd-small-circle, .vd-lines { display: none; }
 
     /* SECTION PADDING */
-    .section-tools { padding: 4rem 1.4rem; }
-    .section-resources { padding: 4rem 1.4rem; }
+    .section-tools { padding: 3rem 1.4rem; }
+    .section-resources { padding: 3rem 1.4rem; }
 
     /* TOOLS GRID → single column */
     .tools-grid { grid-template-columns: 1fr; gap: 1.2rem; }
@@ -856,7 +856,7 @@
     .section-guidance .s-header { margin-bottom: 2rem; }
 
     /* FLOW → 2+2+1 */
-    .section-flow { padding: 4rem 1.4rem; }
+    .section-flow { padding: 3rem 1.4rem; }
     .flow-cards { justify-content: center; }
     .flow-card { flex: 0 0 calc((100% - 1.4rem) / 2); }
 
@@ -865,7 +865,7 @@
     .stats-content { padding: 4rem 0; }
 
     /* GUIDANCE */
-    .section-guidance { padding: 4rem 1.4rem; }
+    .section-guidance { padding: 3rem 1.4rem; }
     .guidance-grid { grid-template-columns: 1fr; gap: 1.2rem; }
     .guidance-card { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
     .guidance-icon-wrap { width: 80px; }
