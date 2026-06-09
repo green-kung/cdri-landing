@@ -813,6 +813,11 @@
       align-self: auto;
     }
 
+    /* HEADER → CONTENT GAP */
+    .flow-scroll-header { margin-bottom: 5rem; }
+    .section-resources .s-header { margin-bottom: 5rem; }
+    .section-guidance .s-header { margin-bottom: 5rem; }
+
     /* FLOW → 3+2 */
     .section-flow { padding: 5rem 2.5rem; }
     .flow-cards { justify-content: center; }
