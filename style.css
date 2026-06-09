@@ -31,7 +31,7 @@
     grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr);
     gap: clamp(2rem, 3vw, 3rem);
     align-items: center;
-    padding: 7rem clamp(3rem, 8vw, 12rem);
+    padding: 5rem clamp(3rem, 8vw, 12rem);
     overflow: hidden;
   }
   .hero-logo {
@@ -189,7 +189,7 @@
   /* ── SECTION 01 ── */
   .section-tools {
     background: var(--white);
-    padding: 7rem clamp(3rem, 8vw, 12rem);
+    padding: 5rem clamp(3rem, 8vw, 12rem);
   }
   .section-tools .s-header {
     margin-bottom: 3.5rem;
@@ -316,7 +316,7 @@
   /* ── SECTION 01 FLOW ── */
   .section-flow {
     background: var(--blue-pale);
-    padding: 7rem clamp(3rem, 8vw, 12rem);
+    padding: 5rem clamp(3rem, 8vw, 12rem);
   }
   .flow-scroll-header { margin-bottom: 3.5rem; }
   .section-flow .s-header { margin-bottom: 0; }
@@ -407,7 +407,7 @@
   /* ── SECTION 02 ── */
   .section-resources {
     background: var(--blue-pale);
-    padding: 7rem clamp(3rem, 8vw, 12rem);
+    padding: 5rem clamp(3rem, 8vw, 12rem);
   }
   .section-resources .s-header {
     margin-bottom: 3.5rem;
@@ -538,7 +538,7 @@
   /* ── SECTION GUIDANCE ── */
   .section-guidance {
     background: var(--blue-pale);
-    padding: 7rem clamp(3rem, 8vw, 12rem);
+    padding: 5rem clamp(3rem, 8vw, 12rem);
   }
   .section-guidance .s-header {
     margin-bottom: 3.5rem;
