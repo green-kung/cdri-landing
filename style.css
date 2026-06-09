@@ -553,6 +553,8 @@
     font-weight: 700;
     color: var(--blue-deep);
     margin-top: .4rem;
+    border-left: 5px solid var(--orange);
+    padding-left: .75rem;
   }
   .guidance-grid {
     display: grid;
