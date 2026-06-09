@@ -851,9 +851,9 @@
     .resources-grid { grid-template-columns: 1fr; gap: 1.2rem; }
 
     /* HEADER → CONTENT GAP */
-    .flow-scroll-header { margin-bottom: 4rem; }
-    .section-resources .s-header { margin-bottom: 4rem; }
-    .section-guidance .s-header { margin-bottom: 4rem; }
+    .flow-scroll-header { margin-bottom: 2rem; }
+    .section-resources .s-header { margin-bottom: 2rem; }
+    .section-guidance .s-header { margin-bottom: 2rem; }
 
     /* FLOW → 2+2+1 */
     .section-flow { padding: 4rem 1.4rem; }
