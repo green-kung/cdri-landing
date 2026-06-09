@@ -850,6 +850,11 @@
     /* RESOURCES GRID → single column */
     .resources-grid { grid-template-columns: 1fr; gap: 1.2rem; }
 
+    /* HEADER → CONTENT GAP */
+    .flow-scroll-header { margin-bottom: 4rem; }
+    .section-resources .s-header { margin-bottom: 4rem; }
+    .section-guidance .s-header { margin-bottom: 4rem; }
+
     /* FLOW → 2+2+1 */
     .section-flow { padding: 4rem 1.4rem; }
     .flow-cards { justify-content: center; }
