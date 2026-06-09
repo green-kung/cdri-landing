@@ -891,7 +891,8 @@
     .section-flow { padding: 3rem 1.1rem; }
     .flow-card { flex: 0 0 100%; }
     .stats-wrap { padding: 0 1.1rem; }
-    .stats-content { padding: 1.8rem 0; }
+    .stats-content { padding: 3rem 0; }
+    .section-guidance { padding: 3rem 1.1rem; }
     footer { padding: 2.5rem 1.1rem 1.5rem; }
     .hero-title { font-size: clamp(1.35rem, 7vw, 1.8rem); }
   }
