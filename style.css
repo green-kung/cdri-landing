@@ -855,7 +855,7 @@
     .stats-content { padding: 4rem 0; }
 
     /* GUIDANCE */
-    .section-guidance { padding: 3rem 1.4rem; }
+    .section-guidance { padding: 4rem 1.4rem; }
     .guidance-grid { grid-template-columns: 1fr; gap: 1.2rem; }
     .guidance-card { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
     .guidance-icon-wrap { width: 80px; }
