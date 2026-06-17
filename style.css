@@ -448,6 +448,15 @@
     outline-offset: 0;
   }
 
+  /* stretched link：點整張卡片 = 點卡片內的 .btn-primary */
+  .resource-card .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+  }
+
   .resource-img {
     width: 100%;
     aspect-ratio: 16/9;
