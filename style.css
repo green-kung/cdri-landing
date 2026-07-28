@@ -108,7 +108,7 @@
 
     /* 這三個變數決定 hero 底部的垂直節奏 —— 調 --hero-gap 就能同時
        改「標題→按鈕」與「按鈕→左右箭頭」的距離，兩者永遠相等 */
-    --hero-gap:        clamp(2.4rem, 4vw, 4rem);
+    --hero-gap:        clamp(1.2rem, 2vw, 2rem);
     --hero-ui-bottom:  clamp(1.5rem, 3vw, 2.5rem);
     --hero-arrow-size: 40px;
   }
@@ -905,7 +905,7 @@
     .hero-carousel {
       aspect-ratio: 3 / 4;
       border-radius: 16px;
-      --hero-gap: 2rem;
+      --hero-gap: 1rem;
       --hero-arrow-size: 36px;
     }
     .hero-title { font-size: clamp(1.5rem, 6vw, 2rem); }
