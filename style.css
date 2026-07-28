@@ -649,8 +649,9 @@
   }
 
   /* ── SECTION GUIDANCE ── */
+  /* 白底 —— 與上方講座區的淺綠底分開，避免兩區連成一大塊 */
   .section-guidance {
-    background: var(--blue-pale);
+    background: var(--white);
     padding: 5rem clamp(3rem, 8vw, 12rem);
   }
   .section-guidance .s-header {
@@ -670,21 +671,22 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1.6rem;
   }
+  /* 底色與區塊對調：淺綠卡片浮在白底上，比原本白卡白底更清楚 */
   .guidance-card {
     display: flex;
     align-items: center;
     gap: 2rem;
-    background: var(--white);
-    border: 1px solid rgba(149, 213, 178, 0.38);
+    background: var(--blue-pale);
+    border: 1px solid rgba(149, 213, 178, 0.45);
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(27, 67, 50, 0.07), 0 1px 3px rgba(27, 67, 50, 0.04);
+    box-shadow: 0 2px 10px rgba(27, 67, 50, 0.05);
     transition: transform .3s, box-shadow .3s;
     padding: 2.4rem 2rem;
   }
   .guidance-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(27, 67, 50, 0.13), 0 2px 6px rgba(27, 67, 50, 0.07);
+    box-shadow: 0 10px 26px rgba(27, 67, 50, 0.12), 0 2px 6px rgba(27, 67, 50, 0.06);
     outline: none;
     outline-offset: 0;
   }
@@ -693,7 +695,8 @@
     width: clamp(100px, 72%, 160px);
     aspect-ratio: 1 / 1;
     border-radius: 50%;
-    background: var(--blue-pale);
+    /* 隨卡片底色對調為白色，圓圈才不會融進卡片 */
+    background: var(--white);
     display: flex; align-items: center; justify-content: center;
   }
   .guidance-icon {
