@@ -649,10 +649,13 @@
   }
 
   /* ── SECTION GUIDANCE ── */
-  /* 白底 —— 與上方講座區的淺綠底分開，避免兩區連成一大塊 */
+  /* 內縮的白色圓角面板 —— 左右留白與圓角刻意和 hero 輪播一致，
+     四周露出 body 的淺綠底，與上方講座區自然分開 */
   .section-guidance {
     background: var(--white);
-    padding: 5rem clamp(3rem, 8vw, 12rem);
+    border-radius: 20px;
+    margin: 0 clamp(1.4rem, 4vw, 3rem) clamp(2.5rem, 5vw, 4rem);
+    padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.6rem, 4vw, 4rem);
   }
   .section-guidance .s-header {
     margin-bottom: 3.5rem;
@@ -720,7 +723,8 @@
   /* ── FOOTER ── */
   footer {
     background: var(--blue-pale);
-    border-top: 1px solid #E0EDF6;
+    /* 不畫上緣線：區隔已由上方內縮的白色面板形成，
+       整寬的橫線會破壞面板內縮的視覺 */
     color: rgba(255,255,255,.7);
     padding: 4rem clamp(3rem, 8vw, 12rem);
   }
@@ -881,7 +885,7 @@
     .tools-grid { grid-template-columns: 1fr; gap: 1.4rem; }
     .resource-row { grid-template-columns: clamp(170px, 30%, 240px) 1fr auto; }
     .guidance-grid { grid-template-columns: 1fr 1fr; gap: 1.4rem; }
-    .section-guidance { padding: 4rem 2.5rem; }
+    .section-guidance { margin: 0 2.5rem 3rem; padding: 3.5rem 2.5rem; }
     .section-resources { padding: 4rem 2.5rem; }
     .section-core { padding: 4rem 2.5rem; }
     .core-grid { gap: 1.4rem; }
@@ -966,7 +970,7 @@
     .stat + .stat { border-left: 0; border-top: 1px solid rgba(149, 213, 178, .5); }
 
     /* GUIDANCE */
-    .section-guidance { padding: 3rem 1.4rem; }
+    .section-guidance { margin: 0 1.4rem 2.5rem; padding: 2.5rem 1.6rem; border-radius: 16px; }
     .guidance-grid { grid-template-columns: 1fr; gap: 1.2rem; }
     .guidance-card { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
     .guidance-icon-wrap { width: 80px; }
@@ -999,7 +1003,7 @@
     .section-tools { padding: 2rem 1.1rem; }
     .section-resources { padding: 2rem 1.1rem; }
     .section-stats { padding: .6rem 1.1rem 2rem; }
-    .section-guidance { padding: 2rem 1.1rem; }
+    .section-guidance { margin: 0 1.1rem 2rem; padding: 2rem 1.2rem; }
     .section-core { padding: 2rem 1.1rem; }
     .section-core .s-header { margin-bottom: 1.5rem; }
     .section-resources .s-header { margin-bottom: 1.5rem; }
