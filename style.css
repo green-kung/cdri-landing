@@ -566,7 +566,8 @@
 
   .resource-row {
     display: grid;
-    grid-template-columns: clamp(200px, 26%, 300px) 1fr auto;
+    /* 縮圖欄加寬；文字欄是 1fr，會自動吸收剩餘寬度而縮窄（字級不變） */
+    grid-template-columns: clamp(260px, 34%, 420px) 1fr auto;
     align-items: center;
     gap: clamp(1.4rem, 3vw, 3rem);
     padding: var(--row-pad);
@@ -880,7 +881,7 @@
     .yt-play { width: 64px; height: 64px; }
 
     .tools-grid { grid-template-columns: 1fr; gap: 1.4rem; }
-    .resource-row { grid-template-columns: clamp(170px, 30%, 240px) 1fr auto; }
+    .resource-row { grid-template-columns: clamp(200px, 38%, 330px) 1fr auto; }
     .guidance-grid { grid-template-columns: 1fr 1fr; gap: 1.4rem; }
     .section-guidance { margin: 0 2.5rem 3rem; padding: 3.5rem 2.5rem; }
     .section-resources { padding: 4rem 2.5rem; }
