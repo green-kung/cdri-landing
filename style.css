@@ -166,6 +166,13 @@
     /* 標題 → 按鈕 的距離 = --hero-gap（與按鈕→箭頭相同） */
     margin-bottom: var(--hero-gap);
     text-shadow: 0 2px 18px rgba(0,0,0,.4);
+
+    /* 標題區塊固定保留兩行高（以 banner 1 為準），單行標題靠下對齊，
+       讓三張投影片的文字位置與高度完全一致，切換時不會上下跳動 */
+    min-height: calc(1.32em * 2);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
   .hero-title em { font-style: normal; color: var(--orange); }
 
