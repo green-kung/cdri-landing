@@ -405,6 +405,127 @@
   }
 
   /* ── SECTION 02 ── */
+  /* ── 兩大核心服務 ── */
+  .section-core {
+    background: var(--white);
+    padding: 5rem clamp(3rem, 8vw, 12rem);
+  }
+  .section-core .s-header { margin-bottom: 3.5rem; }
+  .section-core h2 {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 700;
+    color: var(--blue-deep);
+    margin-top: .4rem;
+    border-left: 5px solid var(--orange);
+    padding-left: .75rem;
+  }
+
+  .core-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+  }
+
+  .core-card {
+    position: relative;
+    min-height: clamp(360px, 38vw, 520px);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    color: var(--white);
+    isolation: isolate;
+  }
+
+  .core-media { position: absolute; inset: 0; z-index: 0; }
+  .core-media img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .6s ease;
+  }
+  .core-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(160deg, #2D6A4F 0%, #1B4332 60%, #081C15 100%);
+    color: rgba(255,255,255,.45);
+    font-size: .8rem;
+    letter-spacing: .1em;
+  }
+  .core-card:hover .core-media img { transform: scale(1.05); }
+
+  /* 深色遮罩 — 確保白字在任何照片上都讀得到 */
+  .core-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(to top, rgba(8,28,21,.9) 0%, rgba(8,28,21,.62) 42%, rgba(8,28,21,.28) 72%, rgba(8,28,21,.18) 100%);
+    transition: background .4s;
+  }
+  .core-card:hover .core-scrim {
+    background:
+      linear-gradient(to top, rgba(8,28,21,.94) 0%, rgba(8,28,21,.7) 42%, rgba(8,28,21,.36) 72%, rgba(8,28,21,.24) 100%);
+  }
+
+  .core-body {
+    position: relative;
+    z-index: 2;
+    padding: clamp(1.8rem, 3vw, 3rem);
+    width: 100%;
+  }
+
+  /* 圖示置左，英文小標與中文標題疊在右側 */
+  .core-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .core-icon { flex-shrink: 0; color: var(--white); line-height: 0; }
+  .core-eyebrow {
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    color: rgba(255,255,255,.85);
+    margin-bottom: .35rem;
+  }
+  .core-title {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.25;
+    text-shadow: 0 2px 14px rgba(0,0,0,.35);
+  }
+
+  .core-desc {
+    font-size: .92rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,.9);
+    max-width: 34em;
+    margin-bottom: clamp(1.6rem, 2.5vw, 2.4rem);
+  }
+
+  .core-arrow {
+    width: 52px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,.6);
+    color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    transition: background .25s, border-color .25s, transform .25s;
+  }
+  .core-card:hover .core-arrow {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: var(--text-dark);
+    transform: translateX(6px);
+  }
+
   .section-resources {
     background: var(--blue-pale);
     padding: 5rem clamp(3rem, 8vw, 12rem);
@@ -776,6 +897,9 @@
     .guidance-grid { grid-template-columns: 1fr 1fr; gap: 1.4rem; }
     .section-guidance { padding: 4rem 2.5rem; }
     .section-resources { padding: 4rem 2.5rem; }
+    .section-core { padding: 4rem 2.5rem; }
+    .core-grid { gap: 1.4rem; }
+    .core-card { min-height: clamp(320px, 44vw, 440px); }
 
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
 
@@ -835,6 +959,12 @@
     .section-tools { padding: 3rem 1.4rem; }
     .section-resources { padding: 3rem 1.4rem; }
 
+    /* CORE → 單欄 */
+    .section-core { padding: 3rem 1.4rem; }
+    .core-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+    .core-card { min-height: 340px; border-radius: 16px; }
+    .core-arrow { width: 46px; }
+
     /* TOOLS GRID → single column */
     .tools-grid { grid-template-columns: 1fr; gap: 1.2rem; }
 
@@ -891,6 +1021,8 @@
     .stats-wrap { padding: 0 1.1rem; }
     .stats-content { padding: 3rem 0; }
     .section-guidance { padding: 2rem 1.1rem; }
+    .section-core { padding: 2rem 1.1rem; }
+    .section-core .s-header { margin-bottom: 1.5rem; }
     .section-resources .s-header { margin-bottom: 1.5rem; }
     .section-guidance .s-header { margin-bottom: 1.5rem; }
     footer { padding: 2.5rem 1.1rem 1.5rem; }
