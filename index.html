@@ -9,51 +9,123 @@
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <img src="./images/logo.png" alt="經濟部中小及新創企業署" class="hero-logo">
-    <h1 class="hero-title">
-      掌握企業碳資產，<br>
-      從<em>財務碳健檢</em>開始。
-    </h1>
-    <p class="hero-desc">
-      協助中小微企業因應 ESG 與供應鏈碳趨勢，透過線上自評、專家陪伴與培訓，循序掌握碳管理現況、建立可持續的碳競爭力。
-    </p>
-    <a href="https://cdriview.cdri.org.tw/Esg/Account" class="btn-primary" target="_blank">
-      前往申請
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M7 17L17 7M17 7H7M17 7v10"/>
-      </svg>
+<!-- NAV -->
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">
+      <img src="./images/logo.png" alt="經濟部中小及新創企業署">
     </a>
-  </div>
 
-  <div class="hero-right">
-    <div class="video-wrap">
-      <!-- decorative: square outline top-left -->
-      <div class="vd-square"></div>
-      <!-- decorative: large circle top-right -->
-      <div class="vd-circle-lg"></div>
-      <!-- decorative: small circle bottom-left -->
-      <div class="vd-circle-sm"></div>
-      <!-- decorative: diagonal line bottom-right -->
-      <div class="vd-line"></div>
-      <!-- 16:9 video container -->
-      <!-- 工程師置入：將下方 video-box 換成 <iframe> 或 <video> -->
-      <div class="video-box">
-        <!-- 置入影片範例：
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID"
-            style="position:absolute;inset:0;width:100%;height:100%;border:0;"
-            allowfullscreen></iframe>
-        -->
-        <div class="play-btn">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+    <button class="nav-toggle" onclick="toggleMenu()" aria-label="開啟選單" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <!-- TODO: 待補連結（尚無對應區塊） -->
+      <a href="#">宣導活動</a>
+      <a href="#knowledge">精選講座</a>
+      <!-- TODO: 待補連結（尚無對應區塊） -->
+      <a href="#">培力課程</a>
+      <a href="#guidance">輔導資源</a>
+      <a href="https://cdriview.cdri.org.tw/Esg/Account" class="nav-cta" target="_blank">前往申請</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO CAROUSEL -->
+<section class="hero" id="top">
+  <div class="hero-carousel" id="heroCarousel">
+
+    <!-- SLIDE 01 — 影片 -->
+    <!-- 工程師置入：把 data-video-id 換成 YouTube 影片 ID（網址 v= 後面那串） -->
+    <article class="hero-slide is-active" data-label="影片介紹">
+      <div class="hero-media yt-facade" data-video-id="VIDEO_ID">
+        <img class="hero-img yt-thumb" src="" alt="中小微企業財務碳健檢服務介紹影片">
+        <button class="yt-play" type="button" aria-label="播放影片">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M8 5v14l11-7z"/>
           </svg>
+        </button>
+      </div>
+      <div class="hero-scrim"></div>
+      <div class="hero-copy">
+        <h1 class="hero-title">
+          掌握企業碳資產，<br>
+          從<em>財務碳健檢</em>開始。
+        </h1>
+        <p class="hero-desc">
+          協助中小微企業因應 ESG 與供應鏈碳趨勢，透過線上自評、專家陪伴與培訓，循序掌握碳管理現況、建立可持續的碳競爭力。
+        </p>
+        <a href="https://cdriview.cdri.org.tw/Esg/Account" class="btn-hero" target="_blank">
+          前往申請
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- SLIDE 02 — banner -->
+    <!-- 工程師置入：把 hero-img 的 src 換成 banner 圖片路徑，並移除 img-placeholder -->
+    <article class="hero-slide" data-label="活動快訊">
+      <div class="hero-media">
+        <div class="img-placeholder hero-placeholder"><span>置入 Banner 02</span></div>
+      </div>
+      <div class="hero-scrim"></div>
+      <div class="hero-copy">
+        <h2 class="hero-title">Banner 標題二</h2>
+        <p class="hero-desc">此處放置活動或公告的簡短說明文字。</p>
+        <a href="#" class="btn-hero">
+          了解更多
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- SLIDE 03 — banner -->
+    <article class="hero-slide" data-label="課程資訊">
+      <div class="hero-media">
+        <div class="img-placeholder hero-placeholder"><span>置入 Banner 03</span></div>
+      </div>
+      <div class="hero-scrim"></div>
+      <div class="hero-copy">
+        <h2 class="hero-title">Banner 標題三</h2>
+        <p class="hero-desc">此處放置活動或公告的簡短說明文字。</p>
+        <a href="#" class="btn-hero">
+          了解更多
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- 輪播控制列 -->
+    <div class="hero-ui">
+      <div class="hero-progress"><span class="hero-progress-bar" id="heroProgress"></span></div>
+      <div class="hero-ui-row">
+        <p class="hero-ui-label">
+          <span id="heroLabel">影片介紹</span>
+          <span class="hero-ui-dash">—</span>
+          <span id="heroIndex">01</span>
+        </p>
+        <div class="hero-arrows">
+          <button type="button" class="hero-arrow" id="heroPrev" aria-label="上一張">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+          <button type="button" class="hero-arrow" id="heroNext" aria-label="下一張">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
         </div>
-        <div style="position:absolute;bottom:1.2rem;left:0;right:0;text-align:center;font-size:.75rem;letter-spacing:.1em;color:rgba(255,255,255,.45);pointer-events:none;">置入影片</div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -144,7 +216,7 @@
 </section>
 
 <!-- SECTION 03 補助與輔導資源 -->
-<section class="section-guidance">
+<section class="section-guidance" id="guidance">
   <div class="s-header reveal">
     <h2>補助與輔導資源</h2>
   </div>
