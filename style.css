@@ -146,7 +146,7 @@
     position: absolute;
     left: clamp(1.5rem, 4vw, 4rem);
     right: clamp(1.5rem, 4vw, 4rem);
-    bottom: clamp(5rem, 7vw, 6rem);
+    bottom: clamp(4.8rem, 6.5vw, 5.6rem);
     max-width: 640px;
     z-index: 3;
   }
@@ -888,7 +888,7 @@
   /* ── TABLET (≤ 1024px) ── */
   @media (max-width: 1024px) {
     .hero-carousel { aspect-ratio: 4 / 3; max-height: none; }
-    .hero-copy { bottom: 5.2rem; max-width: 100%; }
+    .hero-copy { bottom: 4.8rem; max-width: 100%; }
     .hero-desc { max-width: 100%; }
     .yt-play { width: 64px; height: 64px; }
 
@@ -946,7 +946,7 @@
     /* HERO */
     .hero { padding: .4rem 1.4rem 2rem; }
     .hero-carousel { aspect-ratio: 3 / 4; border-radius: 16px; }
-    .hero-copy { bottom: 4.6rem; }
+    .hero-copy { bottom: 4.2rem; }
     .hero-title { font-size: clamp(1.5rem, 6vw, 2rem); }
     .hero-desc { font-size: .85rem; margin-bottom: 1.2rem; }
     .btn-hero { padding: .7rem 1.5rem; font-size: .875rem; }
