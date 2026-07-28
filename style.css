@@ -576,10 +576,10 @@
     transition: background .3s, color .3s;
   }
 
-  /* 整列 hover → 黃色底（同「前往申請」按鈕）、白字、箭頭轉白底 */
+  /* 整列 hover → 黃色底（同「前往申請」按鈕）、深色字、箭頭轉白底 */
   .resource-row:hover { background: var(--orange); }
   .resource-row:hover .resource-text h3,
-  .resource-row:hover .resource-text p { color: var(--white); }
+  .resource-row:hover .resource-text p { color: var(--text-dark); }
   .resource-row:hover .resource-arrow {
     background: var(--white);
     color: var(--text-dark);
