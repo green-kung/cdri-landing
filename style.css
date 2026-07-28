@@ -495,6 +495,46 @@
     max-width: 34em;
   }
 
+  /* ── 跑馬燈字條 ── */
+  .marquee {
+    background: var(--white);
+    overflow: hidden;
+    padding: clamp(.6rem, 1.5vw, 1.4rem) 0 clamp(1.4rem, 3vw, 2.6rem);
+    user-select: none;
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 38s linear infinite;
+  }
+  .marquee-group {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .marquee-group span {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 7rem);
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.1;
+    letter-spacing: -.01em;
+    white-space: nowrap;
+    color: #E4F1E9;
+    padding-inline: .18em;
+  }
+  .marquee-dot { color: var(--blue-light); opacity: .5; }
+
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* 尊重「減少動態效果」偏好 */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+  }
+
   .section-resources {
     background: var(--blue-pale);
     padding: 5rem clamp(3rem, 8vw, 12rem);
