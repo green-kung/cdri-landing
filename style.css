@@ -505,7 +505,9 @@
   .marquee-track {
     display: flex;
     width: max-content;
-    animation: marquee-scroll 38s linear infinite;
+    /* 90s：新文案比原本長約 1.2 倍，秒數同步放大後
+       實際橫移速度才是原本 38s 版本的一半 */
+    animation: marquee-scroll 90s linear infinite;
   }
   .marquee-group {
     display: flex;
