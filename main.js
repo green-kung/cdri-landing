@@ -31,12 +31,8 @@ function toggleMenu() {
     if (slides.length === 0) return;
 
     const bar      = document.getElementById('heroProgress');
-    const indexEl  = document.getElementById('heroIndex');
-    const totalEl  = document.querySelector('.hero-ui-total');
     const prevBtn  = document.getElementById('heroPrev');
     const nextBtn  = document.getElementById('heroNext');
-
-    if (totalEl) { totalEl.textContent = '／' + String(slides.length).padStart(2, '0'); }
 
     const DURATION = 6000;   // 每張停留 6 秒
     const TICK     = 50;
@@ -51,7 +47,6 @@ function toggleMenu() {
 
     function render() {
       slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
-      if (indexEl) { indexEl.textContent = String(current + 1).padStart(2, '0'); }
     }
 
     function goTo(i) {

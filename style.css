@@ -146,7 +146,7 @@
     position: absolute;
     left: clamp(1.5rem, 4vw, 4rem);
     right: clamp(1.5rem, 4vw, 4rem);
-    bottom: clamp(4.8rem, 6.5vw, 5.6rem);
+    bottom: clamp(6.5rem, 9vw, 8rem);
     max-width: 640px;
     z-index: 3;
   }
@@ -156,9 +156,11 @@
     font-weight: 700;
     line-height: 1.32;
     color: var(--white);
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     text-shadow: 0 2px 18px rgba(0,0,0,.4);
   }
+  /* 標題後直接接按鈕時，間距再收緊 */
+  .hero-title + .btn-hero { margin-top: -.2rem; }
   .hero-title em { font-style: normal; color: var(--orange); }
 
   .hero-desc {
@@ -223,15 +225,6 @@
     align-items: center;
     gap: clamp(1rem, 2vw, 1.8rem);
   }
-  .hero-ui-index {
-    flex-shrink: 0;
-    font-size: .85rem;
-    letter-spacing: .08em;
-    color: var(--white);
-    font-variant-numeric: tabular-nums;
-  }
-  .hero-ui-total { color: rgba(255,255,255,.5); }
-
   .hero-progress {
     flex: 1;
     min-width: 0;
@@ -888,7 +881,7 @@
   /* ── TABLET (≤ 1024px) ── */
   @media (max-width: 1024px) {
     .hero-carousel { aspect-ratio: 4 / 3; max-height: none; }
-    .hero-copy { bottom: 4.8rem; max-width: 100%; }
+    .hero-copy { bottom: 6.5rem; max-width: 100%; }
     .hero-desc { max-width: 100%; }
     .yt-play { width: 64px; height: 64px; }
 
@@ -946,7 +939,7 @@
     /* HERO */
     .hero { padding: .4rem 1.4rem 2rem; }
     .hero-carousel { aspect-ratio: 3 / 4; border-radius: 16px; }
-    .hero-copy { bottom: 4.2rem; }
+    .hero-copy { bottom: 5.6rem; }
     .hero-title { font-size: clamp(1.5rem, 6vw, 2rem); }
     .hero-desc { font-size: .85rem; margin-bottom: 1.2rem; }
     .btn-hero { padding: .7rem 1.5rem; font-size: .875rem; }
@@ -954,7 +947,6 @@
     .yt-play svg { width: 24px; height: 24px; }
     .hero-arrow { width: 36px; height: 36px; }
     .hero-ui { gap: .9rem; }
-    .hero-ui-index { font-size: .78rem; }
 
     /* SECTION PADDING */
     .section-tools { padding: 3rem 1.4rem; }
