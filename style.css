@@ -817,7 +817,7 @@
   /* ── 統計數字：白色圓角卡片 ── */
   .section-stats {
     background: var(--blue-pale);
-    padding: clamp(1rem, 2vw, 2rem) clamp(1.4rem, 4vw, 3rem) clamp(2.5rem, 5vw, 4rem);
+    padding: clamp(.4rem, 1vw, 1rem) clamp(1.4rem, 4vw, 3rem) clamp(2.5rem, 5vw, 4rem);
   }
   .stats-card {
     display: grid;
@@ -825,23 +825,28 @@
     grid-auto-columns: 1fr;
     background: var(--white);
     border-radius: 20px;
-    padding: clamp(1.6rem, 3vw, 2.6rem) clamp(1rem, 3vw, 2.4rem);
-    box-shadow: 0 4px 24px rgba(27, 67, 50, .08);
+    padding: clamp(1.4rem, 2.4vw, 2rem) clamp(1rem, 2.5vw, 2rem);
+    box-shadow: 0 4px 24px rgba(27, 67, 50, .07);
+
+    /* 只有兩項，撐滿版會讓每格留下大片空白、分隔線離兩邊都很遠。
+       收斂寬度並置中，項目之間的距離才合理 */
+    max-width: 860px;
+    margin-inline: auto;
   }
 
   .stat {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: clamp(.9rem, 2vw, 1.6rem);
-    padding-inline: clamp(.6rem, 2vw, 1.6rem);
+    gap: clamp(.8rem, 1.6vw, 1.2rem);
+    padding-inline: clamp(.6rem, 1.6vw, 1.4rem);
   }
   /* 分隔線只出現在項目之間，數量增減都不必改 CSS */
   .stat + .stat { border-left: 1px solid rgba(149, 213, 178, .5); }
 
   .stat-icon {
     flex-shrink: 0;
-    width: clamp(38px, 4.5vw, 56px);
+    width: clamp(36px, 3.6vw, 46px);
     color: var(--blue-mid);
     line-height: 0;
   }
@@ -849,7 +854,7 @@
 
   .stat-num {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
     font-weight: 900;
     color: var(--blue-deep);
     line-height: 1.1;
@@ -859,10 +864,10 @@
   .stat-plus { color: var(--orange); }
 
   .stat-label {
-    font-size: clamp(.78rem, 1vw, .92rem);
+    font-size: clamp(.78rem, .95vw, .88rem);
     font-weight: 500;
     color: var(--text-mid);
-    margin-top: .3rem;
+    margin-top: .25rem;
     line-height: 1.5;
   }
 
