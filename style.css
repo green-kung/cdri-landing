@@ -105,6 +105,12 @@
     border-radius: 20px;
     overflow: hidden;
     background: var(--text-dark);
+
+    /* 這三個變數決定 hero 底部的垂直節奏 —— 調 --hero-gap 就能同時
+       改「標題→按鈕」與「按鈕→左右箭頭」的距離，兩者永遠相等 */
+    --hero-gap:        clamp(2.4rem, 4vw, 4rem);
+    --hero-ui-bottom:  clamp(1.5rem, 3vw, 2.5rem);
+    --hero-arrow-size: 40px;
   }
 
   .hero-slide {
@@ -146,7 +152,8 @@
     position: absolute;
     left: clamp(1.5rem, 4vw, 4rem);
     right: clamp(1.5rem, 4vw, 4rem);
-    bottom: clamp(6.5rem, 9vw, 8rem);
+    /* 按鈕底部 → 箭頭頂部 的距離 = --hero-gap */
+    bottom: calc(var(--hero-ui-bottom) + var(--hero-arrow-size) + var(--hero-gap));
     max-width: 640px;
     z-index: 3;
   }
@@ -156,21 +163,11 @@
     font-weight: 700;
     line-height: 1.32;
     color: var(--white);
-    margin-bottom: 1.2rem;
+    /* 標題 → 按鈕 的距離 = --hero-gap（與按鈕→箭頭相同） */
+    margin-bottom: var(--hero-gap);
     text-shadow: 0 2px 18px rgba(0,0,0,.4);
   }
-  /* 標題後直接接按鈕時，間距再收緊 */
-  .hero-title + .btn-hero { margin-top: -.2rem; }
   .hero-title em { font-style: normal; color: var(--orange); }
-
-  .hero-desc {
-    font-size: clamp(.85rem, 1.1vw, 1rem);
-    line-height: 1.8;
-    color: rgba(255,255,255,.88);
-    max-width: 520px;
-    margin-bottom: 1.6rem;
-    text-shadow: 0 1px 12px rgba(0,0,0,.45);
-  }
 
   .btn-hero {
     display: inline-flex;
@@ -219,7 +216,7 @@
     position: absolute;
     left: clamp(1.5rem, 4vw, 4rem);
     right: clamp(1.5rem, 4vw, 4rem);
-    bottom: clamp(1.5rem, 3vw, 2.5rem);
+    bottom: var(--hero-ui-bottom);
     z-index: 6;
     display: flex;
     align-items: center;
@@ -242,7 +239,7 @@
 
   .hero-arrows { display: flex; gap: .5rem; flex-shrink: 0; }
   .hero-arrow {
-    width: 40px; height: 40px;
+    width: var(--hero-arrow-size); height: var(--hero-arrow-size);
     border-radius: 50%;
     background: rgba(255,255,255,.12);
     border: 1px solid rgba(255,255,255,.3);
@@ -881,8 +878,7 @@
   /* ── TABLET (≤ 1024px) ── */
   @media (max-width: 1024px) {
     .hero-carousel { aspect-ratio: 4 / 3; max-height: none; }
-    .hero-copy { bottom: 6.5rem; max-width: 100%; }
-    .hero-desc { max-width: 100%; }
+    .hero-copy { max-width: 100%; }
     .yt-play { width: 64px; height: 64px; }
 
     .tools-grid { grid-template-columns: 1fr; gap: 1.4rem; }
@@ -938,14 +934,16 @@
 
     /* HERO */
     .hero { padding: .4rem 1.4rem 2rem; }
-    .hero-carousel { aspect-ratio: 3 / 4; border-radius: 16px; }
-    .hero-copy { bottom: 5.6rem; }
+    .hero-carousel {
+      aspect-ratio: 3 / 4;
+      border-radius: 16px;
+      --hero-gap: 2rem;
+      --hero-arrow-size: 36px;
+    }
     .hero-title { font-size: clamp(1.5rem, 6vw, 2rem); }
-    .hero-desc { font-size: .85rem; margin-bottom: 1.2rem; }
     .btn-hero { padding: .7rem 1.5rem; font-size: .875rem; }
     .yt-play { width: 58px; height: 58px; }
     .yt-play svg { width: 24px; height: 24px; }
-    .hero-arrow { width: 36px; height: 36px; }
     .hero-ui { gap: .9rem; }
 
     /* SECTION PADDING */
