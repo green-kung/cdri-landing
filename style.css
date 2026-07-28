@@ -10,18 +10,26 @@
     --text-mid:    #52796F;
     --text-light:  #84A98C;
     --white:       #FFFFFF;
+
+    /* 固定頁首的總高度（上下留白 + 膠囊列本身），錨點捲動用來補償 */
+    --nav-h: 5.1rem;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; overflow-x: hidden; }
+  /* 用 clip 而非 hidden：hidden 會讓 html/body 變成捲動容器，
+     導致子元素的 position: sticky 失效；clip 同樣防止橫向捲動但不會 */
+  html { scroll-behavior: smooth; overflow-x: clip; }
 
   body {
     font-family: 'Noto Sans TC', sans-serif;
     background: var(--blue-pale);
     color: var(--text-dark);
-    overflow-x: hidden;
+    overflow-x: clip;
   }
+
+  /* 錨點捲動時預留固定頁首的高度，避免標題被導覽列蓋住 */
+  [id] { scroll-margin-top: calc(var(--nav-h) + 1rem); }
 
   /* ── NAV ── */
   .site-nav {
@@ -30,6 +38,13 @@
     z-index: 100;
     padding: 1rem clamp(1.4rem, 4vw, 3rem) .6rem;
     background: var(--blue-pale);
+    transition: background .3s, box-shadow .3s;
+  }
+  /* 捲動後：底色半透明模糊 + 淡陰影，與下方內容區隔 */
+  .site-nav.is-scrolled {
+    background: rgba(242, 250, 244, .82);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(27, 67, 50, .07);
   }
   .nav-inner {
     display: flex;

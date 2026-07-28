@@ -22,6 +22,24 @@ function toggleMenu() {
 }
 
 
+  // ── 固定頁首：捲動後加上陰影與模糊底色 ──
+  (function stickyNav() {
+    const nav = document.querySelector('.site-nav');
+    if (!nav) return;
+
+    const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // 量測實際高度寫回 --nav-h，讓錨點捲動的補償值永遠正確
+    const setNavHeight = () => {
+      document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+    };
+    setNavHeight();
+    window.addEventListener('resize', setNavHeight);
+  })();
+
+
   // ── HERO CAROUSEL ──
   (function heroCarousel() {
     const root = document.getElementById('heroCarousel');
