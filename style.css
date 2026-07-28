@@ -121,11 +121,14 @@
     overflow: hidden;
     background: var(--text-dark);
 
-    /* 這三個變數決定 hero 底部的垂直節奏 —— 調 --hero-gap 就能同時
-       改「標題→按鈕」與「按鈕→左右箭頭」的距離，兩者永遠相等 */
+    /* 這幾個變數決定 hero 底部的垂直節奏。
+       --hero-gap  同時決定「標題→按鈕」與「按鈕→左右箭頭」的基礎距離
+       --hero-lift 只把整塊文案再往上推，不影響標題與按鈕之間的間距 */
     --hero-gap:        clamp(.6rem, 1vw, 1rem);
     --hero-ui-bottom:  clamp(1.5rem, 3vw, 2.5rem);
     --hero-arrow-size: 40px;
+    /* 整塊文案額外上移量（不影響標題↔按鈕的間距，僅拉開與控制列的距離） */
+    --hero-lift:       clamp(1.5rem, 2.5vw, 2.5rem);
   }
 
   .hero-slide {
@@ -165,8 +168,7 @@
     position: absolute;
     left: clamp(1.5rem, 4vw, 4rem);
     right: clamp(1.5rem, 4vw, 4rem);
-    /* 按鈕底部 → 箭頭頂部 的距離 = --hero-gap */
-    bottom: calc(var(--hero-ui-bottom) + var(--hero-arrow-size) + var(--hero-gap));
+    bottom: calc(var(--hero-ui-bottom) + var(--hero-arrow-size) + var(--hero-gap) + var(--hero-lift));
     max-width: 640px;
     z-index: 3;
   }
@@ -876,7 +878,7 @@
 
   /* ── TABLET (≤ 1024px) ── */
   @media (max-width: 1024px) {
-    .hero-carousel { aspect-ratio: 4 / 3; max-height: none; }
+    .hero-carousel { aspect-ratio: 4 / 3; max-height: none; --hero-lift: 0px; }
     .hero-copy { max-width: 100%; }
     .yt-play { width: 64px; height: 64px; }
 
