@@ -816,82 +816,56 @@
   }
 
   /* ── STATS BANNER ── */
+  /* ── 統計數字：白色圓角卡片 ── */
   .section-stats {
-    position: relative;
-    background-color: #055f44;
-    background-image: url('./images/stats-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
+    background: var(--blue-pale);
+    padding: clamp(1rem, 2vw, 2rem) clamp(1.4rem, 4vw, 3rem) clamp(2.5rem, 5vw, 4rem);
   }
-  .section-stats::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(5, 95, 68, 0.50);
-    z-index: 0;
+  .stats-card {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    background: var(--white);
+    border-radius: 20px;
+    padding: clamp(1.6rem, 3vw, 2.6rem) clamp(1rem, 3vw, 2.4rem);
+    box-shadow: 0 4px 24px rgba(27, 67, 50, .08);
   }
-  .stats-wrap {
-    position: relative;
-    z-index: 1;
+
+  .stat {
     display: flex;
-    align-items: stretch;
-    padding: 0 clamp(3rem, 8vw, 12rem);
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    align-items: center;
+    justify-content: center;
+    gap: clamp(.9rem, 2vw, 1.6rem);
+    padding-inline: clamp(.6rem, 2vw, 1.6rem);
   }
-  .stats-col {
-    flex: 0 0 calc(50% - 0.5px);
-    display: flex;
-    flex-direction: column;
-  }
-  .stats-col:first-child { padding-right: clamp(2rem, 4vw, 5rem); }
-  .stats-col:last-child  { padding-left:  clamp(2rem, 4vw, 5rem); }
-  .stats-content {
-    padding: 7rem 0;
-    flex: 1;
-    white-space: nowrap;
-  }
-  .stats-divider {
-    width: 1px;
-    background: rgba(255, 255, 255, 0.5);
-    align-self: stretch;
+  /* 分隔線只出現在項目之間，數量增減都不必改 CSS */
+  .stat + .stat { border-left: 1px solid rgba(149, 213, 178, .5); }
+
+  .stat-icon {
     flex-shrink: 0;
-    margin: 0;
+    width: clamp(38px, 4.5vw, 56px);
+    color: var(--blue-mid);
+    line-height: 0;
   }
-  .stats-title {
+  .stat-icon svg { width: 100%; height: auto; }
+
+  .stat-num {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.9);
-    letter-spacing: .05em;
-    margin-bottom: .5rem;
-  }
-  .stats-subtitle {
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #ffffff;
-    letter-spacing: .05em;
-    margin-bottom: 1rem;
-  }
-  .stats-num {
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: clamp(1.8rem, 8vw, 5rem);
+    font-size: clamp(1.6rem, 3.4vw, 2.6rem);
     font-weight: 900;
-    color: #ffffff;
-    line-height: 1;
+    color: var(--blue-deep);
+    line-height: 1.1;
     letter-spacing: -.02em;
-    display: flex;
-    align-items: flex-end;
-    gap: .1em;
     white-space: nowrap;
   }
-  .stats-unit {
-    font-size: clamp(0.85rem, 3.5vw, 2.2rem);
-    font-weight: 700;
-    line-height: 1.25;
-    letter-spacing: 0;
+  .stat-plus { color: var(--orange); }
+
+  .stat-label {
+    font-size: clamp(.78rem, 1vw, .92rem);
+    font-weight: 500;
+    color: var(--text-mid);
+    margin-top: .3rem;
+    line-height: 1.5;
   }
 
   /* ── TABLET (≤ 1024px) ── */
@@ -911,18 +885,7 @@
 
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
 
-    .stats-wrap {
-      flex-direction: column;
-      padding: 0 2.5rem;
-    }
-    .stats-col:first-child { padding: 0; }
-    .stats-col:last-child  { padding: 0; }
-    .stats-content { padding: 5rem 0; }
-    .stats-divider {
-      width: 100%;
-      height: 1px;
-      align-self: auto;
-    }
+    .section-stats { padding: 1rem 2.5rem 3rem; }
 
     /* HEADER → CONTENT GAP */
     .section-resources .s-header { margin-bottom: 2.5rem; }
@@ -992,8 +955,11 @@
     .section-guidance .s-header { margin-bottom: 2rem; }
 
     /* STATS */
-    .stats-wrap { padding: 0 1.4rem; }
-    .stats-content { padding: 4rem 0; }
+    .section-stats { padding: .6rem 1.4rem 2.5rem; }
+    .stats-card { grid-auto-flow: row; border-radius: 16px; }
+    .stat { justify-content: flex-start; padding: 1.1rem .4rem; }
+    /* 直向堆疊時分隔線改為水平 */
+    .stat + .stat { border-left: 0; border-top: 1px solid rgba(149, 213, 178, .5); }
 
     /* GUIDANCE */
     .section-guidance { padding: 3rem 1.4rem; }
@@ -1028,8 +994,7 @@
     .hero { padding: .4rem 1.1rem 1.5rem; }
     .section-tools { padding: 2rem 1.1rem; }
     .section-resources { padding: 2rem 1.1rem; }
-    .stats-wrap { padding: 0 1.1rem; }
-    .stats-content { padding: 3rem 0; }
+    .section-stats { padding: .6rem 1.1rem 2rem; }
     .section-guidance { padding: 2rem 1.1rem; }
     .section-core { padding: 2rem 1.1rem; }
     .section-core .s-header { margin-bottom: 1.5rem; }
