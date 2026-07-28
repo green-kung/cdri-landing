@@ -445,14 +445,6 @@
     object-fit: cover;
     display: block;
   }
-  .core-placeholder {
-    width: 100%; height: 100%;
-    display: flex; align-items: center; justify-content: center;
-    background: linear-gradient(160deg, #2D6A4F 0%, #1B4332 60%, #081C15 100%);
-    color: rgba(255,255,255,.45);
-    font-size: .8rem;
-    letter-spacing: .1em;
-  }
   /* 深色遮罩 — 確保白字在任何照片上都讀得到 */
   .core-scrim {
     position: absolute;
