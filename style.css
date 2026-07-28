@@ -737,44 +737,34 @@
     display: flex; align-items: center; gap: .8rem;
     margin-bottom: 1.2rem;
   }
-  .footer-logo-icon {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    background: var(--cyan);
-    opacity: .8;
-    flex-shrink: 0;
-  }
-  .footer-logo-text {
-    color: var(--blue-deep);
+  /* 標籤（地址／電話／服務時間／主辦單位…）—— 比內容大且粗，
+     建立「標籤 → 內容」的層級。原本標籤 .875rem 反而小於內容 .9rem */
+  .footer-label {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: .9rem;
+    font-size: 1.05rem;
     font-weight: 700;
-    color: var(--white);
-    line-height: 1.4;
-  }
-  .footer-desc {
-    font-size: .875rem;
-    line-height: 1.75;
-    opacity: .8;
-    margin-bottom: 1.5rem;
-  }
-  .footer-col h4 {
     color: var(--blue-deep);
-    font-size: .8rem;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--cyan);
-    margin-bottom: 1.2rem;
-    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: .45rem;
   }
-  .footer-col p, .footer-col a {
+  .footer-text {
+    font-size: .9rem;
+    font-weight: 400;
+    color: #111111;
+    line-height: 1.75;
+  }
+  /* 同一欄內多組標籤的間距，取代原本散在 HTML 的 inline margin */
+  .footer-group + .footer-group { margin-top: 1.5rem; }
+
+  .footer-col a {
     display: block;
-    font-size: .875rem;
-    line-height: 1.8;
+    font-size: .9rem;
+    line-height: 1.75;
     color: #111111;
     text-decoration: none;
   }
   .footer-col a:hover { color: var(--cyan); }
+
   .footer-bottom {
     margin-top: 3rem;
     padding-top: 2rem;
