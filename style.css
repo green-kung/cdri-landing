@@ -470,19 +470,20 @@
     width: 100%;
   }
 
-  /* 圖示置於標題上方；尺寸與 .guidance-icon-wrap 一致 */
+  /* 圖示置於標題上方，無圓形底。
+     尺寸取 .guidance-icon 的實際呈現大小（圓底 160px × 72% ≈ 115px），
+     容器不留內距，圖示才能與下方標題切齊左緣 */
   .core-icon-wrap {
-    width: clamp(100px, 72%, 160px);
+    width: clamp(72px, 8vw, 115px);
     aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    background: var(--blue-pale);
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
+    color: var(--white);
     margin-bottom: 1.4rem;
   }
   .core-icon {
-    width: 72%;
-    height: 72%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
   }
 
@@ -492,6 +493,8 @@
     font-weight: 700;
     color: var(--white);
     line-height: 1.25;
+    /* 與 .resource-text h3 相同的標題→內文間距 */
+    margin-bottom: .7rem;
     text-shadow: 0 2px 14px rgba(0,0,0,.35);
   }
 
@@ -939,7 +942,7 @@
     .section-core { padding: 3rem 1.4rem; }
     .core-grid { grid-template-columns: 1fr; gap: 1.2rem; }
     .core-card { min-height: 340px; border-radius: 16px; }
-    .core-icon-wrap { width: 80px; margin-bottom: 1.1rem; }
+    .core-icon-wrap { width: 58px; margin-bottom: 1.1rem; }
 
     /* TOOLS GRID → single column */
     .tools-grid { grid-template-columns: 1fr; gap: 1.2rem; }
