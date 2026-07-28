@@ -522,10 +522,10 @@
     line-height: 1.1;
     letter-spacing: -.01em;
     white-space: nowrap;
-    color: #E4F1E9;
+    color: #D3E7DB;
     padding-inline: .18em;
   }
-  .marquee-dot { color: var(--blue-light); opacity: .5; }
+  .marquee-dot { color: var(--blue-light); opacity: .62; }
 
   @keyframes marquee-scroll {
     from { transform: translateX(0); }
