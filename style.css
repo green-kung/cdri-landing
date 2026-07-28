@@ -615,7 +615,7 @@
     color: var(--text-dark);
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
-    transition: background .3s, color .3s;
+    transition: background .3s, color .3s, transform .3s;
   }
 
   /* 整列 hover → 黃色底（同「前往申請」按鈕）、深色字、箭頭轉白底 */
@@ -625,6 +625,7 @@
   .resource-row:hover .resource-arrow {
     background: var(--white);
     color: var(--text-dark);
+    transform: scale(1.15);
   }
 
   .btn-ghost {
