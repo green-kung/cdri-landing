@@ -429,7 +429,7 @@
 
   .core-card {
     position: relative;
-    min-height: clamp(360px, 38vw, 520px);
+    min-height: clamp(440px, 46vw, 600px);
     border-radius: 20px;
     overflow: hidden;
     display: flex;
@@ -478,21 +478,22 @@
     width: 100%;
   }
 
-  /* 圖示置左，英文小標與中文標題疊在右側 */
-  .core-head {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.2rem;
+  /* 圖示置於標題上方；尺寸與 .guidance-icon-wrap 一致 */
+  .core-icon-wrap {
+    width: clamp(100px, 72%, 160px);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: var(--blue-pale);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-bottom: 1.4rem;
   }
-  .core-icon { flex-shrink: 0; color: var(--white); line-height: 0; }
-  .core-eyebrow {
-    font-size: .78rem;
-    font-weight: 700;
-    letter-spacing: .16em;
-    color: rgba(255,255,255,.85);
-    margin-bottom: .35rem;
+  .core-icon {
+    width: 72%;
+    height: 72%;
+    object-fit: contain;
   }
+
   .core-title {
     font-family: 'Noto Sans TC', sans-serif;
     font-size: clamp(1.5rem, 2.4vw, 2.1rem);
@@ -899,7 +900,7 @@
     .section-resources { padding: 4rem 2.5rem; }
     .section-core { padding: 4rem 2.5rem; }
     .core-grid { gap: 1.4rem; }
-    .core-card { min-height: clamp(320px, 44vw, 440px); }
+    .core-card { min-height: clamp(400px, 52vw, 520px); }
 
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
 
@@ -962,7 +963,8 @@
     /* CORE → 單欄 */
     .section-core { padding: 3rem 1.4rem; }
     .core-grid { grid-template-columns: 1fr; gap: 1.2rem; }
-    .core-card { min-height: 340px; border-radius: 16px; }
+    .core-card { min-height: 380px; border-radius: 16px; }
+    .core-icon-wrap { width: 80px; margin-bottom: 1.1rem; }
     .core-arrow { width: 46px; }
 
     /* TOOLS GRID → single column */
