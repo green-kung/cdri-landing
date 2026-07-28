@@ -404,99 +404,6 @@
     gap: 1rem;
   }
 
-  /* ── SECTION 01 FLOW ── */
-  .section-flow {
-    background: var(--blue-pale);
-    padding: 5rem clamp(3rem, 8vw, 12rem);
-  }
-  .flow-scroll-header { margin-bottom: 3.5rem; }
-  .section-flow .s-header { margin-bottom: 0; }
-  .section-flow h2 {
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-    font-weight: 700;
-    color: var(--blue-deep);
-    margin-top: .4rem;
-    border-left: 5px solid var(--orange);
-    padding-left: .75rem;
-  }
-  .flow-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 1.4rem;
-    list-style: none;
-  }
-  /* 5 per row on desktop */
-  .flow-card {
-    flex: 0 0 calc((100% - 3 * 1.4rem) / 4);
-    min-width: 0;
-    background-color: var(--white);
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%232D6A4F' stroke-width='4' stroke-dasharray='8%2C 10' stroke-linecap='square' stroke-opacity='0.55'/%3e%3c/svg%3e");
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    cursor: default;
-  }
-
-  /* card inner layout: step badge top-left, circle icon centered, title centered */
-  .flow-card-top {
-    padding: .9rem 1rem 1.4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* number + STEP — small, aligned to card left */
-  .flow-card-head {
-    display: flex;
-    align-items: baseline;
-    gap: .25rem;
-    line-height: 1;
-    align-self: flex-start;
-    margin-bottom: 1.2rem;
-  }
-  .flow-card-num {
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    font-weight: 900;
-    color: var(--cyan);
-    line-height: 1;
-  }
-  .flow-card-step {
-    font-size: .85rem;
-    font-weight: 700;
-    letter-spacing: .18em;
-    color: var(--blue-deep);
-    text-transform: uppercase;
-  }
-
-  /* circle icon */
-  .flow-card-icon-wrap {
-    width: clamp(100px, 72%, 160px);
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    background: var(--blue-pale);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .flow-card-icon {
-    width: 72%;
-    height: 72%;
-    object-fit: contain;
-  }
-
-  /* title below circle */
-  .flow-card-title {
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--blue-deep);
-    line-height: 1.5;
-    text-align: center;
-    padding: .9rem 1rem 1.4rem;
-  }
-
   /* ── SECTION 02 ── */
   .section-resources {
     background: var(--blue-pale);
@@ -886,14 +793,9 @@
     }
 
     /* HEADER → CONTENT GAP */
-    .flow-scroll-header { margin-bottom: 2.5rem; }
     .section-resources .s-header { margin-bottom: 2.5rem; }
     .section-guidance .s-header { margin-bottom: 2.5rem; }
 
-    /* FLOW → 3+2 */
-    .section-flow { padding: 4rem 2.5rem; }
-    .flow-cards { justify-content: center; }
-    .flow-card { flex: 0 0 calc((100% - 1.4rem) / 2); }
   }
 
   /* ── MOBILE (≤ 768px) ── */
@@ -946,14 +848,8 @@
     .resource-arrow { width: 46px; align-self: center; }
 
     /* HEADER → CONTENT GAP */
-    .flow-scroll-header { margin-bottom: 2rem; }
     .section-resources .s-header { margin-bottom: 2rem; }
     .section-guidance .s-header { margin-bottom: 2rem; }
-
-    /* FLOW → 2+2+1 */
-    .section-flow { padding: 3rem 1.4rem; }
-    .flow-cards { justify-content: center; }
-    .flow-card { flex: 0 0 calc((100% - 1.4rem) / 2); }
 
     /* STATS */
     .stats-wrap { padding: 0 1.4rem; }
@@ -982,7 +878,7 @@
 
     /* SECTION HEADER */
     .section-num { font-size: 1.8rem; }
-    .section-tools h2, .section-resources h2, .section-flow h2 {
+    .section-tools h2, .section-resources h2 {
       font-size: clamp(1.3rem, 5vw, 1.7rem);
     }
   }
@@ -992,13 +888,9 @@
     .hero { padding: .4rem 1.1rem 1.5rem; }
     .section-tools { padding: 2rem 1.1rem; }
     .section-resources { padding: 2rem 1.1rem; }
-    /* FLOW → single column */
-    .section-flow { padding: 2rem 1.1rem; }
-    .flow-card { flex: 0 0 100%; }
     .stats-wrap { padding: 0 1.1rem; }
     .stats-content { padding: 3rem 0; }
     .section-guidance { padding: 2rem 1.1rem; }
-    .flow-scroll-header { margin-bottom: 1.5rem; }
     .section-resources .s-header { margin-bottom: 1.5rem; }
     .section-guidance .s-header { margin-bottom: 1.5rem; }
     footer { padding: 2.5rem 1.1rem 1.5rem; }
