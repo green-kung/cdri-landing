@@ -38,7 +38,7 @@
 
     <!-- SLIDE 01 — 影片 -->
     <!-- 影片：https://www.youtube.com/watch?v=Y4R1sVv2_0U -->
-    <article class="hero-slide is-active" data-label="影片介紹">
+    <article class="hero-slide is-active">
       <div class="hero-media yt-facade" data-video-id="Y4R1sVv2_0U">
         <img class="hero-img yt-thumb" src="" alt="中小微企業財務碳健檢服務介紹影片">
         <button class="yt-play" type="button" aria-label="播放影片">
@@ -67,7 +67,7 @@
 
     <!-- SLIDE 02 — banner -->
     <!-- 工程師置入：把 hero-img 的 src 換成 banner 圖片路徑，並移除 img-placeholder -->
-    <article class="hero-slide" data-label="活動快訊">
+    <article class="hero-slide">
       <div class="hero-media">
         <div class="img-placeholder hero-placeholder"><span>置入 Banner 02</span></div>
       </div>
@@ -85,7 +85,7 @@
     </article>
 
     <!-- SLIDE 03 — banner -->
-    <article class="hero-slide" data-label="課程資訊">
+    <article class="hero-slide">
       <div class="hero-media">
         <div class="img-placeholder hero-placeholder"><span>置入 Banner 03</span></div>
       </div>
@@ -102,27 +102,21 @@
       </div>
     </article>
 
-    <!-- 輪播控制列 -->
+    <!-- 輪播控制列 — 頁碼、時間軸、箭頭同一行 -->
     <div class="hero-ui">
+      <p class="hero-ui-index"><span id="heroIndex">01</span><span class="hero-ui-total">／03</span></p>
       <div class="hero-progress"><span class="hero-progress-bar" id="heroProgress"></span></div>
-      <div class="hero-ui-row">
-        <p class="hero-ui-label">
-          <span id="heroLabel">影片介紹</span>
-          <span class="hero-ui-dash">—</span>
-          <span id="heroIndex">01</span>
-        </p>
-        <div class="hero-arrows">
-          <button type="button" class="hero-arrow" id="heroPrev" aria-label="上一張">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M15 18l-6-6 6-6"/>
-            </svg>
-          </button>
-          <button type="button" class="hero-arrow" id="heroNext" aria-label="下一張">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M9 18l6-6-6-6"/>
-            </svg>
-          </button>
-        </div>
+      <div class="hero-arrows">
+        <button type="button" class="hero-arrow" id="heroPrev" aria-label="上一張">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+        <button type="button" class="hero-arrow" id="heroNext" aria-label="下一張">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
       </div>
     </div>
 

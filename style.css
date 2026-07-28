@@ -146,7 +146,7 @@
     position: absolute;
     left: clamp(1.5rem, 4vw, 4rem);
     right: clamp(1.5rem, 4vw, 4rem);
-    bottom: clamp(6rem, 11vw, 8.5rem);
+    bottom: clamp(5rem, 7vw, 6rem);
     max-width: 640px;
     z-index: 3;
   }
@@ -212,19 +212,31 @@
   .hero-slide.is-playing .hero-media { z-index: 5; }
   .hero-scrim, .hero-copy { transition: opacity .4s; }
 
-  /* ── 輪播控制列 ── */
+  /* ── 輪播控制列 — 頁碼、時間軸、箭頭同一行 ── */
   .hero-ui {
     position: absolute;
     left: clamp(1.5rem, 4vw, 4rem);
     right: clamp(1.5rem, 4vw, 4rem);
     bottom: clamp(1.5rem, 3vw, 2.5rem);
     z-index: 6;
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2vw, 1.8rem);
   }
+  .hero-ui-index {
+    flex-shrink: 0;
+    font-size: .85rem;
+    letter-spacing: .08em;
+    color: var(--white);
+    font-variant-numeric: tabular-nums;
+  }
+  .hero-ui-total { color: rgba(255,255,255,.5); }
+
   .hero-progress {
-    width: 100%;
+    flex: 1;
+    min-width: 0;
     height: 2px;
     background: rgba(255,255,255,.28);
-    margin-bottom: .9rem;
     overflow: hidden;
   }
   .hero-progress-bar {
@@ -234,21 +246,8 @@
     background: var(--orange);
     transition: width .3s linear;
   }
-  .hero-ui-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-  .hero-ui-label {
-    display: flex; align-items: center; gap: .7rem;
-    font-size: .85rem;
-    letter-spacing: .1em;
-    color: rgba(255,255,255,.85);
-  }
-  .hero-ui-dash { color: rgba(255,255,255,.45); }
 
-  .hero-arrows { display: flex; gap: .5rem; }
+  .hero-arrows { display: flex; gap: .5rem; flex-shrink: 0; }
   .hero-arrow {
     width: 40px; height: 40px;
     border-radius: 50%;
@@ -889,7 +888,7 @@
   /* ── TABLET (≤ 1024px) ── */
   @media (max-width: 1024px) {
     .hero-carousel { aspect-ratio: 4 / 3; max-height: none; }
-    .hero-copy { bottom: clamp(5.5rem, 13vw, 7.5rem); max-width: 100%; }
+    .hero-copy { bottom: 5.2rem; max-width: 100%; }
     .hero-desc { max-width: 100%; }
     .yt-play { width: 64px; height: 64px; }
 
@@ -947,14 +946,15 @@
     /* HERO */
     .hero { padding: .4rem 1.4rem 2rem; }
     .hero-carousel { aspect-ratio: 3 / 4; border-radius: 16px; }
-    .hero-copy { bottom: clamp(5rem, 17vw, 6.5rem); }
+    .hero-copy { bottom: 4.6rem; }
     .hero-title { font-size: clamp(1.5rem, 6vw, 2rem); }
     .hero-desc { font-size: .85rem; margin-bottom: 1.2rem; }
     .btn-hero { padding: .7rem 1.5rem; font-size: .875rem; }
     .yt-play { width: 58px; height: 58px; }
     .yt-play svg { width: 24px; height: 24px; }
     .hero-arrow { width: 36px; height: 36px; }
-    .hero-ui-label { font-size: .78rem; }
+    .hero-ui { gap: .9rem; }
+    .hero-ui-index { font-size: .78rem; }
 
     /* SECTION PADDING */
     .section-tools { padding: 3rem 1.4rem; }
