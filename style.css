@@ -917,21 +917,43 @@
     box-shadow: 0 8px 30px rgba(27, 67, 50, .14), 0 2px 8px rgba(27, 67, 50, .06);
   }
 
+  /* 圖示要切齊的是「看得見的字」——上緣對數字頂、下緣對說明文字底，
+     而不是對看不見的行框。行框在字身上下各留了一段行高留白，
+     直接讓圖示等高於文字區會高出一截。
+
+     排版數值集中在這裡，下面用 calc 推導，改字級不必逐條追：
+       *-lh    行高
+       *-trim  行高在字身外多出來的留白，佔字級的比例
+               （量自 Noto Sans TC 實際字身：數字 .203、說明 .218）
+     兩行文字都不換行，文字區高度固定，所以圖示可以直接算出高度，
+     不必靠 stretch —— SVG 的原生高度會反過來把整列撐高 */
   .stat {
+    --num-fs: 1.7rem;   --num-lh: 1.1;   --num-trim: .203;
+    --label-fs: .8rem;  --label-lh: 1.4; --label-trim: .218;
+    --label-gap: .2rem;
+
+    /* 文字區行框總高 */
+    --text-box: calc(var(--num-fs) * var(--num-lh) + var(--label-gap)
+                   + var(--label-fs) * var(--label-lh));
+    /* 上下要扣掉的行高留白 */
+    --trim-top: calc(var(--num-fs) * var(--num-trim));
+    --trim-bottom: calc(var(--label-fs) * var(--label-trim));
+
     display: flex;
-    /* stretch 而非 center：圖示跟著文字區高度撐開，上下緣與文字切齊 */
-    align-items: stretch;
+    align-items: flex-start;
     gap: 1.2rem;
     padding-inline: 1rem;
   }
   /* 分隔線只出現在項目之間，數量增減都不必改 CSS */
   .stat + .stat { border-left: 1px solid rgba(149, 213, 178, .5); }
 
-  /* 高度由 .stat 的 stretch 撐開（＝文字區高度），寬度隨長寬比自適應。
+  /* 高度＝字身總高（數字頂→說明底），上緣再往下推掉數字上方的留白。
      不鎖寬度：兩張圖示長寬比不同（長條圖偏扁、人像近正方），
      鎖寬度會讓長條圖矮一截，並排時輕重不一 */
   .stat-icon {
     flex-shrink: 0;
+    margin-top: var(--trim-top);
+    height: calc(var(--text-box) - var(--trim-top) - var(--trim-bottom));
     color: var(--blue-mid);
     line-height: 0;
   }
@@ -941,21 +963,21 @@
 
   .stat-num {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1.7rem;
+    font-size: var(--num-fs);
     font-weight: 900;
     color: var(--blue-deep);
-    line-height: 1.1;
+    line-height: var(--num-lh);
     letter-spacing: -.02em;
     white-space: nowrap;
   }
   .stat-plus { color: var(--orange); }
 
   .stat-label {
-    font-size: .8rem;
+    font-size: var(--label-fs);
     font-weight: 500;
     color: var(--text-mid);
-    margin-top: .2rem;
-    line-height: 1.4;
+    margin-top: var(--label-gap);
+    line-height: var(--label-lh);
     white-space: nowrap;
   }
 
@@ -977,8 +999,8 @@
 
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
 
-    .stat-num { font-size: 1.5rem; }
-    .stat { padding-inline: .8rem; }
+    /* 改變數而非直接改 font-size，圖示高度的 calc 才會跟著調整 */
+    .stat { --num-fs: 1.5rem; padding-inline: .8rem; }
 
     /* HEADER → CONTENT GAP */
     .section-resources .s-header { margin-bottom: 2.5rem; }
