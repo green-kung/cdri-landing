@@ -474,7 +474,7 @@
   .core-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr auto auto auto;
+    grid-template-rows: 1fr auto auto auto auto;
     column-gap: 1.6rem;
     row-gap: 0;
   }
@@ -486,7 +486,7 @@
     min-height: clamp(300px, 26vw, 380px);
     border-radius: 20px;
     overflow: hidden;
-    grid-row: span 4;
+    grid-row: span 5;
     display: grid;
     grid-template-rows: subgrid;
     color: var(--white);
@@ -551,6 +551,22 @@
     margin-bottom: .7rem;
     text-shadow: 0 2px 14px rgba(0,0,0,.35);
   }
+
+  /* 卡片底部的數據列。沿用 .stat 的結構與字身對齊計算，只覆寫配色與間距。
+     即使右卡尚無數據，subgrid 仍會替它保留同高的空列，兩張卡內文維持齊平 */
+  .core-stats {
+    grid-row: 5;
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(1rem, 2.4vw, 2.4rem);
+    margin-top: clamp(.9rem, 1.6vw, 1.3rem);
+    padding-top: clamp(.9rem, 1.6vw, 1.3rem);
+    border-top: 1px solid rgba(255, 255, 255, .22);
+  }
+  /* 數字略小於卡片標題，避免與標題爭焦點 */
+  .core-stats .stat { --num-fs: clamp(1.2rem, 1.9vw, 1.55rem); }
+  .core-stats .stat-num { color: var(--white); }
+  .core-stats .stat-label { color: rgba(255, 255, 255, .72); }
 
   .core-desc {
     grid-row: 4;
@@ -924,79 +940,20 @@
     transition: all .3s;
   }
 
-  /* ── STATS BANNER ── */
-  /* ── 統計數字：懸浮於 hero 右下角，捲離 hero 後淡出 ── */
-  .section-stats {
-    position: fixed;
-    right: clamp(1.4rem, 4vw, 3rem);
-    bottom: clamp(1.4rem, 3vw, 2.5rem);
-    z-index: 50;                 /* 低於導覽列的 100 */
-    transition: opacity .45s ease, transform .45s ease;
-  }
-  .section-stats.is-hidden {
-    opacity: 0;
-    transform: translateY(14px);
-    pointer-events: none;
-  }
-
-  .stats-card {
-    display: flex;
-    background: var(--white);
-    border-radius: 16px;
-    padding: 1rem 1.2rem;
-    box-shadow: 0 8px 30px rgba(27, 67, 50, .14), 0 2px 8px rgba(27, 67, 50, .06);
-  }
-
-  /* 圖示要切齊的是「看得見的字」——上緣對數字頂、下緣對說明文字底，
-     而不是對看不見的行框。行框在字身上下各留了一段行高留白，
-     直接讓圖示等高於文字區會高出一截。
-
-     排版數值集中在這裡，下面用 calc 推導，改字級不必逐條追：
-       *-lh    行高
-       *-trim  行高在字身外多出來的留白，佔字級的比例
-               （量自 Noto Sans TC 實際字身：數字 .203、說明 .218）
-     兩行文字都不換行，文字區高度固定，所以圖示可以直接算出高度，
-     不必靠 stretch —— SVG 的原生高度會反過來把整列撐高 */
+  /* 數據項目。卡片頂部已有大圖示，這裡不再放小圖示：
+     三個圖示過於擁擠，且圖示佔去的橫向空間會讓兩組數據擠不下一行而換行，
+     連帶把卡片撐成高度大於寬度，破壞橫幅比例 */
   .stat {
-    --num-fs: 1.7rem;   --num-lh: 1.1;   --num-trim: .203;
-    --label-fs: .8rem;  --label-lh: 1.4; --label-trim: .218;
-    --label-gap: .2rem;
-
-    /* 文字區行框總高 */
-    --text-box: calc(var(--num-fs) * var(--num-lh) + var(--label-gap)
-                   + var(--label-fs) * var(--label-lh));
-    /* 上下要扣掉的行高留白 */
-    --trim-top: calc(var(--num-fs) * var(--num-trim));
-    --trim-bottom: calc(var(--label-fs) * var(--label-trim));
-
-    display: flex;
-    align-items: flex-start;
-    gap: 1.2rem;
-    padding-inline: 1rem;
+    --num-fs: 1.7rem;
+    --label-fs: .8rem;
   }
-  /* 分隔線只出現在項目之間，數量增減都不必改 CSS */
-  .stat + .stat { border-left: 1px solid rgba(149, 213, 178, .5); }
-
-  /* 高度＝字身總高（數字頂→說明底），上緣再往下推掉數字上方的留白。
-     不鎖寬度：兩張圖示長寬比不同（長條圖偏扁、人像近正方），
-     鎖寬度會讓長條圖矮一截，並排時輕重不一 */
-  .stat-icon {
-    flex-shrink: 0;
-    margin-top: var(--trim-top);
-    height: calc(var(--text-box) - var(--trim-top) - var(--trim-bottom));
-    color: var(--blue-mid);
-    line-height: 0;
-  }
-  /* 圖示可能是 <img>（icon/ 內的 SVG）或就地內嵌的 <svg> */
-  .stat-icon svg,
-  .stat-icon img { height: 100%; width: auto; display: block; }
 
   .stat-num {
     font-family: 'Noto Sans TC', sans-serif;
     font-size: var(--num-fs);
     font-weight: 900;
     color: var(--blue-deep);
-    line-height: var(--num-lh);
+    line-height: 1.1;
     letter-spacing: -.02em;
     white-space: nowrap;
   }
@@ -1006,8 +963,8 @@
     font-size: var(--label-fs);
     font-weight: 500;
     color: var(--text-mid);
-    margin-top: var(--label-gap);
-    line-height: var(--label-lh);
+    margin-top: .2rem;
+    line-height: 1.4;
     white-space: nowrap;
   }
 
@@ -1031,8 +988,6 @@
 
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
 
-    /* 改變數而非直接改 font-size，圖示高度的 calc 才會跟著調整 */
-    .stat { --num-fs: 1.5rem; padding-inline: .8rem; }
 
     /* HEADER → CONTENT GAP */
     .section-resources .s-header { margin-bottom: 2.5rem; }
@@ -1091,7 +1046,7 @@
       min-height: 340px; border-radius: 16px;
     }
     .core-body { display: block; }
-    .core-icon-wrap, .core-title, .core-desc { grid-row: auto; }
+    .core-icon-wrap, .core-title, .core-desc, .core-stats { grid-row: auto; }
     .core-icon-wrap { width: 58px; margin-bottom: 1.1rem; }
 
     /* TOOLS GRID → single column */
@@ -1112,19 +1067,6 @@
     .section-resources .s-header { margin-bottom: 2rem; }
     .section-guidance .s-header { margin-bottom: 2rem; }
 
-    /* STATS */
-    /* 手機不採用懸浮：固定卡片會長期遮住內容，改回置於 hero 下方 */
-    .section-stats {
-      position: static;
-      padding: .6rem 1.4rem 2rem;
-      opacity: 1;
-      transform: none;
-    }
-    .section-stats.is-hidden { opacity: 1; transform: none; pointer-events: auto; }
-    .stats-card { flex-direction: column; padding: .6rem 1rem; }
-    .stat { padding: 1rem .4rem; }
-    /* 直向堆疊時分隔線改為水平 */
-    .stat + .stat { border-left: 0; border-top: 1px solid rgba(149, 213, 178, .5); }
     .stat-label { white-space: normal; }
 
     /* GUIDANCE */
@@ -1159,7 +1101,6 @@
     .hero { padding: .4rem 1.1rem 1.5rem; }
     .section-tools { padding: 2rem 1.1rem; }
     .section-resources { padding: 2rem 1.1rem; }
-    .section-stats { padding: .6rem 1.1rem 1.6rem; }
     .section-guidance { margin: 0 1.1rem 2rem; padding: 2rem 1.2rem; }
     .section-core { padding: 2rem 1.1rem; }
     .section-core .s-header { margin-bottom: 1.5rem; }

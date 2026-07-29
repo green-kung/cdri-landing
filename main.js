@@ -40,23 +40,6 @@ function toggleMenu() {
   })();
 
 
-  // ── 統計數字：只在 hero 範圍內懸浮顯示 ──
-  (function heroStats() {
-    const stats = document.querySelector('.section-stats');
-    const hero  = document.querySelector('.hero');
-    if (!stats || !hero) return;
-
-    // rootMargin 把偵測區的上緣下推至視窗 70% 處：
-    // hero 底緣一旦升到該線以上就視為「已離開 hero 範圍」，卡片淡出。
-    // 若只用預設值，要等 hero 完全捲出畫面才會觸發，卡片會壓在下一區塊上。
-    const observer = new IntersectionObserver(([entry]) => {
-      stats.classList.toggle('is-hidden', !entry.isIntersecting);
-    }, { rootMargin: '-70% 0px 0px 0px', threshold: 0 });
-
-    observer.observe(hero);
-  })();
-
-
   // ── HERO CAROUSEL ──
   (function heroCarousel() {
     const root = document.getElementById('heroCarousel');
