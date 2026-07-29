@@ -814,11 +814,18 @@
      不必為了 hover 另外維護一份白色圖檔 */
   .guidance-card:hover .guidance-icon-wrap { background: var(--blue-deep); }
   .guidance-card:hover .guidance-icon { filter: brightness(0) invert(1); }
+  /* 標題做成深綠膠囊。inline-block 讓底色只包住文字本身，
+     若維持 h3 預設的 block，色塊會撐滿整欄寬 */
   .guidance-body h3 {
+    display: inline-block;
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 1rem;
     font-weight: 700;
-    color: var(--blue-deep);
+    line-height: 1.5;
+    color: var(--white);
+    background: var(--blue-deep);
+    padding: .4rem 1.4rem;
+    border-radius: 999px;
     margin-bottom: .8rem;
   }
   .guidance-body p {
@@ -1125,7 +1132,9 @@
     .section-guidance { margin: 0 1.4rem 2.5rem; padding: 2.5rem 1.6rem; border-radius: 16px; }
     .guidance-grid { grid-template-columns: 1fr; gap: 1.2rem; }
     .guidance-card { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
-    /* 手機同樣讓圓底跟著文字高度走，不另外鎖寬度 */
+    /* 直向堆疊後交叉軸變成水平，桌機用的 align-self: stretch 會把圓底
+       拉成整個卡片寬、再被 aspect-ratio 撐成巨大的圓，故改回固定尺寸 */
+    .guidance-icon-wrap { align-self: flex-start; width: 76px; height: auto; }
     .guidance-icon { width: 58%; height: 58%; }
 
     /* FOOTER */
