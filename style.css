@@ -19,6 +19,10 @@
        內距必須扣掉卡片本身的內縮量 —— 見 .section-guidance */
     --page-x:    clamp(3rem, 8vw, 12rem);
     --card-inset: clamp(1.4rem, 4vw, 3rem);
+
+    /* 卡片標題字級。兩大核心服務與講座資源共用同一個值，
+       各自寫死容易在某個斷點走鐘（曾出現資源列標題比核心卡標題還大） */
+    --card-title-fs: 2rem;   /* 32px */
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -551,7 +555,7 @@
   .core-title {
     grid-row: 3;
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 2rem;      /* 32px */
+    font-size: var(--card-title-fs);
     font-weight: 700;
     color: var(--white);
     line-height: 1.25;
@@ -686,7 +690,7 @@
   }
   .resource-text h3 {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1.875rem;  /* 30px */
+    font-size: var(--card-title-fs);
     font-weight: 700;
     color: var(--blue-deep);
     margin-bottom: .7rem;
@@ -962,9 +966,8 @@
        改為在斷點分級，每一級都是整數 px */
     .section-tools h2, .section-core h2,
     .section-resources h2, .section-guidance h2 { font-size: 1.75rem; }   /* 28px */
+    :root { --card-title-fs: 1.5rem; }           /* 24px */
     .hero-title      { font-size: 2rem; }        /* 32px */
-    .core-title      { font-size: 1.5rem; }      /* 24px */
-    .resource-text h3 { font-size: 1.625rem; }   /* 26px */
     .core-stats .stat { --num-fs: 1.5rem; }      /* 24px */
 
     /* 維持 16:9：影片與 banner 皆為 1920x1080，改成其他比例會被
@@ -998,7 +1001,7 @@
     /* ── 字級分級（768）── */
     .section-tools h2, .section-core h2,
     .section-resources h2, .section-guidance h2 { font-size: 1.5rem; }    /* 24px */
-    .core-title      { font-size: 1.375rem; }    /* 22px */
+    :root { --card-title-fs: 1.375rem; }         /* 22px */
 
     /* NAV → 漢堡選單 */
     .nav-toggle { display: flex; }
