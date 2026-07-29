@@ -1,20 +1,9 @@
-<!-- 補助與輔導資源 01：政府資源
-     置於 .guidance-icon-wrap 的白色圓底上，#3C3C3C 改為 blue-deep 變數；
-     原檔用白色色塊當提把與鎖扣的分隔，改以 mask 真正挖空，
-     這樣圓底日後換色也不會露出白邊。viewBox 收緊至圖形邊界 -->
-<svg width="70" height="61" viewBox="29 33.5 70 61" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="case-knockout" maskUnits="userSpaceOnUse" x="29" y="33.5" width="70" height="61">
-  <rect x="29" y="33.5" width="70" height="61" fill="white"/>
-  <rect x="59" y="58.5" width="10" height="6" rx="3" fill="black"/>
-  <path d="M29 58.5H52C53.6569 58.5 55 59.8431 55 61.5C55 63.1569 53.6569 64.5 52 64.5H29V58.5Z" fill="black"/>
-  <path d="M73 61.5C73 59.8431 74.3431 58.5 76 58.5H99V64.5H76C74.3431 64.5 73 63.1569 73 61.5Z" fill="black"/>
-</mask>
-<g mask="url(#case-knockout)">
-  <rect x="29" y="44.5" width="70" height="50" rx="6" fill="#1B4332"/>
-  <rect x="37" y="41.5" width="6" height="9" rx="3" fill="#1B4332"/>
-  <rect x="84" y="41.5" width="6" height="9" rx="3" fill="#1B4332"/>
-  <rect x="50" y="33.5" width="28" height="6" rx="3" fill="#1B4332"/>
-  <rect x="56" y="33.5" width="15" height="6" rx="3" transform="rotate(90 56 33.5)" fill="#1B4332"/>
-  <rect x="78" y="33.5" width="15" height="6" rx="3" transform="rotate(90 78 33.5)" fill="#1B4332"/>
-</g>
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="29" y="44.5" width="70" height="50" rx="6" fill="#3C3C3C"/>
+<rect x="37" y="41.5" width="6" height="9" rx="3" fill="#3C3C3C"/>
+<rect x="84" y="41.5" width="6" height="9" rx="3" fill="#3C3C3C"/>
+<rect x="50" y="33.5" width="28" height="6" rx="3" fill="#3C3C3C"/>
+<rect x="52" y="53" width="24" height="6" rx="3" fill="white"/>
+<rect x="56" y="33.5" width="15" height="6" rx="3" transform="rotate(90 56 33.5)" fill="#3C3C3C"/>
+<rect x="78" y="33.5" width="15" height="6" rx="3" transform="rotate(90 78 33.5)" fill="#3C3C3C"/>
 </svg>

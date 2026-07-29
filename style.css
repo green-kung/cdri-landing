@@ -516,8 +516,8 @@
   }
 
   /* 圖示置於標題上方，無圓形底。
-     尺寸取 .guidance-icon 的實際呈現大小（圓底 160px × 72% ≈ 115px），
-     容器不留內距，圖示才能與下方標題切齊左緣 */
+     容器不留內距，圖示才能與下方標題切齊左緣。
+     115px 為此處自訂尺寸，與 .guidance-icon 無關（該處已另行縮小） */
   .core-icon-wrap {
     width: clamp(72px, 8vw, 115px);
     aspect-ratio: 1 / 1;
@@ -759,8 +759,8 @@
     display: flex; align-items: center; justify-content: center;
   }
   .guidance-icon {
-    width: 72%;
-    height: 72%;
+    width: 36%;
+    height: 36%;
     object-fit: contain;
   }
   .guidance-body h3 {
@@ -894,18 +894,19 @@
 
   .stat {
     display: flex;
-    align-items: center;
-    gap: .8rem;
+    /* stretch 而非 center：圖示跟著文字區高度撐開，上下緣與文字切齊 */
+    align-items: stretch;
+    gap: 1.2rem;
     padding-inline: 1rem;
   }
   /* 分隔線只出現在項目之間，數量增減都不必改 CSS */
   .stat + .stat { border-left: 1px solid rgba(149, 213, 178, .5); }
 
-  /* 以高度而非寬度定尺寸：兩張圖示長寬比不同（長條圖偏扁、人像近正方），
+  /* 高度由 .stat 的 stretch 撐開（＝文字區高度），寬度隨長寬比自適應。
+     不鎖寬度：兩張圖示長寬比不同（長條圖偏扁、人像近正方），
      鎖寬度會讓長條圖矮一截，並排時輕重不一 */
   .stat-icon {
     flex-shrink: 0;
-    height: 36px;
     color: var(--blue-mid);
     line-height: 0;
   }
@@ -1040,7 +1041,7 @@
     .guidance-grid { grid-template-columns: 1fr; gap: 1.2rem; }
     .guidance-card { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
     .guidance-icon-wrap { width: 80px; }
-    .guidance-icon { width: 72%; height: 72%; }
+    .guidance-icon { width: 36%; height: 36%; }
 
     /* FOOTER */
     footer { padding: 3rem 1.4rem 2rem; }
