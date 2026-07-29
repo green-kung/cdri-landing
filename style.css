@@ -795,12 +795,25 @@
     /* 隨卡片底色對調為白色，圓圈才不會融進卡片 */
     background: var(--white);
     display: flex; align-items: center; justify-content: center;
+    transition: background-color .3s;
   }
   .guidance-icon {
     width: 58%;
     height: 58%;
     object-fit: contain;
+    /* 平常態寫成等效的空轉 filter：與 hover 的函式串一致，
+       瀏覽器才能逐項內插出平順的漸變，而不是從 none 硬跳 */
+    filter: brightness(1) invert(0);
+    transition: filter .3s;
   }
+
+  /* hover：圓底與圖示對調成綠底白圖。
+     圖示是 <img>，CSS 碰不到 SVG 內部的填色，所以用 filter 整張轉白
+     —— brightness(0) 先壓成純黑、invert(1) 再翻成純白，
+     鏤空的部分維持透明。這樣 icon/*.svg 仍是唯一的美術來源，
+     不必為了 hover 另外維護一份白色圖檔 */
+  .guidance-card:hover .guidance-icon-wrap { background: var(--blue-deep); }
+  .guidance-card:hover .guidance-icon { filter: brightness(0) invert(1); }
   .guidance-body h3 {
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 1rem;
