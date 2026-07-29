@@ -168,8 +168,10 @@
   .hero-carousel {
     position: relative;
     width: 100%;
+    /* 素材皆為 1920x1080，且 .hero-img 為 object-fit: cover，
+       容器一旦不是 16:9 就會裁掉畫面。故不設 max-height ——
+       先前的 78vh 會在常見視窗把比例壓成 2.1~2.4:1 而裁掉上下 */
     aspect-ratio: 16 / 9;
-    max-height: 78vh;
     border-radius: 20px;
     overflow: hidden;
     background: var(--text-dark);
@@ -1025,7 +1027,7 @@
   @media (max-width: 1024px) {
     /* 維持 16:9：影片與 banner 皆為 1920x1080，改成其他比例會被
        object-fit: cover 裁掉左右兩側 */
-    .hero-carousel { aspect-ratio: 16 / 9; max-height: none; --hero-lift: 0px; }
+    .hero-carousel { aspect-ratio: 16 / 9; --hero-lift: 0px; }
     .hero-copy { max-width: 100%; }
     .yt-play { width: 64px; height: 64px; }
 
