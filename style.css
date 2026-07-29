@@ -48,7 +48,8 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    padding: 1rem clamp(1.4rem, 4vw, 3rem) .6rem;
+    /* 與其他區塊共用 --page-x，膠囊列左右緣才會對齊下方內容 */
+    padding: 1rem var(--page-x) .6rem;
     background: transparent;
     pointer-events: none;   /* 透明的 padding 區不擋下方內容的點擊 */
   }
@@ -163,7 +164,8 @@
   /* ── HERO CAROUSEL ── */
   .hero {
     background: var(--blue-pale);
-    padding: .6rem clamp(1.4rem, 4vw, 3rem) clamp(2rem, 4vw, 3.5rem);
+    /* 同導覽列：banner 左右緣對齊下方區塊的內容邊界 */
+    padding: .6rem var(--page-x) clamp(2rem, 4vw, 3.5rem);
   }
   .hero-carousel {
     position: relative;
@@ -1020,7 +1022,7 @@
     .nav-links a:hover { background: var(--blue-pale); }
 
     /* HERO */
-    .hero { padding: .4rem 1.4rem 2rem; }
+    .hero { padding: .4rem var(--page-x) 2rem; }
     .hero-carousel {
       /* 同上：維持 16:9，不可改為直式，否則 banner 會被裁切 */
       aspect-ratio: 16 / 9;
@@ -1102,7 +1104,7 @@
 
   /* ── SMALL MOBILE (≤ 480px) ── */
   @media (max-width: 480px) {
-    .hero { padding: .4rem 1.1rem 1.5rem; }
+    .hero { padding: .4rem var(--page-x) 1.5rem; }
     :root { --page-x: 1.1rem; --card-inset: .4rem; }
     .section-tools { padding-block: 2rem; }
     .section-resources { padding-block: 2rem; }
