@@ -569,17 +569,20 @@
   }
   /* 數字略小於卡片標題，避免與標題爭焦點 */
   .core-stats .stat {
-    --num-fs: clamp(1.2rem, 1.9vw, 1.55rem);
+    --num-fs: clamp(1.35rem, 2.2vw, 1.8rem);
     /* 說明文字不換行，兩欄並排時它決定了最小寬度。窄版若不跟著收，
        兩欄會塞不下而塌成上下兩列，把卡片撐成高度大於寬度 */
-    --label-fs: clamp(.72rem, 1.1vw, .8rem);
+    --label-fs: clamp(.8rem, 1.1vw, .875rem);
   }
+  /* 說明放大後，窄版兩欄並排會超出欄寬；允許換行而非硬撐或溢出
+     （nowrap 是先前懸浮卡片的需求，移進卡片後已無必要） */
+  .core-stats .stat-label { white-space: normal; }
   .core-stats .stat-num { color: var(--white); }
   .core-stats .stat-label { color: rgba(255, 255, 255, .72); }
 
   .core-desc {
     grid-row: 4;
-    font-size: .92rem;
+    font-size: 1.05rem;
     line-height: 1.9;
     color: rgba(255,255,255,.9);
     max-width: 34em;
@@ -712,7 +715,7 @@
   }
   .resource-text h3 {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+    font-size: clamp(1.15rem, 1.6vw, 1.45rem);
     font-weight: 700;
     color: var(--blue-deep);
     margin-bottom: .7rem;
@@ -720,7 +723,7 @@
     transition: color .3s;
   }
   .resource-text p {
-    font-size: .9rem;
+    font-size: 1rem;
     line-height: 1.85;
     color: #111111;
     transition: color .3s;
@@ -841,7 +844,7 @@
   .guidance-body h3 {
     display: inline-block;
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 700;
     line-height: 1.5;
     color: var(--white);
@@ -851,7 +854,7 @@
     margin-bottom: .8rem;
   }
   .guidance-body p {
-    font-size: .9rem;
+    font-size: 1rem;
     line-height: 1.8;
     color: #111111;
   }
