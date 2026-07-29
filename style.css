@@ -13,6 +13,12 @@
 
     /* 固定頁首的總高度（上下留白 + 膠囊列本身），錨點捲動用來補償 */
     --nav-h: 5.1rem;
+
+    /* 各區塊內容的左右邊界。所有區塊共用同一基準，標題才會對齊。
+       補助與輔導資源是一張內縮的白卡，其內容要對齊他人，
+       內距必須扣掉卡片本身的內縮量 —— 見 .section-guidance */
+    --page-x:    clamp(3rem, 8vw, 12rem);
+    --card-inset: clamp(1.4rem, 4vw, 3rem);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -339,7 +345,7 @@
   /* ── SECTION 01 ── */
   .section-tools {
     background: var(--white);
-    padding: 5rem clamp(3rem, 8vw, 12rem);
+    padding: 5rem var(--page-x);
   }
   .section-tools .s-header {
     margin-bottom: 3.5rem;
@@ -453,7 +459,7 @@
   /* ── 兩大核心服務 ── */
   .section-core {
     background: var(--white);
-    padding: 5rem clamp(3rem, 8vw, 12rem);
+    padding: 5rem var(--page-x);
   }
   .section-core .s-header { margin-bottom: 3.5rem; }
   .section-core h2 {
@@ -597,7 +603,7 @@
 
   .section-resources {
     background: var(--blue-pale);
-    padding: 3.5rem clamp(3rem, 8vw, 12rem);
+    padding: 3.5rem var(--page-x);
   }
 
   /* 標題前的橘色直線。數值以 em 表示，字級隨斷點變動時會一起縮放：
@@ -747,8 +753,9 @@
   .section-guidance {
     background: var(--white);
     border-radius: 20px;
-    margin: 0 clamp(1.4rem, 4vw, 3rem) clamp(2.5rem, 5vw, 4rem);
-    padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.6rem, 4vw, 4rem);
+    margin: 0 var(--card-inset) clamp(2.5rem, 5vw, 4rem);
+    /* 內距扣掉卡片內縮量，內容左右緣才會與其他區塊切齊 */
+    padding: clamp(2.5rem, 5vw, 4.5rem) calc(var(--page-x) - var(--card-inset));
   }
   .section-guidance .s-header {
     margin-bottom: 3.5rem;
@@ -968,9 +975,10 @@
     .tools-grid { grid-template-columns: 1fr; gap: 1.4rem; }
     .resource-row { grid-template-columns: clamp(170px, 26%, 260px) 1fr auto; }
     .guidance-grid { grid-template-columns: 1fr 1fr; gap: 1.4rem; }
-    .section-guidance { margin: 0 2.5rem 3rem; padding: 3.5rem 2.5rem; }
-    .section-resources { padding: 4rem 2.5rem; }
-    .section-core { padding: 4rem 2.5rem; }
+    :root { --page-x: 2.5rem; --card-inset: 1rem; }
+    .section-guidance { margin-bottom: 3rem; padding-block: 3.5rem; }
+    .section-resources { padding-block: 4rem; }
+    .section-core { padding-block: 4rem; }
     .core-grid { column-gap: 1.4rem; }
     /* 卡片變窄，高度要跟著收，才維持高度小於寬度 */
     .core-card { min-height: clamp(280px, 34vw, 360px); }
@@ -1023,11 +1031,12 @@
     .hero-ui { gap: .9rem; }
 
     /* SECTION PADDING */
-    .section-tools { padding: 3rem 1.4rem; }
-    .section-resources { padding: 3rem 1.4rem; }
+    :root { --page-x: 1.4rem; --card-inset: .5rem; }
+    .section-tools { padding-block: 3rem; }
+    .section-resources { padding-block: 3rem; }
 
     /* CORE → 單欄 */
-    .section-core { padding: 3rem 1.4rem; }
+    .section-core { padding-block: 3rem; }
     /* 單欄堆疊時卡片不再並排，跨卡對齊沒有意義，subgrid 整組還原 */
     .core-grid {
       grid-template-columns: 1fr;
@@ -1064,7 +1073,7 @@
     .stat-label { white-space: normal; }
 
     /* GUIDANCE */
-    .section-guidance { margin: 0 1.4rem 2.5rem; padding: 2.5rem 1.6rem; border-radius: 16px; }
+    .section-guidance { margin-bottom: 2.5rem; padding-block: 2.5rem; border-radius: 16px; }
     .guidance-grid { grid-template-columns: 1fr; gap: 1.2rem; }
     .guidance-card { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
 
@@ -1090,10 +1099,11 @@
   /* ── SMALL MOBILE (≤ 480px) ── */
   @media (max-width: 480px) {
     .hero { padding: .4rem 1.1rem 1.5rem; }
-    .section-tools { padding: 2rem 1.1rem; }
-    .section-resources { padding: 2rem 1.1rem; }
-    .section-guidance { margin: 0 1.1rem 2rem; padding: 2rem 1.2rem; }
-    .section-core { padding: 2rem 1.1rem; }
+    :root { --page-x: 1.1rem; --card-inset: .4rem; }
+    .section-tools { padding-block: 2rem; }
+    .section-resources { padding-block: 2rem; }
+    .section-guidance { margin-bottom: 2rem; padding-block: 2rem; }
+    .section-core { padding-block: 2rem; }
     .section-core .s-header { margin-bottom: 1.5rem; }
     .section-resources .s-header { margin-bottom: 1.5rem; }
     .section-guidance .s-header { margin-bottom: 1.5rem; }
