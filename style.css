@@ -901,13 +901,17 @@
   /* 分隔線只出現在項目之間，數量增減都不必改 CSS */
   .stat + .stat { border-left: 1px solid rgba(149, 213, 178, .5); }
 
+  /* 以高度而非寬度定尺寸：兩張圖示長寬比不同（長條圖偏扁、人像近正方），
+     鎖寬度會讓長條圖矮一截，並排時輕重不一 */
   .stat-icon {
     flex-shrink: 0;
-    width: 38px;
+    height: 36px;
     color: var(--blue-mid);
     line-height: 0;
   }
-  .stat-icon svg { width: 100%; height: auto; }
+  /* 圖示可能是 <img>（icon/ 內的 SVG）或就地內嵌的 <svg> */
+  .stat-icon svg,
+  .stat-icon img { height: 100%; width: auto; display: block; }
 
   .stat-num {
     font-family: 'Noto Sans TC', sans-serif;
