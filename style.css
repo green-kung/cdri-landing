@@ -470,8 +470,10 @@
     font-weight: 700;
     color: var(--blue-deep);
     margin-top: .4rem;
-    border-left: 5px solid var(--orange);
-    padding-left: .75rem;
+    /* 橘色直線改由 ::before 繪製 —— border-left 會撐滿整個行框，
+       比字身高出一截；改用絕對定位才能剛好切齊字身上下緣 */
+    position: relative;
+    padding-left: .58em;
   }
 
   /* 四條共用列：留白 / 圖示 / 標題 / 內文。
@@ -617,6 +619,23 @@
     background: var(--blue-pale);
     padding: 5rem clamp(3rem, 8vw, 12rem);
   }
+
+  /* 標題前的橘色直線。數值以 em 表示，字級隨斷點變動時會一起縮放：
+       top .306em   Noto Sans TC 在 line-height: normal 下，行框頂到字身頂的距離
+       height .95em 字身實高（以 canvas actualBoundingBox 量得）
+       width .28em  取自參考圖比例：直線寬為字身高的 0.294 倍 */
+  .section-core h2::before,
+  .section-resources h2::before,
+  .section-guidance h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: .306em;
+    width: .28em;
+    height: .95em;
+    background: var(--orange);
+  }
+
   .section-resources .s-header {
     margin-bottom: 3.5rem;
   }
@@ -626,8 +645,10 @@
     font-weight: 700;
     color: var(--blue-deep);
     margin-top: .4rem;
-    border-left: 5px solid var(--orange);
-    padding-left: .75rem;
+    /* 橘色直線改由 ::before 繪製 —— border-left 會撐滿整個行框，
+       比字身高出一截；改用絕對定位才能剛好切齊字身上下緣 */
+    position: relative;
+    padding-left: .58em;
   }
 
   /* ── 講座與培訓資源：橫向列表 ── */
@@ -753,8 +774,10 @@
     font-weight: 700;
     color: var(--blue-deep);
     margin-top: .4rem;
-    border-left: 5px solid var(--orange);
-    padding-left: .75rem;
+    /* 橘色直線改由 ::before 繪製 —— border-left 會撐滿整個行框，
+       比字身高出一截；改用絕對定位才能剛好切齊字身上下緣 */
+    position: relative;
+    padding-left: .58em;
   }
   .guidance-grid {
     display: grid;
