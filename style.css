@@ -780,40 +780,24 @@
     outline: none;
     outline-offset: 0;
   }
-  /* 圓底高度跟著右側文字區撐開（align-self: stretch），
-     寬度再由 aspect-ratio 補回正圓；高度不寫死，文字換行時圓圈跟著長 */
+  /* 不再加白色圓底：標題已是一塊深綠膠囊，再疊一個白圓會多出第三個
+     互相競爭的形狀。圖示直接放在卡片底色上並放大，重心留給膠囊。
+     尺寸改為直接指定，不必再讓圓底跟著文字高度撐開，
+     連帶省掉 align-self: stretch / aspect-ratio / contain 那組相依 */
   .guidance-icon-wrap {
     flex-shrink: 0;
-    align-self: stretch;
-    width: auto;
-    height: auto;
+    width: clamp(56px, 5.5vw, 72px);
     aspect-ratio: 1 / 1;
-    /* 讓內容不參與尺寸計算，圓底才會純粹被文字高度撐開，
-       而不是反過來被裡面的圖示把高度頂大 */
-    contain: size;
-    border-radius: 50%;
-    /* 隨卡片底色對調為白色，圓圈才不會融進卡片 */
-    background: var(--white);
     display: flex; align-items: center; justify-content: center;
-    transition: background-color .3s;
   }
   .guidance-icon {
-    width: 58%;
-    height: 58%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
-    /* 平常態寫成等效的空轉 filter：與 hover 的函式串一致，
-       瀏覽器才能逐項內插出平順的漸變，而不是從 none 硬跳 */
-    filter: brightness(1) invert(0);
-    transition: filter .3s;
+    transition: transform .3s;
   }
-
-  /* hover：圓底與圖示對調成綠底白圖。
-     圖示是 <img>，CSS 碰不到 SVG 內部的填色，所以用 filter 整張轉白
-     —— brightness(0) 先壓成純黑、invert(1) 再翻成純白，
-     鏤空的部分維持透明。這樣 icon/*.svg 仍是唯一的美術來源，
-     不必為了 hover 另外維護一份白色圖檔 */
-  .guidance-card:hover .guidance-icon-wrap { background: var(--blue-deep); }
-  .guidance-card:hover .guidance-icon { filter: brightness(0) invert(1); }
+  /* 沒有底色可對調了，改以微幅放大回應 hover，與卡片上浮同步 */
+  .guidance-card:hover .guidance-icon { transform: scale(1.08); }
   /* 標題做成深綠膠囊。inline-block 讓底色只包住文字本身，
      若維持 h3 預設的 block，色塊會撐滿整欄寬 */
   .guidance-body h3 {
@@ -1132,10 +1116,7 @@
     .section-guidance { margin: 0 1.4rem 2.5rem; padding: 2.5rem 1.6rem; border-radius: 16px; }
     .guidance-grid { grid-template-columns: 1fr; gap: 1.2rem; }
     .guidance-card { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
-    /* 直向堆疊後交叉軸變成水平，桌機用的 align-self: stretch 會把圓底
-       拉成整個卡片寬、再被 aspect-ratio 撐成巨大的圓，故改回固定尺寸 */
-    .guidance-icon-wrap { align-self: flex-start; width: 76px; height: auto; }
-    .guidance-icon { width: 58%; height: 58%; }
+
 
     /* FOOTER */
     footer { padding: 3rem 1.4rem 2rem; }
