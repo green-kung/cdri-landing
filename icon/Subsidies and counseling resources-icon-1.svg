@@ -1,5 +1,5 @@
 <!-- 補助與輔導資源 01：政府資源
-     色彩取自 logo 的黃（取樣值 #F9C03C，與 CSS 的 orange 變數同色）。
+     色彩為 blue-deep 變數 #1B4332；
      原檔用白色色塊當鎖扣的分隔，改以 mask 真正挖空，換底色才不會露出白邊。
      viewBox 收緊至圖形實際邊界：原檔 128 見方、四周約 23% 空白，
      照原樣使用只會畫出約一半大小，與隔壁那張對不齊 -->
@@ -9,11 +9,11 @@
   <rect x="52" y="53" width="24" height="6" rx="3" fill="black"/>
 </mask>
 <g mask="url(#case-knockout)">
-  <rect x="29" y="44.5" width="70" height="50" rx="6" fill="#F9C140"/>
-  <rect x="37" y="41.5" width="6" height="9" rx="3" fill="#F9C140"/>
-  <rect x="84" y="41.5" width="6" height="9" rx="3" fill="#F9C140"/>
-  <rect x="50" y="33.5" width="28" height="6" rx="3" fill="#F9C140"/>
-  <rect x="56" y="33.5" width="15" height="6" rx="3" transform="rotate(90 56 33.5)" fill="#F9C140"/>
-  <rect x="78" y="33.5" width="15" height="6" rx="3" transform="rotate(90 78 33.5)" fill="#F9C140"/>
+  <rect x="29" y="44.5" width="70" height="50" rx="6" fill="#1B4332"/>
+  <rect x="37" y="41.5" width="6" height="9" rx="3" fill="#1B4332"/>
+  <rect x="84" y="41.5" width="6" height="9" rx="3" fill="#1B4332"/>
+  <rect x="50" y="33.5" width="28" height="6" rx="3" fill="#1B4332"/>
+  <rect x="56" y="33.5" width="15" height="6" rx="3" transform="rotate(90 56 33.5)" fill="#1B4332"/>
+  <rect x="78" y="33.5" width="15" height="6" rx="3" transform="rotate(90 78 33.5)" fill="#1B4332"/>
 </g>
 </svg>
