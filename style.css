@@ -32,21 +32,17 @@
   [id] { scroll-margin-top: calc(var(--nav-h) + 1rem); }
 
   /* ── NAV ── */
+  /* 底色全透明：只留白色膠囊漂在內容上，捲動時不加霧底 */
   .site-nav {
     position: sticky;
     top: 0;
     z-index: 100;
     padding: 1rem clamp(1.4rem, 4vw, 3rem) .6rem;
-    background: var(--blue-pale);
-    transition: background .3s, box-shadow .3s;
-  }
-  /* 捲動後：底色半透明模糊 + 淡陰影，與下方內容區隔 */
-  .site-nav.is-scrolled {
-    background: rgba(242, 250, 244, .82);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(27, 67, 50, .07);
+    background: transparent;
+    pointer-events: none;   /* 透明的 padding 區不擋下方內容的點擊 */
   }
   .nav-inner {
+    pointer-events: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -54,7 +50,12 @@
     background: var(--white);
     border-radius: 999px;
     padding: .55rem .55rem .55rem 1.6rem;
-    box-shadow: 0 2px 14px rgba(27, 67, 50, .08);
+    /* 沒有霧底襯著，陰影要撐得住內容從膠囊底下捲過去 */
+    box-shadow: 0 4px 18px rgba(27, 67, 50, .14);
+    transition: box-shadow .3s;
+  }
+  .site-nav.is-scrolled .nav-inner {
+    box-shadow: 0 6px 24px rgba(27, 67, 50, .18);
   }
   .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
   .nav-logo img { height: 44px; width: auto; display: block; }
