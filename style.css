@@ -556,15 +556,24 @@
      即使右卡尚無數據，subgrid 仍會替它保留同高的空列，兩張卡內文維持齊平 */
   .core-stats {
     grid-row: 5;
-    display: flex;
-    flex-wrap: wrap;
-    gap: clamp(1rem, 2.4vw, 2.4rem);
+    /* 平均分欄、橫跨整張卡，而非靠左並排後留一片空白。
+       auto-fit 會收掉空軌，所以兩筆資料就是兩等欄；日後 AI 卡若放三筆
+       會自動變三欄。窄到放不下兩欄時（min(100%, ...)）則自動改為直向堆疊。
+       8rem 取自最長說明文字在窄版字級下的寬度；設得再大會提早塌成單欄 */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
+    gap: clamp(.8rem, 2.4vw, 2.4rem);
     margin-top: clamp(.9rem, 1.6vw, 1.3rem);
     padding-top: clamp(.9rem, 1.6vw, 1.3rem);
     border-top: 1px solid rgba(255, 255, 255, .22);
   }
   /* 數字略小於卡片標題，避免與標題爭焦點 */
-  .core-stats .stat { --num-fs: clamp(1.2rem, 1.9vw, 1.55rem); }
+  .core-stats .stat {
+    --num-fs: clamp(1.2rem, 1.9vw, 1.55rem);
+    /* 說明文字不換行，兩欄並排時它決定了最小寬度。窄版若不跟著收，
+       兩欄會塞不下而塌成上下兩列，把卡片撐成高度大於寬度 */
+    --label-fs: clamp(.72rem, 1.1vw, .8rem);
+  }
   .core-stats .stat-num { color: var(--white); }
   .core-stats .stat-label { color: rgba(255, 255, 255, .72); }
 
