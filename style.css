@@ -102,7 +102,8 @@
     gap: 1.5rem;
     background: var(--white);
     border-radius: 999px;
-    padding: .55rem .55rem .55rem 1.6rem;
+    /* 左右對稱：原本右側只留 .55rem 是為了貼合橘色膠囊按鈕，按鈕已移除 */
+    padding: .9rem 1.6rem;
     box-shadow: 0 2px 14px rgba(27, 67, 50, .08);
     transition: box-shadow .3s;
   }
@@ -126,19 +127,6 @@
     transition: color .25s;
   }
   .nav-links a:hover { color: var(--blue-mid); }
-  .nav-links a.nav-cta {
-    background: var(--orange);
-    color: var(--text-dark);
-    font-weight: 700;
-    padding: .75rem 1.8rem;
-    border-radius: 999px;
-    transition: background .25s, transform .25s;
-  }
-  .nav-links a.nav-cta:hover {
-    background: var(--cyan);
-    color: var(--white);
-    transform: translateY(-1px);
-  }
 
   /* hamburger — hidden on desktop */
   .nav-toggle {
@@ -1069,7 +1057,6 @@
     .nav-links.open { display: flex; }
     .nav-links a { padding: .8rem .6rem; border-radius: 12px; }
     .nav-links a:hover { background: var(--blue-pale); }
-    .nav-links a.nav-cta { text-align: center; margin-top: .4rem; }
 
     /* HERO */
     .hero { padding: .4rem 1.4rem 2rem; }
