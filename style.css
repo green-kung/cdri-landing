@@ -474,20 +474,29 @@
     padding-left: .75rem;
   }
 
+  /* 四條共用列：留白 / 圖示 / 標題 / 內文。
+     兩張卡片以 subgrid 接上這組列，列高取兩張的最大值，
+     因此即使左右內文行數不同，圖示、標題、內文仍會逐列對齊。
+     （單純靠底對齊做不到：內文多一行就會把上面整塊往上推）
+     row-gap 必須為 0，列與列的間距由各自的 margin 負責 */
   .core-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.6rem;
+    grid-template-rows: 1fr auto auto auto;
+    column-gap: 1.6rem;
+    row-gap: 0;
   }
 
   /* 純呈現用，不可點擊 —— 無連結、無 hover 效果 */
   .core-card {
     position: relative;
-    min-height: clamp(400px, 42vw, 520px);
+    /* 橫幅比例：高度需明顯小於寬度（桌機單張約 592px 寬） */
+    min-height: clamp(300px, 26vw, 380px);
     border-radius: 20px;
     overflow: hidden;
-    display: flex;
-    align-items: flex-end;
+    grid-row: span 4;
+    display: grid;
+    grid-template-rows: subgrid;
     color: var(--white);
     isolation: isolate;
   }
@@ -508,9 +517,15 @@
       linear-gradient(to top, rgba(8,28,21,.9) 0%, rgba(8,28,21,.62) 42%, rgba(8,28,21,.28) 72%, rgba(8,28,21,.18) 100%);
   }
 
+  /* 接上 .core-card 的 subgrid：第 1 列是可伸縮留白，把內容壓到卡片底部，
+     第 2~4 列分別放圖示、標題、內文。內距留在這層——.core-media／.core-scrim
+     是以 .core-card 的內距框定位，內距若移上去會讓照片縮進來 */
   .core-body {
     position: relative;
     z-index: 2;
+    grid-row: 1 / -1;
+    display: grid;
+    grid-template-rows: subgrid;
     padding: clamp(1.8rem, 3vw, 3rem);
     width: 100%;
   }
@@ -519,6 +534,7 @@
      容器不留內距，圖示才能與下方標題切齊左緣。
      115px 為此處自訂尺寸，與 .guidance-icon 無關（該處已另行縮小） */
   .core-icon-wrap {
+    grid-row: 2;
     width: clamp(72px, 8vw, 115px);
     aspect-ratio: 1 / 1;
     display: flex; align-items: center; justify-content: center;
@@ -533,6 +549,7 @@
   }
 
   .core-title {
+    grid-row: 3;
     font-family: 'Noto Sans TC', sans-serif;
     font-size: clamp(1.5rem, 2.4vw, 2.1rem);
     font-weight: 700;
@@ -544,6 +561,7 @@
   }
 
   .core-desc {
+    grid-row: 4;
     font-size: .92rem;
     line-height: 1.9;
     color: rgba(255,255,255,.9);
@@ -749,18 +767,25 @@
     outline: none;
     outline-offset: 0;
   }
+  /* 圓底高度跟著右側文字區撐開（align-self: stretch），
+     寬度再由 aspect-ratio 補回正圓；高度不寫死，文字換行時圓圈跟著長 */
   .guidance-icon-wrap {
     flex-shrink: 0;
-    width: clamp(100px, 72%, 160px);
+    align-self: stretch;
+    width: auto;
+    height: auto;
     aspect-ratio: 1 / 1;
+    /* 讓內容不參與尺寸計算，圓底才會純粹被文字高度撐開，
+       而不是反過來被裡面的圖示把高度頂大 */
+    contain: size;
     border-radius: 50%;
     /* 隨卡片底色對調為白色，圓圈才不會融進卡片 */
     background: var(--white);
     display: flex; align-items: center; justify-content: center;
   }
   .guidance-icon {
-    width: 36%;
-    height: 36%;
+    width: 58%;
+    height: 58%;
     object-fit: contain;
   }
   .guidance-body h3 {
@@ -946,8 +971,9 @@
     .section-guidance { margin: 0 2.5rem 3rem; padding: 3.5rem 2.5rem; }
     .section-resources { padding: 4rem 2.5rem; }
     .section-core { padding: 4rem 2.5rem; }
-    .core-grid { gap: 1.4rem; }
-    .core-card { min-height: clamp(360px, 48vw, 460px); }
+    .core-grid { column-gap: 1.4rem; }
+    /* 卡片變窄，高度要跟著收，才維持高度小於寬度 */
+    .core-card { min-height: clamp(280px, 34vw, 360px); }
 
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
 
@@ -999,8 +1025,19 @@
 
     /* CORE → 單欄 */
     .section-core { padding: 3rem 1.4rem; }
-    .core-grid { grid-template-columns: 1fr; gap: 1.2rem; }
-    .core-card { min-height: 340px; border-radius: 16px; }
+    /* 單欄堆疊時卡片不再並排，跨卡對齊沒有意義，subgrid 整組還原 */
+    .core-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: none;
+      column-gap: 0; row-gap: 1.2rem;
+    }
+    .core-card {
+      grid-row: auto;
+      display: flex; align-items: flex-end;
+      min-height: 340px; border-radius: 16px;
+    }
+    .core-body { display: block; }
+    .core-icon-wrap, .core-title, .core-desc { grid-row: auto; }
     .core-icon-wrap { width: 58px; margin-bottom: 1.1rem; }
 
     /* TOOLS GRID → single column */
@@ -1040,8 +1077,8 @@
     .section-guidance { margin: 0 1.4rem 2.5rem; padding: 2.5rem 1.6rem; border-radius: 16px; }
     .guidance-grid { grid-template-columns: 1fr; gap: 1.2rem; }
     .guidance-card { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
-    .guidance-icon-wrap { width: 80px; }
-    .guidance-icon { width: 36%; height: 36%; }
+    /* 手機同樣讓圓底跟著文字高度走，不另外鎖寬度 */
+    .guidance-icon { width: 58%; height: 58%; }
 
     /* FOOTER */
     footer { padding: 3rem 1.4rem 2rem; }
