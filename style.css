@@ -16,6 +16,8 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  /* 按鈕預設字級為 13.3333px，繼承以避免全站出現非整數字級 */
+  button { font: inherit; color: inherit; }
 
   /* 用 clip 而非 hidden：hidden 會讓 html/body 變成捲動容器，
      導致子元素的 position: sticky 失效；clip 同樣防止橫向捲動但不會 */
@@ -119,7 +121,7 @@
     gap: clamp(1rem, 2.5vw, 2.4rem);
   }
   .nav-links a {
-    font-size: .95rem;
+    font-size: .9375rem;
     font-weight: 500;
     color: var(--blue-deep);
     text-decoration: none;
@@ -217,7 +219,7 @@
   }
   .hero-title {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: clamp(1.6rem, 3.2vw, 2.8rem);
+    font-size: 2.75rem;   /* 44px */
     font-weight: 700;
     line-height: 1.32;
     color: var(--white);
@@ -244,7 +246,7 @@
     background: var(--orange);
     color: var(--text-dark);
     font-weight: 700;
-    font-size: .95rem;
+    font-size: .9375rem;
     padding: .85rem 1.9rem;
     border-radius: 999px;
     text-decoration: none;
@@ -344,7 +346,7 @@
   }
   .section-tools h2 {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-size: 2.25rem;   /* 36px */
     font-weight: 700;
     color: var(--blue-deep);
     margin-top: .4rem;
@@ -388,14 +390,14 @@
 
   .tool-card h3 {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1.15rem;
+    font-size: 1.125rem;
     font-weight: 700;
     color: var(--blue-deep);
     margin-bottom: .6rem;
     line-height: 1.4;
   }
   .tool-card p {
-    font-size: .9rem;
+    font-size: .875rem;
     line-height: 1.8;
     color: #111111;
     margin-bottom: 1.6rem;
@@ -456,7 +458,7 @@
   .section-core .s-header { margin-bottom: 3.5rem; }
   .section-core h2 {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-size: 2.25rem;   /* 36px */
     font-weight: 700;
     color: var(--blue-deep);
     margin-top: .4rem;
@@ -518,7 +520,7 @@
     grid-row: 1 / -1;
     display: grid;
     grid-template-rows: subgrid;
-    padding: clamp(1.8rem, 3vw, 3rem);
+    padding: clamp(1.5rem, 2.4vw, 2.4rem);
     width: 100%;
   }
 
@@ -543,7 +545,7 @@
   .core-title {
     grid-row: 3;
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+    font-size: 2rem;      /* 32px */
     font-weight: 700;
     color: var(--white);
     line-height: 1.25;
@@ -569,10 +571,8 @@
   }
   /* 數字略小於卡片標題，避免與標題爭焦點 */
   .core-stats .stat {
-    --num-fs: clamp(1.35rem, 2.2vw, 1.8rem);
-    /* 說明文字不換行，兩欄並排時它決定了最小寬度。窄版若不跟著收，
-       兩欄會塞不下而塌成上下兩列，把卡片撐成高度大於寬度 */
-    --label-fs: clamp(.8rem, 1.1vw, .875rem);
+    --num-fs: 1.75rem;    /* 28px */
+    --label-fs: .875rem;  /* 14px */
   }
   /* 說明放大後，窄版兩欄並排會超出欄寬；允許換行而非硬撐或溢出
      （nowrap 是先前懸浮卡片的需求，移進卡片後已無必要） */
@@ -582,52 +582,14 @@
 
   .core-desc {
     grid-row: 4;
-    font-size: 1.05rem;
-    line-height: 1.9;
+    font-size: 1.0625rem;
+    line-height: 1.75;
     color: rgba(255,255,255,.9);
     max-width: 34em;
   }
 
-  /* ── 跑馬燈字條 ── */
-  .marquee {
-    background: var(--white);
-    overflow: hidden;
-    padding: clamp(.6rem, 1.5vw, 1.4rem) 0 clamp(1.4rem, 3vw, 2.6rem);
-    user-select: none;
-  }
-  .marquee-track {
-    display: flex;
-    width: max-content;
-    /* 90s：新文案比原本長約 1.2 倍，秒數同步放大後
-       實際橫移速度才是原本 38s 版本的一半 */
-    animation: marquee-scroll 90s linear infinite;
-  }
-  .marquee-group {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-  }
-  .marquee-group span {
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: clamp(2.5rem, 8vw, 7rem);
-    font-weight: 700;
-    font-style: italic;
-    line-height: 1.1;
-    letter-spacing: -.01em;
-    white-space: nowrap;
-    color: #D3E7DB;
-    padding-inline: .18em;
-  }
-  .marquee-dot { color: var(--blue-light); opacity: .62; }
-
-  @keyframes marquee-scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
-
   /* 尊重「減少動態效果」偏好 */
   @media (prefers-reduced-motion: reduce) {
-    .marquee-track { animation: none; }
     /* 縮圖推進僅為裝飾，關掉後 hover 仍有底色與箭頭變化可辨識 */
     .resource-thumb img { transition: none; }
     .resource-row:hover .resource-thumb img { transform: none; }
@@ -635,7 +597,7 @@
 
   .section-resources {
     background: var(--blue-pale);
-    padding: 5rem clamp(3rem, 8vw, 12rem);
+    padding: 3.5rem clamp(3rem, 8vw, 12rem);
   }
 
   /* 標題前的橘色直線。數值以 em 表示，字級隨斷點變動時會一起縮放：
@@ -655,11 +617,11 @@
   }
 
   .section-resources .s-header {
-    margin-bottom: 3.5rem;
+    margin-bottom: 2.25rem;
   }
   .section-resources h2 {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-size: 2.25rem;   /* 36px */
     font-weight: 700;
     color: var(--blue-deep);
     margin-top: .4rem;
@@ -676,13 +638,15 @@
     gap: clamp(1rem, 2vw, 1.6rem);
 
     /* 內距讓 hover 底色不會緊貼內容；同值的負外距把縮圖拉回與標題切齊 */
-    --row-pad: clamp(1.2rem, 2vw, 1.8rem);
+    --row-pad: clamp(1rem, 1.5vw, 1.4rem);
   }
 
   .resource-row {
     display: grid;
     /* 縮圖欄加寬；文字欄是 1fr，會自動吸收剩餘寬度而縮窄（字級不變） */
-    grid-template-columns: clamp(260px, 34%, 420px) 1fr auto;
+    /* 縮圖收小：列高由縮圖決定，原本 411x231 搭配僅約 73px 高的文字，
+       上下各空出近 80px，正是客戶反映的「空」 */
+    grid-template-columns: clamp(200px, 24%, 300px) 1fr auto;
     align-items: center;
     gap: clamp(1.4rem, 3vw, 3rem);
     padding: var(--row-pad);
@@ -715,7 +679,7 @@
   }
   .resource-text h3 {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+    font-size: 1.375rem;  /* 22px */
     font-weight: 700;
     color: var(--blue-deep);
     margin-bottom: .7rem;
@@ -723,6 +687,9 @@
     transition: color .3s;
   }
   .resource-text p {
+    /* 限制行長：一行約 32 個中文字。原本可排近 50 字，既不好讀，
+       又因只佔一行而讓列內留白更明顯 */
+    max-width: 32em;
     font-size: 1rem;
     line-height: 1.85;
     color: #111111;
@@ -788,7 +755,7 @@
   }
   .section-guidance h2 {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-size: 2.25rem;   /* 36px */
     font-weight: 700;
     color: var(--blue-deep);
     margin-top: .4rem;
@@ -844,7 +811,7 @@
   .guidance-body h3 {
     display: inline-block;
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1.05rem;
+    font-size: 1.0625rem;
     font-weight: 700;
     line-height: 1.5;
     color: var(--white);
@@ -880,14 +847,14 @@
      建立「標籤 → 內容」的層級。原本標籤 .875rem 反而小於內容 .9rem */
   .footer-label {
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1.05rem;
+    font-size: 1.0625rem;
     font-weight: 700;
     color: var(--blue-deep);
     line-height: 1.4;
     margin-bottom: .45rem;
   }
   .footer-text {
-    font-size: .9rem;
+    font-size: .875rem;
     font-weight: 400;
     color: #111111;
     line-height: 1.75;
@@ -897,7 +864,7 @@
 
   .footer-col a {
     display: block;
-    font-size: .9rem;
+    font-size: .875rem;
     line-height: 1.75;
     color: #111111;
     text-decoration: none;
@@ -909,7 +876,7 @@
     padding-top: 2rem;
     border-top: 1px solid rgba(0,0,0,.08);
     display: flex; justify-content: space-between; align-items: center;
-    font-size: .8rem;
+    font-size: .8125rem;
   }
   .footer-bottom-links { display: flex; gap: 1.6rem; }
   .footer-bottom-links a { color: #111111; text-decoration: none; }
@@ -982,6 +949,16 @@
 
   /* ── TABLET (≤ 1024px) ── */
   @media (max-width: 1024px) {
+    /* ── 字級分級（1024）──
+       原本用 clamp + vw 流動縮放，但 vw 在任何寬度都會算出小數字級，
+       改為在斷點分級，每一級都是整數 px */
+    .section-tools h2, .section-core h2,
+    .section-resources h2, .section-guidance h2 { font-size: 1.75rem; }   /* 28px */
+    .hero-title      { font-size: 2rem; }        /* 32px */
+    .core-title      { font-size: 1.5rem; }      /* 24px */
+    .resource-text h3 { font-size: 1.125rem; }   /* 18px */
+    .core-stats .stat { --num-fs: 1.5rem; }      /* 24px */
+
     /* 維持 16:9：影片與 banner 皆為 1920x1080，改成其他比例會被
        object-fit: cover 裁掉左右兩側 */
     .hero-carousel { aspect-ratio: 16 / 9; --hero-lift: 0px; }
@@ -989,7 +966,7 @@
     .yt-play { width: 64px; height: 64px; }
 
     .tools-grid { grid-template-columns: 1fr; gap: 1.4rem; }
-    .resource-row { grid-template-columns: clamp(200px, 38%, 330px) 1fr auto; }
+    .resource-row { grid-template-columns: clamp(170px, 26%, 260px) 1fr auto; }
     .guidance-grid { grid-template-columns: 1fr 1fr; gap: 1.4rem; }
     .section-guidance { margin: 0 2.5rem 3rem; padding: 3.5rem 2.5rem; }
     .section-resources { padding: 4rem 2.5rem; }
@@ -1009,6 +986,11 @@
 
   /* ── MOBILE (≤ 768px) ── */
   @media (max-width: 768px) {
+    /* ── 字級分級（768）── */
+    .section-tools h2, .section-core h2,
+    .section-resources h2, .section-guidance h2 { font-size: 1.5rem; }    /* 24px */
+    .core-title      { font-size: 1.375rem; }    /* 22px */
+
     /* NAV → 漢堡選單 */
     .nav-toggle { display: flex; }
     .nav-inner { flex-wrap: wrap; padding: .5rem .5rem .5rem 1.1rem; border-radius: 20px; }
@@ -1034,7 +1016,7 @@
       --hero-gap: 1rem;
       --hero-arrow-size: 36px;
     }
-    .hero-title { font-size: clamp(1.5rem, 6vw, 2rem); }
+    .hero-title { font-size: 1.5rem; }    /* 24px */
     .btn-hero { padding: .7rem 1.5rem; font-size: .875rem; }
     .yt-play { width: 58px; height: 58px; }
     .yt-play svg { width: 24px; height: 24px; }
@@ -1102,10 +1084,7 @@
     .footer-bottom-links { flex-wrap: wrap; gap: 1rem; }
 
     /* SECTION HEADER */
-    .section-num { font-size: 1.8rem; }
-    .section-tools h2, .section-resources h2 {
-      font-size: clamp(1.3rem, 5vw, 1.7rem);
-    }
+    .section-num { font-size: 1.75rem; }
   }
 
   /* ── SMALL MOBILE (≤ 480px) ── */
@@ -1127,6 +1106,6 @@
       --hero-arrow-size: clamp(28px, 8.5vw, 32px);
       --hero-gap:        clamp(.4rem, 2.6vw, .65rem);
     }
-    .hero-title { font-size: clamp(1.05rem, 6vw, 1.5rem); }
-    .btn-hero { padding: .55rem 1.2rem; font-size: .8rem; }
+    .hero-title { font-size: 1.25rem; }   /* 20px */
+    .btn-hero { padding: .55rem 1.2rem; font-size: .8125rem; }
   }
