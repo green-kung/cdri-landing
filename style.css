@@ -1023,7 +1023,9 @@
 
   /* ── TABLET (≤ 1024px) ── */
   @media (max-width: 1024px) {
-    .hero-carousel { aspect-ratio: 4 / 3; max-height: none; --hero-lift: 0px; }
+    /* 維持 16:9：影片與 banner 皆為 1920x1080，改成其他比例會被
+       object-fit: cover 裁掉左右兩側 */
+    .hero-carousel { aspect-ratio: 16 / 9; max-height: none; --hero-lift: 0px; }
     .hero-copy { max-width: 100%; }
     .yt-play { width: 64px; height: 64px; }
 
@@ -1070,7 +1072,8 @@
     /* HERO */
     .hero { padding: .4rem 1.4rem 2rem; }
     .hero-carousel {
-      aspect-ratio: 3 / 4;
+      /* 同上：維持 16:9，不可改為直式，否則 banner 會被裁切 */
+      aspect-ratio: 16 / 9;
       border-radius: 16px;
       --hero-gap: 1rem;
       --hero-arrow-size: 36px;
@@ -1174,5 +1177,14 @@
     .section-resources .s-header { margin-bottom: 1.5rem; }
     .section-guidance .s-header { margin-bottom: 1.5rem; }
     footer { padding: 2.5rem 1.1rem 1.5rem; }
-    .hero-title { font-size: clamp(1.35rem, 7vw, 1.8rem); }
+    /* 16:9 讓小螢幕的輪播高度大幅下降（320px 寬時僅 160px 高），
+       疊在上面的文案必須同步收斂，否則標題會被 overflow: hidden 裁掉。
+       各值都帶 vw，讓文案與輪播高度一起等比縮放 */
+    .hero-carousel {
+      --hero-ui-bottom:  clamp(.6rem, 3.5vw, .9rem);
+      --hero-arrow-size: clamp(28px, 8.5vw, 32px);
+      --hero-gap:        clamp(.4rem, 2.6vw, .65rem);
+    }
+    .hero-title { font-size: clamp(1.05rem, 6vw, 1.5rem); }
+    .btn-hero { padding: .55rem 1.2rem; font-size: .8rem; }
   }
