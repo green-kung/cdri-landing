@@ -1,8 +1,0 @@
-<!-- STATS BANNER：財務碳健檢服務累計家次
-     viewBox 收緊至圖形實際邊界（原檔 128 見方、四周約 23% 空白，
-     照原樣用會比隔壁圖示小一半）；色彩對齊 .stat-icon 的 blue-mid 變數 -->
-<svg width="70" height="54" viewBox="29 37 70 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="54" y="66" width="19" height="25" rx="6" fill="#2D6A4F"/>
-<rect x="80" y="37" width="19" height="54" rx="6" fill="#2D6A4F"/>
-<rect x="29" y="54" width="19" height="37" rx="6" fill="#2D6A4F"/>
-</svg>
