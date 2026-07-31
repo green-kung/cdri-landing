@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>掌握企業碳資產，從財務碳健檢開始</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./style.css?v=46">
+<link rel="stylesheet" href="./style.css?v=47">
 </head>
 <body>
 
@@ -262,14 +262,18 @@
       </div>
     </div>
 
-    <!-- ↓ 以下兩張卡的內文已填入，僅圖示仍為佔位。
-         替換方式：把 <div class="guidance-icon-wrap is-placeholder">…</div>
-         整段換回與上方兩張相同的結構（icon-wrap 內放 <img class="guidance-icon">）。
-         新 SVG 請比照既有兩檔：移除底色方塊與底圓、viewBox 收緊至插畫邊界，
-         並補白至長寬比 1.355，否則四張卡的圖示會大小不一 -->
+    <!-- 以下兩張卡的圖示是 .png 而非 .svg —— 來源檔雖為 .svg，內容卻只是
+         一張 base64 內嵌的點陣圖（<path> 數為 0），留著 SVG 外殼只會多出
+         33% 的編碼膨脹，故改存純 PNG。原檔另有白色實底，已去背；
+         四張卡的圖示高度由 .guidance-icon-wrap 的 aspect-ratio 統一，
+         這兩張較窄故左右略有留白，高度仍與前兩張齊平 -->
 
     <div class="guidance-card reveal reveal-delay-3">
-      <div class="guidance-icon-wrap is-placeholder">待補<br>圖示</div>
+      <div class="guidance-icon-wrap">
+        <!-- alt 留空：圖示為裝飾，語意已由右側 h3 表達。
+             hover 不改圖，由 CSS 的 transform: scale(1.08) 回應 -->
+        <img src="./icon/Subsidies%20and%20counseling%20resources-icon-3.png" alt="" class="guidance-icon" loading="lazy" decoding="async">
+      </div>
       <div class="guidance-body">
         <h3>新聞動態</h3>
         <p>即時掌握最新新聞資訊與重要事件發展趨勢脈動。</p>
@@ -277,7 +281,11 @@
     </div>
 
     <div class="guidance-card reveal reveal-delay-4">
-      <div class="guidance-icon-wrap is-placeholder">待補<br>圖示</div>
+      <div class="guidance-icon-wrap">
+        <!-- alt 留空：圖示為裝飾，語意已由右側 h3 表達。
+             hover 不改圖，由 CSS 的 transform: scale(1.08) 回應 -->
+        <img src="./icon/Subsidies%20and%20counseling%20resources-icon-4.png" alt="" class="guidance-icon" loading="lazy" decoding="async">
+      </div>
       <div class="guidance-body">
         <h3>國際趨勢分析</h3>
         <p>洞察全球產業趨勢協助掌握市場未來發展方向。</p>
