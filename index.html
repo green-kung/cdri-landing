@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>掌握企業碳資產，從財務碳健檢開始</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./style.css?v=41">
+<link rel="stylesheet" href="./style.css?v=42">
 </head>
 <body>
 
@@ -100,12 +100,20 @@
       </div>
       <div class="core-scrim"></div>
       <div class="core-body">
-        <div class="core-icon-wrap">
-          <!-- alt 留空：圖示為裝飾，語意已由下方 .core-title 表達 -->
-          <img src="./icon/Two%20core%20services-icon-1.svg?v=5" alt="" class="core-icon">
+        <div class="core-head">
+          <div class="core-icon-wrap">
+            <!-- alt 留空：圖示為裝飾，語意已由右側 .core-title 表達 -->
+            <img src="./icon/Two%20core%20services-icon-1.svg?v=5" alt="" class="core-icon">
+          </div>
+          <h3 class="core-title">財務碳健檢</h3>
         </div>
-        <h3 class="core-title">財務碳健檢</h3>
         <p class="core-desc">串聯國內財會專業團體，打造在地碳健檢網絡，針對中小企業提供財務碳健檢服務，透過蒐集油、電、水、氣、材等財務單據，計算企業年度碳排量。並免費提供碳健檢報告、ESG自評表及碳健檢證書。</p>
+        <a href="https://cdriview.cdri.org.tw/Esg/Account" class="btn-core" target="_blank">
+          前往申請
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </a>
         <div class="core-stats">
           <div class="stat">
             <div class="stat-text">
@@ -130,12 +138,24 @@
       </div>
       <div class="core-scrim"></div>
       <div class="core-body">
-        <div class="core-icon-wrap">
-          <!-- alt 留空：圖示為裝飾，語意已由下方 .core-title 表達 -->
-          <img src="./icon/Two%20core%20services-icon-2.svg" alt="" class="core-icon">
+        <div class="core-head">
+          <div class="core-icon-wrap">
+            <!-- alt 留空：圖示為裝飾，語意已由右側 .core-title 表達 -->
+            <img src="./icon/Two%20core%20services-icon-2.svg" alt="" class="core-icon">
+          </div>
+          <h3 class="core-title">AI財務培力</h3>
         </div>
-        <h3 class="core-title">AI財務培力</h3>
         <p class="core-desc">結合國內大專院校、公協會與專業師資，開設課程協助中小企業培訓AI財務人才，提供AI診斷、訪視輔導及導入AI財務工具一站式服務，強化企業財務營運效率與競爭力。</p>
+        <!-- 待補正式連結。取得後：加上 href 與 target="_blank"，
+             並移除 is-pending 與 aria-disabled 兩個屬性即可啟用。
+             在那之前刻意不給 href —— 無 href 的 <a> 不會取得鍵盤焦點，
+             使用者不會 tab 到一顆按了沒反應的按鈕 -->
+        <a class="btn-core is-pending" aria-disabled="true">
+          前往申請
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </a>
         <div class="core-stats">
           <div class="stat">
             <p class="stat-num">200<span class="stat-plus">+</span></p>

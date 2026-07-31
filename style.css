@@ -536,17 +536,27 @@
     width: 100%;
   }
 
-  /* 圖示置於標題上方，無圓形底。
-     容器不留內距，圖示才能與下方標題切齊左緣。
+  /* 圖示與標題並排為同一列（subgrid 的第 2 列）。
+     align-items: baseline 讓標題的文字基線落在圖示容器下緣，即「字齊下 icon」。
+     用 baseline 而非 flex-end —— flex-end 對齊的是 h3 的行框底部，
+     line-height 1.25 會在字身下方多留約 4px，看起來字會偏高 */
+  .core-head {
+    grid-row: 2;
+    display: flex;
+    align-items: baseline;
+    gap: clamp(.9rem, 1.4vw, 1.4rem);
+    /* 與 .resource-text h3 相同的標題→內文間距 */
+    margin-bottom: .7rem;
+  }
+
+  /* 容器不留內距，圖示才能與下方內文切齊左緣。
      115px 為此處自訂尺寸，與 .guidance-icon 無關（該處已另行縮小） */
   .core-icon-wrap {
-    grid-row: 2;
     width: clamp(72px, 8vw, 115px);
     aspect-ratio: 1 / 1;
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
     color: var(--white);
-    margin-bottom: 1.4rem;
   }
   .core-icon {
     width: 100%;
@@ -555,14 +565,11 @@
   }
 
   .core-title {
-    grid-row: 3;
     font-family: 'Noto Sans TC', sans-serif;
     font-size: var(--card-title-fs);
     font-weight: 700;
     color: var(--white);
     line-height: 1.25;
-    /* 與 .resource-text h3 相同的標題→內文間距 */
-    margin-bottom: .7rem;
     text-shadow: 0 2px 14px rgba(0,0,0,.35);
   }
 
@@ -594,11 +601,43 @@
   .core-stats .stat-label { color: rgba(255, 255, 255, .72); }
 
   .core-desc {
-    grid-row: 4;
+    grid-row: 3;
     font-size: 1.0625rem;
     line-height: 1.75;
     color: rgba(255,255,255,.9);
     max-width: 34em;
+  }
+
+  /* 卡片內的行動鈕，沿用 .btn-hero 的橘色膠囊。
+     justify-self: start 不可省 —— grid 項目預設 stretch，且 inline-flex
+     在 grid 內會被 blockify，不指定的話按鈕會被拉滿整列寬 */
+  .btn-core {
+    grid-row: 4;
+    align-self: start;
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    margin-top: clamp(.9rem, 1.6vw, 1.3rem);
+    background: var(--orange);
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: .9375rem;
+    padding: .8rem 1.7rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background .25s, transform .25s;
+  }
+  .btn-core:hover { background: var(--cyan); color: var(--white); transform: translateY(-2px); }
+  .btn-core svg { flex-shrink: 0; }
+
+  /* 尚未取得正式連結的按鈕：淡化並抽掉 hover 回饋，
+     避免看起來可按、按下去卻沒反應。取得連結後移除 is-pending 即可 */
+  .btn-core.is-pending { opacity: .55; cursor: default; }
+  .btn-core.is-pending:hover {
+    background: var(--orange);
+    color: var(--text-dark);
+    transform: none;
   }
 
   /* 尊重「減少動態效果」偏好 */
@@ -1059,8 +1098,10 @@
       min-height: 340px; border-radius: 16px;
     }
     .core-body { display: block; }
-    .core-icon-wrap, .core-title, .core-desc, .core-stats { grid-row: auto; }
-    .core-icon-wrap { width: 58px; margin-bottom: 1.1rem; }
+    .core-head, .core-desc, .btn-core, .core-stats { grid-row: auto; }
+    /* 圖示已不是 grid 項目（包在 .core-head 內），只需改尺寸；
+       下方間距由 .core-head 的 margin-bottom 統一負責 */
+    .core-icon-wrap { width: 58px; }
 
     /* TOOLS GRID → single column */
     .tools-grid { grid-template-columns: 1fr; gap: 1.2rem; }
