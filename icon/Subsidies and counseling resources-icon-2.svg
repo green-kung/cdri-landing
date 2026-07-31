@@ -1,11 +1,15 @@
 <!-- 補助與輔導資源 02：免費節能、減碳輔導
-     原檔開頭有一塊鋪滿畫布的 <rect fill="#fff">，已移除 ——
-     .guidance-card 底色是 blue-pale 變數 #F2FAF4 而非白色，
-     （註解中不可寫出該變數的兩個減號前綴，XML 註解禁止連續減號）
-     留著會在底圓四周露出白色直角。底圓本身（url(#bg)）保留。
-     底圓直徑佔畫布 97.3%，與 icon-01 的 96.7% 相當，
-     兩張並排大小才會一致，故 viewBox 無須再收緊 -->
-<svg xmlns="http://www.w3.org/2000/svg" width="1254" height="1254" viewBox="0 0 1254 1254" role="img" aria-label="輔導 icon">
+     原檔的白色底方塊與圓形底塊皆已移除，只留插畫本身。
+     （註解中不可寫出 CSS 變數的兩個減號前綴，XML 註解禁止連續減號）
+
+     viewBox 收緊至插畫實際邊界，否則四周留白會讓圖畫得偏小。
+     邊界取自 getBBox() 的 132,225 1048.4x759，再加上 softShadow
+     的擴散（stdDeviation 12、dy 12 → 左右各 30、上 18、下 42），
+     得 102,207 1110x819，長寬比 1.355。
+
+     此比例即兩張圖共用的基準：icon-01 的插畫較方（1.164），
+     於該檔左右補白至同比例，兩張並排高度才會齊平 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1110" height="819" viewBox="102 207 1110 819" role="img" aria-label="輔導 icon">
   <defs>
     <radialGradient id="bg" cx="50%" cy="46%" r="58%">
       <stop offset="0%" stop-color="#f7fbec"/>
@@ -42,7 +46,6 @@
     </clipPath>
   </defs>
 
-  <circle cx="627" cy="620" r="610" fill="url(#bg)"/>
 
   <!-- person -->
   <g filter="url(#softShadow)">

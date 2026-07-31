@@ -806,10 +806,14 @@
      互相競爭的形狀。圖示直接放在卡片底色上並放大，重心留給膠囊。
      尺寸改為直接指定，不必再讓圓底跟著文字高度撐開，
      連帶省掉 align-self: stretch / aspect-ratio / contain 那組相依 */
+  /* 兩張 SVG 已移除圓形底塊、viewBox 收緊至插畫邊界，圖不再自帶留白，
+     故外框放大一級。aspect-ratio 取兩檔共用的 1.355，圖才會填滿外框
+     而非上下留空；高度因此落在 71px 上下，與右側文字（膠囊標題＋
+     一行內文，約 82px）相稱，兩者置中後即對齊 */
   .guidance-icon-wrap {
     flex-shrink: 0;
-    width: clamp(56px, 5.5vw, 72px);
-    aspect-ratio: 1 / 1;
+    width: clamp(72px, 7vw, 96px);
+    aspect-ratio: 1.355 / 1;
     display: flex; align-items: center; justify-content: center;
   }
   .guidance-icon {

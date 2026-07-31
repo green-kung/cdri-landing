@@ -1,12 +1,18 @@
 <!-- 補助與輔導資源 01：政府資源
-     原檔開頭有一塊鋪滿畫布的 <rect fill="#ffffff">，已移除 ——
-     .guidance-card 底色是 blue-pale 變數 #F2FAF4 而非白色，
-     （註解中不可寫出該變數的兩個減號前綴，XML 註解禁止連續減號）
-     留著會在底圓四周露出白色直角。底圓本身（url(#bg)）保留，
-     其外緣色 #eef6df 與卡片底色相近，可自然融入。
-     底圓直徑佔畫布 96.7%，與 icon-02 的 97.3% 相當，
-     兩張並排大小才會一致，故 viewBox 無須再收緊 -->
-<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="政府資源 icon">
+     原檔的白色底方塊與圓形底塊皆已移除，只留插畫本身。
+     （註解中不可寫出 CSS 變數的兩個減號前綴，XML 註解禁止連續減號）
+
+     viewBox 收緊至插畫實際邊界，否則四周留白會讓圖畫得偏小。
+     邊界取自 getBBox() 的 175,190 724x610，再加上兩項它不計入的量：
+       放大鏡握把 stroke-width 54 圓端 → 右下各外擴 27
+       softShadow 的 stdDeviation 12、dy 12 → 左右各 30、上 18、下 42
+     得 145,172 811x697。
+
+     再向左右補白至長寬比 1.355，與 icon-02 一致 —— 兩張插畫本身
+     比例不同（1.164 對 1.355），不補白的話並排會一高一矮對不齊。
+     .guidance-icon-wrap 的 aspect-ratio 亦設為 1.355，圖才會填滿
+     外框、不留死空間 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="944.4" height="697" viewBox="78.3 172 944.4 697" role="img" aria-label="政府資源 icon">
   <defs>
     <radialGradient id="bg" cx="50%" cy="45%" r="55%">
       <stop offset="0%" stop-color="#ffffff"/>
@@ -38,7 +44,6 @@
     </filter>
   </defs>
 
-  <circle cx="512" cy="512" r="495" fill="url(#bg)"/>
 
   <!-- factory body -->
   <g filter="url(#softShadow)">
