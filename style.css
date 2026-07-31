@@ -863,6 +863,22 @@
   }
   /* 沒有底色可對調了，改以微幅放大回應 hover，與卡片上浮同步 */
   .guidance-card:hover .guidance-icon { transform: scale(1.08); }
+
+  /* 待補素材的佔位樣式 —— 刻意留下可見痕跡，避免正式內容進來前被漏掉。
+     外框沿用 .guidance-icon-wrap 的尺寸與 aspect-ratio，故佔位與實際
+     圖示等大，換上正式圖時版面不會位移。取得素材後移除這兩個類別 */
+  .guidance-icon-wrap.is-placeholder {
+    border: 1.5px dashed rgba(27, 67, 50, .3);
+    border-radius: 10px;
+    color: rgba(27, 67, 50, .45);
+    font-size: .75rem;
+    line-height: 1.35;
+    text-align: center;
+  }
+  .guidance-body p.is-placeholder-text {
+    color: rgba(17, 17, 17, .45);
+    font-style: italic;
+  }
   /* 標題做成深綠膠囊。inline-block 讓底色只包住文字本身，
      若維持 h3 預設的 block，色塊會撐滿整欄寬 */
   .guidance-body h3 {
@@ -955,6 +971,7 @@
   .reveal-delay-1 { transition-delay: .1s; }
   .reveal-delay-2 { transition-delay: .2s; }
   .reveal-delay-3 { transition-delay: .3s; }
+  .reveal-delay-4 { transition-delay: .4s; }
 
   /* ── HAMBURGER MENU ── */
   .nav-hamburger {
