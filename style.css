@@ -537,13 +537,15 @@
   }
 
   /* 圖示與標題並排為同一列（subgrid 的第 2 列）。
-     align-items: baseline 讓標題的文字基線落在圖示容器下緣，即「字齊下 icon」。
-     用 baseline 而非 flex-end —— flex-end 對齊的是 h3 的行框底部，
-     line-height 1.25 會在字身下方多留約 4px，看起來字會偏高 */
+     align-items 用 center 而非 baseline／flex-end：兩個圖示在各自 84 單位
+     畫布中的可見下緣不同（icon-01 到 94%、icon-02 只到 86%），對齊下緣會讓
+     兩張卡的標題差約 9px；但兩者的內容都以 y=64 垂直置中，可見中心同樣落在
+     外框 50%，故改對齊中心，兩張卡才會一致。
+     日後若替換圖示，只要維持「內容在畫布中垂直置中」即可沿用此對齊 */
   .core-head {
     grid-row: 2;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: clamp(.9rem, 1.4vw, 1.4rem);
     /* 與 .resource-text h3 相同的標題→內文間距 */
     margin-bottom: .7rem;
