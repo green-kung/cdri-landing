@@ -1,19 +1,74 @@
 <!-- 補助與輔導資源 01：政府資源
-     色彩為 blue-deep 變數 #1B4332；
-     原檔用白色色塊當鎖扣的分隔，改以 mask 真正挖空，換底色才不會露出白邊。
-     viewBox 收緊至圖形實際邊界：原檔 128 見方、四周約 23% 空白，
-     照原樣使用只會畫出約一半大小，與隔壁那張對不齊 -->
-<svg width="70" height="61" viewBox="29 33.5 70 61" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="case-knockout" maskUnits="userSpaceOnUse" x="29" y="33.5" width="70" height="61">
-  <rect x="29" y="33.5" width="70" height="61" fill="white"/>
-  <rect x="52" y="53" width="24" height="6" rx="3" fill="black"/>
-</mask>
-<g mask="url(#case-knockout)">
-  <rect x="29" y="44.5" width="70" height="50" rx="6" fill="#1B4332"/>
-  <rect x="37" y="41.5" width="6" height="9" rx="3" fill="#1B4332"/>
-  <rect x="84" y="41.5" width="6" height="9" rx="3" fill="#1B4332"/>
-  <rect x="50" y="33.5" width="28" height="6" rx="3" fill="#1B4332"/>
-  <rect x="56" y="33.5" width="15" height="6" rx="3" transform="rotate(90 56 33.5)" fill="#1B4332"/>
-  <rect x="78" y="33.5" width="15" height="6" rx="3" transform="rotate(90 78 33.5)" fill="#1B4332"/>
-</g>
+     原檔開頭有一塊鋪滿畫布的 <rect fill="#ffffff">，已移除 ——
+     .guidance-card 底色是 blue-pale 變數 #F2FAF4 而非白色，
+     （註解中不可寫出該變數的兩個減號前綴，XML 註解禁止連續減號）
+     留著會在底圓四周露出白色直角。底圓本身（url(#bg)）保留，
+     其外緣色 #eef6df 與卡片底色相近，可自然融入。
+     底圓直徑佔畫布 96.7%，與 icon-02 的 97.3% 相當，
+     兩張並排大小才會一致，故 viewBox 無須再收緊 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="政府資源 icon">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#eef6df"/>
+    </radialGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9bd846"/>
+      <stop offset="55%" stop-color="#7fbe33"/>
+      <stop offset="100%" stop-color="#5e9f23"/>
+    </linearGradient>
+    <linearGradient id="greenLight" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#aee65a"/>
+      <stop offset="100%" stop-color="#73b52d"/>
+    </linearGradient>
+    <linearGradient id="yellow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffe16b"/>
+      <stop offset="55%" stop-color="#f6c144"/>
+      <stop offset="100%" stop-color="#e8a820"/>
+    </linearGradient>
+    <linearGradient id="cream" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f4f0e5"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#496100" flood-opacity="0.16"/>
+    </filter>
+    <filter id="smallShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#335000" flood-opacity="0.20"/>
+    </filter>
+  </defs>
+
+  <circle cx="512" cy="512" r="495" fill="url(#bg)"/>
+
+  <!-- factory body -->
+  <g filter="url(#softShadow)">
+    <rect x="175" y="418" width="520" height="304" rx="24" fill="url(#green)"/>
+    <rect x="175" y="418" width="520" height="58" rx="16" fill="#91cf3f" opacity="0.55"/>
+
+    <!-- chimney -->
+    <path d="M218 205 Q218 190 234 190 H326 Q342 190 342 205 V424 H218 Z" fill="url(#greenLight)"/>
+    <rect x="217" y="190" width="126" height="50" rx="13" fill="url(#greenLight)"/>
+    <path d="M221 240 H339" stroke="#4f8f20" stroke-width="5" opacity="0.22"/>
+
+    <!-- roof teeth -->
+    <path d="M342 424 V390 L474 288 Q492 274 492 300 V424 Z" fill="url(#greenLight)"/>
+    <path d="M487 424 V390 L620 288 Q638 274 638 300 V424 Z" fill="url(#greenLight)"/>
+    <path d="M390 366 L474 303" stroke="#bdf076" stroke-width="8" stroke-linecap="round" opacity="0.35"/>
+    <path d="M535 366 L620 303" stroke="#bdf076" stroke-width="8" stroke-linecap="round" opacity="0.35"/>
+
+    <!-- windows -->
+    <rect x="242" y="503" width="86" height="86" rx="10" fill="url(#cream)" filter="url(#smallShadow)"/>
+    <rect x="364" y="503" width="86" height="86" rx="10" fill="url(#cream)" filter="url(#smallShadow)"/>
+  </g>
+
+  <!-- magnifier -->
+  <g filter="url(#softShadow)">
+    <path d="M781 682 L899 800" stroke="url(#yellow)" stroke-width="54" stroke-linecap="round"/>
+    <circle cx="658" cy="520" r="164" fill="#fffdf3" stroke="url(#yellow)" stroke-width="52"/>
+    <circle cx="658" cy="520" r="134" fill="#fffef8" opacity="0.94"/>
+    <path d="M575 575 C564 509 605 462 672 459 C699 458 727 459 771 454 C771 454 778 534 716 595 C673 637 613 630 575 575 Z" fill="url(#greenLight)"/>
+    <path d="M595 607 C629 558 679 518 736 481" fill="none" stroke="#4e941e" stroke-width="12" stroke-linecap="round"/>
+    <path d="M595 607 C582 619 570 627 560 634" fill="none" stroke="#69b52a" stroke-width="18" stroke-linecap="round"/>
+    <path d="M616 564 C651 556 687 535 721 500" fill="none" stroke="#ffffff" stroke-width="5" opacity="0.22" stroke-linecap="round"/>
+  </g>
 </svg>
