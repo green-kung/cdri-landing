@@ -633,14 +633,12 @@
   .btn-core:hover { background: var(--cyan); color: var(--white); transform: translateY(-2px); }
   .btn-core svg { flex-shrink: 0; }
 
-  /* 尚未取得正式連結的按鈕：淡化並抽掉 hover 回饋，
-     避免看起來可按、按下去卻沒反應。取得連結後移除 is-pending 即可 */
-  .btn-core.is-pending { opacity: .55; cursor: default; }
-  .btn-core.is-pending:hover {
-    background: var(--orange);
-    color: var(--text-dark);
-    transform: none;
-  }
+  /* is-pending 僅作為「待補連結」的標記，不再改變外觀 —— 依需求與已啟用
+     的按鈕顯示一致，含 hover 的變色與上浮。無 href 的 <a> 預設不會顯示
+     手指游標，故在此補上，靜態與 hover 兩種狀態才與另一張卡完全相同。
+     代價是它看起來可按、按下去卻沒反應，取得連結前屬已知狀態。
+     取得連結後：補上 href 與 target，並移除此類別與 aria-disabled */
+  .btn-core.is-pending { cursor: pointer; }
 
   /* 尊重「減少動態效果」偏好 */
   @media (prefers-reduced-motion: reduce) {
